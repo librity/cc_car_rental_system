@@ -1,0 +1,8 @@
+<h1>Criar um novo Fabricante</h1>
+
+<%= form_for @manufacturer do |f| %>
+  <%= f.label :name, "Nome" %>
+  <%= f.text_field :name %>
+
+  <%= f.submit "Enviar" %>
+<% end %>
