@@ -27,6 +27,6 @@ class SubsidiariesController < ApplicationController
   private
 
   def subsidiary_params
-    params.require(:subsidiary).permit(:name, :cnpj, :addess)
+    params.require(:subsidiary).permit(:name, :cnpj, :address)
   end
 end
