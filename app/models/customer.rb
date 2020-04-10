@@ -2,5 +2,5 @@
 
 class Customer < ApplicationRecord
   validates :cpf, presence: true, length: { is: 11 }, uniqueness: true,
-                  cpf: true
+                  numericality: { only_integer: true }, cpf: true
 end

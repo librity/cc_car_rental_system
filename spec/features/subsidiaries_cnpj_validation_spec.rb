@@ -48,6 +48,20 @@ feature "Subsidiaries' cnpj should" do
     expect(page).to have_content('Algo deu errado')
   end
 
+  scenario 'be an integer numerical' do
+    visit root_path
+    click_on 'Filiais'
+    click_on 'Registrar nova filial'
+
+    fill_in 'Nome', with: 'Avis'
+    fill_in 'CNPJ', with: '045B65570100161'
+    fill_in 'Endereço', with: 'Paper Street 1415, Calabasas, CA'
+    click_on 'Enviar'
+
+    expect(current_path).to eq subsidiaries_path
+    expect(page).to have_content('Algo deu errado')
+  end
+
   scenario 'be valid' do
     visit root_path
     click_on 'Filiais'
