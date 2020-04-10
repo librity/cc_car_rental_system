@@ -4,9 +4,9 @@ require 'rails_helper'
 
 feature 'Admins can browse subsidiaries' do
   scenario 'successfully' do
-    Subsidiary.create!(name: 'Hertz', cnpj: '00000000000100',
+    Subsidiary.create!(name: 'Hertz', cnpj: '84105199000102',
                        address: 'Paper Street 49, Grand Junction, CO')
-    Subsidiary.create!(name: 'Alamo', cnpj: '00000000000101',
+    Subsidiary.create!(name: 'Alamo', cnpj: '35229090000171',
                        address: 'Paper Street 76, Alamo, TX')
 
     visit root_path
@@ -17,9 +17,9 @@ feature 'Admins can browse subsidiaries' do
   end
 
   scenario 'and view details' do
-    Subsidiary.create!(name: 'Hertz', cnpj: '00000000000100',
+    Subsidiary.create!(name: 'Hertz', cnpj: '84105199000102',
                        address: 'Paper Street 49, Grand Junction, CO')
-    Subsidiary.create!(name: 'Alamo', cnpj: '00000000000101',
+    Subsidiary.create!(name: 'Alamo', cnpj: '35229090000171',
                        address: 'Paper Street 76, Alamo, TX')
 
     visit root_path
@@ -27,10 +27,10 @@ feature 'Admins can browse subsidiaries' do
     click_on 'Hertz'
 
     expect(page).to have_content('Hertz')
-    expect(page).to have_content('00000000000100')
+    expect(page).to have_content('84105199000102')
     expect(page).to have_content('Paper Street 49, Grand Junction, CO')
     expect(page).not_to have_content('Alamo')
-    expect(page).not_to have_content('00000000000101')
+    expect(page).not_to have_content('35229090000171')
     expect(page).not_to have_content('Paper Street 76, Alamo, TX')
   end
 
@@ -42,9 +42,9 @@ feature 'Admins can browse subsidiaries' do
   end
 
   scenario 'and return to home page' do
-    Subsidiary.create!(name: 'Hertz', cnpj: '00000000000100',
+    Subsidiary.create!(name: 'Hertz', cnpj: '84105199000102',
                        address: 'Paper Street 49, Grand Junction, CO')
-    Subsidiary.create!(name: 'Alamo', cnpj: '00000000000101',
+    Subsidiary.create!(name: 'Alamo', cnpj: '35229090000171',
                        address: 'Paper Street 76, Alamo, TX')
 
     visit root_path
@@ -55,9 +55,9 @@ feature 'Admins can browse subsidiaries' do
   end
 
   scenario 'and return to subsidiaries page' do
-    Subsidiary.create!(name: 'Hertz', cnpj: '00000000000100',
+    Subsidiary.create!(name: 'Hertz', cnpj: '84105199000102',
                        address: 'Paper Street 49, Grand Junction, CO')
-    Subsidiary.create!(name: 'Alamo', cnpj: '00000000000101',
+    Subsidiary.create!(name: 'Alamo', cnpj: '35229090000171',
                        address: 'Paper Street 76, Alamo, TX')
 
     visit root_path

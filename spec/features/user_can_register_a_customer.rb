@@ -18,13 +18,13 @@ feature 'Users can register a customer' do
 
     fill_in 'Nome', with: 'Andrew Dalton'
     fill_in 'Email', with: 'andrew@example.com'
-    fill_in 'CPF', with: '00000000002'
+    fill_in 'CPF', with: '14831482030'
     click_on 'Enviar'
 
     expect(current_path).to eq customer_path(Customer.last.id)
     expect(page).to have_content('Andrew Dalton')
     expect(page).to have_content('andrew@example.com')
-    expect(page).to have_content('00000000002')
+    expect(page).to have_content('14831482030')
     expect(page).to have_link('Voltar')
   end
 end

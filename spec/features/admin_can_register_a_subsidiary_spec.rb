@@ -17,13 +17,13 @@ feature 'Admin can register a subsidiary' do
     click_on 'Registrar nova filial'
 
     fill_in 'Nome', with: 'National'
-    fill_in 'CNPJ', with: '00000000000102'
+    fill_in 'CNPJ', with: '35229090000171'
     fill_in 'Endereço', with: 'Paper Street 123, Portland, OR'
     click_on 'Enviar'
 
     expect(current_path).to eq subsidiary_path(Subsidiary.last.id)
     expect(page).to have_content('National')
-    expect(page).to have_content('00000000000102')
+    expect(page).to have_content('35229090000171')
     expect(page).to have_content('Paper Street 123, Portland, OR')
     expect(page).to have_link('Voltar')
   end
