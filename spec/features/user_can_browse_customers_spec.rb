@@ -45,7 +45,7 @@ feature 'Users can browse customers' do
   scenario 'and return to home page' do
     Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
                      email: 'johny@example.com')
-    Customer.create!(name: 'Hannah Banana', cpf: '84226580036',
+    Customer.create!(name: 'Hannah Banana', cpf: '20080287042',
                      email: 'johny@example.com')
 
     visit root_path
@@ -58,7 +58,7 @@ feature 'Users can browse customers' do
   scenario 'and return to clients page' do
     Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
                      email: 'johny@example.com')
-    Customer.create!(name: 'Hannah Banana', cpf: '84226580036',
+    Customer.create!(name: 'Hannah Banana', cpf: '20080287042',
                      email: 'johny@example.com')
 
     visit root_path

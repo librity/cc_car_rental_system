@@ -22,7 +22,7 @@ feature "Subsidiaries' cnpj should" do
     fill_in 'Endereço', with: 'Paper Street 7182, Lincoln, NE'
     click_on 'Enviar'
 
-    expect(current_path).to eq new_subsidiary_path
+    expect(current_path).to eq subsidiaries_path
     expect(page).to have_content('Algo deu errado')
   end
 
@@ -36,7 +36,7 @@ feature "Subsidiaries' cnpj should" do
     fill_in 'Endereço', with: 'Paper Street 1415, Calabasas, CA'
     click_on 'Enviar'
 
-    expect(current_path).to eq new_subsidiary_path
+    expect(current_path).to eq subsidiaries_path
     expect(page).to have_content('Algo deu errado')
 
     fill_in 'Nome', with: 'Avis'
@@ -44,7 +44,7 @@ feature "Subsidiaries' cnpj should" do
     fill_in 'Endereço', with: 'Paper Street 1415, Calabasas, CA'
     click_on 'Enviar'
 
-    expect(current_path).to eq new_subsidiary_path
+    expect(current_path).to eq subsidiaries_path
     expect(page).to have_content('Algo deu errado')
   end
 
@@ -58,7 +58,7 @@ feature "Subsidiaries' cnpj should" do
     fill_in 'Endereço', with: 'Paper Street 1415, Calabasas, CA'
     click_on 'Enviar'
 
-    expect(current_path).to eq new_subsidiary_path
+    expect(current_path).to eq subsidiaries_path
     expect(page).to have_content('Algo deu errado')
   end
 end

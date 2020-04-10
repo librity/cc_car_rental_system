@@ -22,7 +22,7 @@ feature "Customers' cpf should" do
     fill_in 'CPF', with: '64757188072'
     click_on 'Enviar'
 
-    expect(current_path).to eq new_subsidiary_path
+    expect(current_path).to eq customers_path
     expect(page).to have_content('Algo deu errado')
   end
 
@@ -36,7 +36,7 @@ feature "Customers' cpf should" do
     fill_in 'CPF', with: '647718807212'
     click_on 'Enviar'
 
-    expect(current_path).to eq new_subsidiary_path
+    expect(current_path).to eq customers_path
     expect(page).to have_content('Algo deu errado')
 
     fill_in 'Nome', with: 'Ronnie Maldonado'
@@ -44,7 +44,7 @@ feature "Customers' cpf should" do
     fill_in 'CPF', with: '6477188012'
     click_on 'Enviar'
 
-    expect(current_path).to eq new_subsidiary_path
+    expect(current_path).to eq customers_path
     expect(page).to have_content('Algo deu errado')
   end
 
@@ -58,7 +58,7 @@ feature "Customers' cpf should" do
     fill_in 'CPF', with: '85215440008'
     click_on 'Enviar'
 
-    expect(current_path).to eq new_subsidiary_path
+    expect(current_path).to eq customers_path
     expect(page).to have_content('Algo deu errado')
   end
 end
