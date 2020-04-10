@@ -1,9 +1,11 @@
 <header>
   <h1> <%= @subsidiary.name %> </h1>
-  <span>CNPJ: <%= @subsidiary.cnpj %> </span>
-   | 
-  <span>Endereço: <%= @subsidiary.address %> </span>
 </header>
+
+<ul>
+  <li><strong>CNPJ:</strong> <%= @subsidiary.cnpj %></li>
+  <li><strong>Endereço:</strong> <%= @subsidiary.address %></li>
+</ul>
 
 <nav>
   <%= link_to "Voltar", subsidiaries_path %>

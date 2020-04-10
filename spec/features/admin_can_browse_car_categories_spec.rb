@@ -4,9 +4,9 @@ require 'rails_helper'
 
 feature 'Admins can browse car categories' do
   scenario 'successfully' do
-    CarCategory.create!(name: 'Sedan', daily_rate: 100.0, car_insurance: 10.0,
+    CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
                         third_party_insurance: 5.0)
-    CarCategory.create!(name: 'Camião', daily_rate: 140.0, car_insurance: 20.0,
+    CarCategory.create!(name: 'Camião', daily_rate: 140.0, insurance: 20.0,
                         third_party_insurance: 15.0)
 
     visit root_path
@@ -17,9 +17,9 @@ feature 'Admins can browse car categories' do
   end
 
   scenario 'and view details' do
-    CarCategory.create!(name: 'Sedan', daily_rate: 100.0, car_insurance: 10.0,
+    CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
                         third_party_insurance: 5.0)
-    CarCategory.create!(name: 'Camião', daily_rate: 140.0, car_insurance: 20.0,
+    CarCategory.create!(name: 'Camião', daily_rate: 140.0, insurance: 20.0,
                         third_party_insurance: 15.0)
 
     visit root_path
@@ -27,9 +27,9 @@ feature 'Admins can browse car categories' do
     click_on 'Sedan'
 
     expect(page).to have_content('Sedan')
-    expect(page).to have_content('100')
-    expect(page).to have_content('10')
-    expect(page).to have_content('5')
+    expect(page).to have_content('R$ 100')
+    expect(page).to have_content('R$ 10')
+    expect(page).to have_content('R$ 5')
     expect(page).not_to have_content('Camião')
     expect(page).not_to have_content('120')
     expect(page).not_to have_content('20')
@@ -44,9 +44,9 @@ feature 'Admins can browse car categories' do
   end
 
   scenario 'and return to home page' do
-    CarCategory.create!(name: 'Sedan', daily_rate: 100.0, car_insurance: 10.0,
+    CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
                         third_party_insurance: 5.0)
-    CarCategory.create!(name: 'Camião', daily_rate: 140.0, car_insurance: 20.0,
+    CarCategory.create!(name: 'Camião', daily_rate: 140.0, insurance: 20.0,
                         third_party_insurance: 15.0)
 
     visit root_path
@@ -57,9 +57,9 @@ feature 'Admins can browse car categories' do
   end
 
   scenario 'and return to subsidiaries page' do
-    CarCategory.create!(name: 'Sedan', daily_rate: 100.0, car_insurance: 10.0,
+    CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
                         third_party_insurance: 5.0)
-    CarCategory.create!(name: 'Camião', daily_rate: 140.0, car_insurance: 20.0,
+    CarCategory.create!(name: 'Camião', daily_rate: 140.0, insurance: 20.0,
                         third_party_insurance: 15.0)
 
     visit root_path

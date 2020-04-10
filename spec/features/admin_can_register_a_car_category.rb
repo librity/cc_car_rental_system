@@ -24,9 +24,9 @@ feature 'Admin can register a car category' do
 
     expect(current_path).to eq car_category_path(CarCategory.last.id)
     expect(page).to have_content('Pickup')
-    expect(page).to have_content('120')
-    expect(page).to have_content('30')
-    expect(page).to have_content('40')
+    expect(page).to have_content('R$ 120')
+    expect(page).to have_content('R$ 30')
+    expect(page).to have_content('R$ 40')
     expect(page).to have_link('Voltar')
   end
 end

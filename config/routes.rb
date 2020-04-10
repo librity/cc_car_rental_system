@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   resources :manufacturers, only: %i[index show new create]
   resources :subsidiaries, only: %i[index show new create]
+  resources :car_categories, only: %i[index show new create]
 end

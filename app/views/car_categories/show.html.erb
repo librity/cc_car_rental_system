@@ -1,0 +1,13 @@
+<header>
+  <h1> <%= @car_category.name %> </h1>
+</header>
+
+<ul>
+  <li><strong>Diária:</strong> R$ <%= @car_category.daily_rate %></li>
+  <li><strong>Seguro:</strong> R$ <%= @car_category.insurance %></li>
+  <li><strong>Seguro de Terceiros:</strong> R$ <%= @car_category.third_party_insurance %></li>
+</ul>
+
+<nav>
+  <%= link_to "Voltar", car_categories_path %>
+</nav>

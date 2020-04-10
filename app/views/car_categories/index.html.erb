@@ -1,0 +1,27 @@
+<header>
+  <h1>Categorias de Veículos</h1>
+
+  <p>Todos as categorias de veículos que oferecemos.</p>
+</header>
+
+<% if @car_categories.any? %>
+  <ol>
+    <% @car_categories.each do |car_category| %>
+      <li>
+        <h2>
+          <%= link_to car_category.name, car_category %>
+        </h2>
+      </li>
+    <% end %>
+  </ol>
+<% else %>
+  <p>
+    Nenhuma categoria de veículos cadastrada
+  </p>
+<% end %>
+
+<nav>
+  <%= link_to "Registrar nova categoria de veículos", new_car_category_path %>
+   | 
+  <%= link_to "Voltar", root_path %>
+</nav>

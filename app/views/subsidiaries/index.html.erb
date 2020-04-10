@@ -1,16 +1,16 @@
 <header>
-  <h1>Fabricantes</h1>
+  <h1>Filiais</h1>
 
-  <p>Todos os fabricantes de carros cadastrados na plataforma.</p>
+  <p>Todos as nossas filiais.</p>
 </header>
 
 <% if @subsidiaries.any? %>
   <ol>
     <% @subsidiaries.each do |subsidiary| %>
       <li>
-        <h2>
+        <h3>
           <%= link_to subsidiary.name, subsidiary %>
-        </h2>
+        </h3>
       </li>
     <% end %>
   </ol>

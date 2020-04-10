@@ -1,0 +1,15 @@
+<%= form_for @car_category do |f| %>
+  <%= f.label :name, "Nome" %>
+  <%= f.text_field :name%>
+
+  <%= f.label :daily_rate, "Diária" %>
+  <%= f.number_field :daily_rate%>
+
+  <%= f.label :insurance, "Seguro" %>
+  <%= f.number_field :insurance%>
+
+  <%= f.label :third_party_insurance, "Seguro de Terceiros" %>
+  <%= f.number_field :third_party_insurance%>
+
+  <%= f.submit yield(:button_text) %>
+<% end %>
