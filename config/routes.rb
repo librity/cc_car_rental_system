@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :manufacturers, only: %i[index show new create]
+  resources :subsidiaries, only: %i[index show new create]
 end

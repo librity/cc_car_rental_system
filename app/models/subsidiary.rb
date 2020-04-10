@@ -1,0 +1,2 @@
+class Subsidiary < ApplicationRecord
+end

@@ -1,0 +1,10 @@
+<%# show.html.erb %>
+<header>
+  <h1> <%= @subsidiary.name %> </h1>
+  <span> <%= @subsidiary.cnpj %> </span>
+  <span> <%= @subsidiary.address %> </span>
+</header>
+
+<nav>
+  <%= link_to "Voltar", subsidiaries_path %>
+</nav>

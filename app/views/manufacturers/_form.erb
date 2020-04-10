@@ -1,0 +1,6 @@
+<%= form_for @manufacturer do |f| %>
+  <%= f.label :name, "Nome" %>
+  <%= f.text_field :name%>
+
+  <%= f.submit yield(:button_text) %>
+<% end %>
