@@ -1,0 +1,12 @@
+<header>
+  <h1> <%= @customer.name %> </h1>
+</header>
+
+<ul>
+  <li><strong>CPF:</strong> <%= @customer.cpf %></li>
+  <li><strong>Email:</strong> <%= @customer.email %></li>
+</ul>
+
+<nav>
+  <%= link_to "Voltar", customers_path %>
+</nav>

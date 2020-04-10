@@ -1,0 +1,27 @@
+<header>
+  <h1>Clientes</h1>
+
+  <p>Todos os nosses clientes.</p>
+</header>
+
+<% if @customers.any? %>
+  <ol>
+    <% @customers.each do |customer| %>
+      <li>
+        <h3>
+          <%= link_to customer.name, customer %>
+        </h3>
+      </li>
+    <% end %>
+  </ol>
+<% else %>
+  <p>
+    Nenhum cliente cadastrado
+  </p>
+<% end %>
+
+<nav>
+  <%= link_to "Registrar novo cliente", new_customer_path %>
+   | 
+  <%= link_to "Voltar", root_path %>
+</nav>

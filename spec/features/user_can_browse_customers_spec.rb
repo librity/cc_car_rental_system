@@ -66,6 +66,6 @@ feature 'Users can browse customers' do
     click_on 'Johnny Smith'
     click_on 'Voltar'
 
-    expect(current_path).to eq clients_path
+    expect(current_path).to eq customers_path
   end
 end
