@@ -1,4 +1,4 @@
-<%= form_for @manufacturer do |f| %>
+<%= form_with model: @manufacturer, local: true do |f| %>
   <%= f.label :name, "Nome" %>
   <%= f.text_field :name%>
 

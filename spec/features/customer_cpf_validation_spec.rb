@@ -48,7 +48,7 @@ feature "Customers' cpf should" do
     expect(page).to have_content('Algo deu errado')
   end
 
-  scenario 'be an integer numerical' do
+  scenario 'be a numerical integer' do
     visit root_path
     click_on 'Clientes'
     click_on 'Registrar novo cliente'

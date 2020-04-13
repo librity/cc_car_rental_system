@@ -48,7 +48,7 @@ feature "Subsidiaries' cnpj should" do
     expect(page).to have_content('Algo deu errado')
   end
 
-  scenario 'be an integer numerical' do
+  scenario 'be a numerical integer' do
     visit root_path
     click_on 'Filiais'
     click_on 'Registrar nova filial'
