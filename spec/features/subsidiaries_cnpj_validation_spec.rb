@@ -26,6 +26,27 @@ feature "Subsidiaries' cnpj should" do
     expect(page).to have_content('Algo deu errado')
   end
 
+  scenario 'not be blank or empty' do
+    visit root_path
+    click_on 'Filiais'
+    click_on 'Registrar nova filial'
+
+    fill_in 'Nome', with: 'Avis'
+    fill_in 'Endereço', with: 'Paper Street 1415, Calabasas, CA'
+    click_on 'Enviar'
+
+    expect(current_path).to eq subsidiaries_path
+    expect(page).to have_content('Algo deu errado')
+
+    fill_in 'Nome', with: 'Avis'
+    fill_in 'CNPJ', with: '   '
+    fill_in 'Endereço', with: 'Paper Street 1415, Calabasas, CA'
+    click_on 'Enviar'
+
+    expect(current_path).to eq subsidiaries_path
+    expect(page).to have_content('Algo deu errado')
+  end
+
   scenario 'have 14 characters' do
     visit root_path
     click_on 'Filiais'

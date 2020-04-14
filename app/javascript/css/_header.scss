@@ -1,0 +1,38 @@
+header {
+  margin-bottom: 60px;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+
+  &:hover {
+    color: $gray-medium-light;
+    text-decoration: none;
+  }
+}
+
+.nav-item {
+  margin-right: 10px;
+  padding-left: 10px;
+  border-left: 1px solid $gray-light;
+
+  &:first-child {
+    margin-right: 10px;
+    padding-left: 0px;
+    border-left: none;
+  }
+
+  a {
+    color: $gray-light;
+
+    &:hover {
+      color: $gray-ultra-light;
+    }
+  }
+}

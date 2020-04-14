@@ -26,6 +26,27 @@ feature "Customers' cpf should" do
     expect(page).to have_content('Algo deu errado')
   end
 
+  scenario 'not be blank or empty' do
+    visit root_path
+    click_on 'Clientes'
+    click_on 'Registrar novo cliente'
+
+    fill_in 'Nome', with: 'Ronnie Maldonado'
+    fill_in 'Email', with: 'ronnie@example.com'
+    click_on 'Enviar'
+
+    expect(current_path).to eq customers_path
+    expect(page).to have_content('Algo deu errado')
+
+    fill_in 'Nome', with: 'Ronnie Maldonado'
+    fill_in 'Email', with: 'ronnie@example.com'
+    fill_in 'CPF', with: '     '
+    click_on 'Enviar'
+
+    expect(current_path).to eq customers_path
+    expect(page).to have_content('Algo deu errado')
+  end
+
   scenario 'have 11 characters' do
     visit root_path
     click_on 'Clientes'

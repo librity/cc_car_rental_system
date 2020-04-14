@@ -1,12 +1,18 @@
 <%= form_with model: @customer, local: true do |f| %>
-  <%= f.label :name, "Nome" %>
-  <%= f.text_field :name%>
+  <div class="form-group">
+    <%= f.label :name, "Nome" %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
 
-  <%= f.label :cpf, "CPF" %>
-  <%= f.text_field :cpf%>
+  <div class="form-group">
+    <%= f.label :cpf, "CPF" %>
+    <%= f.text_field :cpf, class: 'form-control' %>
+  </div>
 
-  <%= f.label :email, "Email" %>
-  <%= f.text_field :email%>
+  <div class="form-group">
+    <%= f.label :email, "Email" %>
+    <%= f.email_field :email, class: 'form-control' %>
+  </div>
 
-  <%= f.submit yield(:button_text) %>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

@@ -18,6 +18,8 @@ class CnpjValidator < ActiveModel::EachValidator
   ].freeze
 
   def validate_each(record, attribute, value)
+    return fail_validation(record, attribute) if value.blank?
+
     raw_cnpj = parse_cnpj(value)
 
     fail_validation(record, attribute) if in_blacklist(raw_cnpj)

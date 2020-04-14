@@ -1,6 +1,6 @@
 <%= form_with model: @manufacturer, local: true do |f| %>
   <%= f.label :name, "Nome" %>
-  <%= f.text_field :name%>
+  <%= f.text_field :name, class: 'form-control' %>
 
-  <%= f.submit yield(:button_text) %>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
