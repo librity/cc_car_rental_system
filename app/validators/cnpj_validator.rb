@@ -19,25 +19,25 @@ class CnpjValidator < ActiveModel::EachValidator
 
   def validate_each(record, attribute, value)
     return fail_validation(record, attribute) if value.blank?
+    return fail_validation(record, attribute) if in_blacklist?(value)
 
     raw_cnpj = parse_cnpj(value)
 
-    fail_validation(record, attribute) if in_blacklist(raw_cnpj)
     fail_validation(record, attribute) unless valid_digits?(raw_cnpj)
   end
 
   private
 
-  def parse_cnpj(value)
-    value.each_char.to_a.map(&:to_i)
-  end
-
   def fail_validation(record, attribute)
     record.errors[attribute] << (options[:message] || ' não é valido')
   end
 
-  def in_blacklist(raw_cnpj)
+  def in_blacklist?(raw_cnpj)
     BLACKLIST.include?(raw_cnpj)
+  end
+
+  def parse_cnpj(value)
+    value.each_char.to_a.map(&:to_i)
   end
 
   def valid_digits?(raw_cnpj)

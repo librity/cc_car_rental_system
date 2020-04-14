@@ -21,25 +21,25 @@ class CpfValidator < ActiveModel::EachValidator
 
   def validate_each(record, attribute, value)
     return fail_validation(record, attribute) if value.blank?
+    return fail_validation(record, attribute) if in_blacklist?(value)
 
     raw_cpf = parse_cpf(value)
 
-    fail_validation(record, attribute) if in_blacklist(raw_cpf)
     fail_validation(record, attribute) unless valid_digits?(raw_cpf)
   end
 
   private
 
-  def parse_cpf(value)
-    value.each_char.to_a.map(&:to_i)
-  end
-
   def fail_validation(record, attribute)
     record.errors[attribute] << (options[:message] || ' não é valido')
   end
 
-  def in_blacklist(raw_cpf)
+  def in_blacklist?(raw_cpf)
     BLACKLIST.include?(raw_cpf)
+  end
+
+  def parse_cpf(value)
+    value.each_char.to_a.map(&:to_i)
   end
 
   def valid_digits?(raw_cpf)

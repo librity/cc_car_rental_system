@@ -83,6 +83,20 @@ feature "Customers' cpf should" do
     expect(page).to have_content('Algo deu errado')
   end
 
+  scenario 'not be blacklisted' do
+    visit root_path
+    click_on 'Clientes'
+    click_on 'Registrar novo cliente'
+
+    fill_in 'Nome', with: 'Ronnie Maldonado'
+    fill_in 'Email', with: 'ronnie@example.com'
+    fill_in 'CPF', with: '77777777777'
+    click_on 'Enviar'
+
+    expect(current_path).to eq customers_path
+    expect(page).to have_content('Algo deu errado')
+  end
+
   scenario 'be valid' do
     visit root_path
     click_on 'Clientes'
