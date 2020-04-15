@@ -19,7 +19,7 @@ class SubsidiariesController < ApplicationController
       flash[:success] = 'Filial criada com sucesso'
       redirect_to @subsidiary
     else
-      flash.now[:error] = 'Algo deu errado'
+      flash.now[:danger] = 'Algo deu errado'
       render :new
     end
   end

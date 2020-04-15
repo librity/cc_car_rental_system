@@ -1,12 +1,22 @@
-<header>
-  <h1> <%= @subsidiary.name %> </h1>
-</header>
-
-<ul>
-  <li><strong>CNPJ:</strong> <%= @subsidiary.cnpj %></li>
-  <li><strong>Endereço:</strong> <%= @subsidiary.address %></li>
-</ul>
-
-<nav>
-  <li><%= link_to "Voltar", subsidiaries_path %></li>
+<nav clas="col">
+  <%= link_to "Voltar", subsidiaries_path, class: 'btn btn-secondary' %>
 </nav>
+
+<div class="row">
+  <div class="col-12">
+    <div class="header">
+      <h1> <%= @subsidiary.name %> </h1>
+    </div>
+
+    <div class="contents">
+      <ul>
+        <li><strong>CNPJ:</strong> <%= @subsidiary.cnpj %></li>
+        <li><strong>Endereço:</strong> <%= @subsidiary.address %></li>
+      </ul>
+    </div>
+
+    <div class="actions mt-4">
+
+    </div>
+  </div>
+</div>

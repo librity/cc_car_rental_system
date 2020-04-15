@@ -1,27 +1,33 @@
-<header>
-  <h1>Fabricantes</h1>
-
-  <p>Todos os fabricantes de carros cadastrados na plataforma.</p>
-</header>
-
-<% if @manufacturers.empty? %>
-  <p>
-    Nenhum fabricante cadastrado
-  </p>
-<% end %>
-
-<ol>
-  <% @manufacturers.each do |manufacturer| %>
-    <li>
-      <h3>
-        <%= link_to manufacturer.name, manufacturer %>
-      </h3>
-    </li>
-  <% end %>
-</ol>
-
-
 <nav>
-  <li><%= link_to "Registrar novo fabricante", new_manufacturer_path %></li>
-  <li><%= link_to "Voltar", root_path %></li>
+  <%= link_to "Voltar", root_path, class: 'btn btn-secondary' %>
 </nav>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="header">
+      <h1>Fabricantes</h1>
+
+      <p>Todos os fabricantes de carros cadastrados na plataforma.</p>
+    </div>
+
+    <div class="contents">
+      <% if @manufacturers.empty? %>
+        <p>Nenhum fabricante cadastrado</p>
+      <% end %>
+
+      <ol>
+        <% @manufacturers.each do |manufacturer| %>
+          <li>
+            <h3>
+              <%= link_to manufacturer.name, manufacturer %>
+            </h3>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+
+    <div class="actions mt-4">
+        <%= link_to "Registrar novo fabricante", new_manufacturer_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>

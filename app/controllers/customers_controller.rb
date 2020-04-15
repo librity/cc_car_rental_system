@@ -19,7 +19,7 @@ class CustomersController < ApplicationController
       flash[:success] = 'Cliente criado com sucesso'
       redirect_to @customer
     else
-      flash.now[:error] = 'Algo deu errado'
+      flash.now[:danger] = 'Algo deu errado'
       render :new
     end
   end

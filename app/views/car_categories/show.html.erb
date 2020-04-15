@@ -1,13 +1,23 @@
-<header>
-  <h1> <%= @car_category.name %> </h1>
-</header>
-
-<ul>
-  <li><strong>Diária:</strong> R$ <%= @car_category.daily_rate %></li>
-  <li><strong>Seguro:</strong> R$ <%= @car_category.insurance %></li>
-  <li><strong>Seguro de Terceiros:</strong> R$ <%= @car_category.third_party_insurance %></li>
-</ul>
-
-<nav>
-  <li><%= link_to "Voltar", car_categories_path %></li>
+<nav clas="col">
+  <%= link_to "Voltar", car_categories_path, class: 'btn btn-secondary' %>
 </nav>
+
+<div class="row">
+  <div class="col-12">
+    <div class="header">
+      <h1> <%= @car_category.name %> </h1>
+    </div>
+
+    <div class="contents">
+      <ul>
+        <li><strong>Diária:</strong> R$ <%= @car_category.daily_rate %></li>
+        <li><strong>Seguro:</strong> R$ <%= @car_category.insurance %></li>
+        <li><strong>Seguro de Terceiros:</strong> R$ <%= @car_category.third_party_insurance %></li>
+      </ul>
+    </div>
+
+    <div class="actions mt-4">
+
+    </div>
+  </div>
+</div>

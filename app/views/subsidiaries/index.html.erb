@@ -1,26 +1,35 @@
-<header>
-  <h1>Filiais</h1>
-
-  <p>Todas as nossas filiais.</p>
-</header>
-
-<% if @subsidiaries.empty? %>
-  <p>
-    Nenhuma filial cadastrada
-  </p>
-<% end %>
-
-<ol>
-  <% @subsidiaries.each do |subsidiary| %>
-    <li>
-      <h3>
-        <%= link_to subsidiary.name, subsidiary %>
-      </h3>
-    </li>
-  <% end %>
-</ol>
-
 <nav>
-  <li><%= link_to "Registrar nova filial", new_subsidiary_path %></li>
-  <li><%= link_to "Voltar", root_path %></li>
+  <%= link_to "Voltar", root_path, class: 'btn btn-secondary' %>
 </nav>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="header">
+      <h1>Filiais</h1>
+
+      <p>Todas as nossas filiais.</p>
+    </div>
+
+    <div class="contents">
+      <% if @subsidiaries.empty? %>
+        <p>
+          Nenhuma filial cadastrada
+        </p>
+      <% end %>
+
+      <ol>
+        <% @subsidiaries.each do |subsidiary| %>
+          <li>
+            <h3>
+              <%= link_to subsidiary.name, subsidiary %>
+            </h3>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+
+    <div class="actions mt-4">
+      <%= link_to "Registrar nova filial", new_subsidiary_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>

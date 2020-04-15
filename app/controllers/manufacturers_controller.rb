@@ -19,7 +19,7 @@ class ManufacturersController < ApplicationController
       flash[:success] = 'Fabricante criado com sucesso'
       redirect_to @manufacturer
     else
-      flash.now[:error] = 'Algo deu errado'
+      flash.now[:danger] = 'Algo deu errado'
       render :new
     end
   end
@@ -34,7 +34,7 @@ class ManufacturersController < ApplicationController
       flash[:success] = 'Fabricante atualizado'
       redirect_to @manufacturer
     else
-      flash.now[:error] = 'Algo deu errado'
+      flash.now[:danger] = 'Algo deu errado'
       render 'edit'
     end
   end

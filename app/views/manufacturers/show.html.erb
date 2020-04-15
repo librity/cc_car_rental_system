@@ -1,14 +1,20 @@
+<nav clas="col">
+  <%= link_to "Voltar", manufacturers_path, class: 'btn btn-secondary' %>
+</nav>
+
 <div class="row">
   <div class="col-12">
-    <h1> <%= @manufacturer.name %> </h1>
+    <div class="header">
+      <h1> <%= @manufacturer.name %> </h1>
+    </div>
 
-    <div class="actions">
-      <%= link_to "Editar", edit_manufacturer_path(@manufacturer) %>
-      <%= link_to "Apagar fabricante", @manufacturer, method: :delete %>
+    <div class="contents">
+
+    </div>
+
+    <div class="actions mt-4">
+      <%= link_to "Editar", edit_manufacturer_path(@manufacturer), class: 'btn btn-primary' %>
+      <%= link_to "Apagar fabricante", @manufacturer, method: :delete, class: 'btn btn-danger' %>
     </div>
   </div>
 </div>
-
-<nav>
-  <li><%= link_to "Voltar", manufacturers_path %></li>
-</nav>

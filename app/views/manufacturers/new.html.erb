@@ -1,12 +1,18 @@
 <% provide(:button_text, 'Enviar') %>
-<h1>Criar um novo Fabricante</h1>
+
+<nav>
+  <%= link_to "Voltar", manufacturers_path, class: 'btn btn-secondary' %>
+</nav>
 
 <div class="row">
   <div class="col-md-12">
-    <%= render 'form' %>
+    <div class="header">
+      <h1>Criar um novo Fabricante</h1>
+    </div>
+
+    <div class="contents">
+      <%= render 'form' %>
+    </div>
+
   </div>
 </div>
-
-<nav>
-  <li><%= link_to "Voltar", manufacturers_path %></li>
-</nav>

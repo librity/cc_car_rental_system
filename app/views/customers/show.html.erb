@@ -1,12 +1,22 @@
-<header>
-  <h1> <%= @customer.name %> </h1>
-</header>
-
-<ul>
-  <li><strong>CPF:</strong> <%= @customer.cpf %></li>
-  <li><strong>Email:</strong> <%= @customer.email %></li>
-</ul>
-
-<nav>
-  <li><%= link_to "Voltar", customers_path %></li>
+<nav clas="col">
+  <%= link_to "Voltar", customers_path, class: 'btn btn-secondary' %>
 </nav>
+
+<div class="row">
+  <div class="col-12">
+    <div class="header">
+      <h1> <%= @customer.name %> </h1>
+    </div>
+
+    <div class="contents">
+      <ul>
+        <li><strong>CPF:</strong> <%= @customer.cpf %></li>
+        <li><strong>Email:</strong> <%= @customer.email %></li>
+      </ul>
+    </div>
+
+    <div class="actions mt-4">
+
+    </div>
+  </div>
+</div>

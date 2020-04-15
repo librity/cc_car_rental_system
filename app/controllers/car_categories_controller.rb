@@ -19,7 +19,7 @@ class CarCategoriesController < ApplicationController
       flash[:success] = 'Categoria de veículo criada com sucesso'
       redirect_to @car_category
     else
-      flash.now[:error] = 'Algo deu errado'
+      flash.now[:danger] = 'Algo deu errado'
       render :new
     end
   end
