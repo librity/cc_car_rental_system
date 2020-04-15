@@ -14,7 +14,7 @@ describe Subsidiary, type: :model do
     end
 
     it 'must be unique' do
-      Subsidiary.create!(name: 'Hertz', cnpj: '04576557000126')
+      Subsidiary.create!(name: 'Hertz')
       subsidiary = Subsidiary.new(name: 'Hertz', cnpj: '04576557000126')
 
       subsidiary.valid?
@@ -34,8 +34,8 @@ describe Subsidiary, type: :model do
     end
 
     it 'must be unique' do
-      Subsidiary.create!(name: 'Hertz', cnpj: '04576557000126')
-      subsidiary = Subsidiary.new(name: 'Hertz', cnpj: '04576557000126')
+      Subsidiary.create!(cnpj: '04576557000126')
+      subsidiary = Subsidiary.new(cnpj: '04576557000126')
 
       subsidiary.valid?
 
@@ -43,7 +43,7 @@ describe Subsidiary, type: :model do
     end
 
     it 'must be valid' do
-      subsidiary = Subsidiary.new(name: 'Hertz', cnpj: '04576558000126')
+      subsidiary = Subsidiary.new(cnpj: '04576558000126')
 
       subsidiary.valid?
 
