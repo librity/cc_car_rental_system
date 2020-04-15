@@ -9,8 +9,8 @@ describe Manufacturer, type: :model do
 
       manufacturer.valid?
 
-      expect(manufacturer.errors[:name]).to include('Nome não pode '\
-                                                    'ficar em branco')
+      expect(manufacturer.errors[:name])
+        .to include('Nome não pode ficar em branco')
     end
 
     it 'name must be unique' do
