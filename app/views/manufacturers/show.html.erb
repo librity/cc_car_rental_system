@@ -1,6 +1,13 @@
-<header>
-  <h1> <%= @manufacturer.name %> </h1>
-</header>
+<div class="row">
+  <div class="col-12">
+    <h1> <%= @manufacturer.name %> </h1>
+
+    <div class="actions">
+      <%= link_to "Editar", edit_manufacturer_path(@manufacturer) %>
+      <%= link_to "Apagar fabricante", @manufacturer, method: :delete %>
+    </div>
+  </div>
+</div>
 
 <nav>
   <li><%= link_to "Voltar", manufacturers_path %></li>

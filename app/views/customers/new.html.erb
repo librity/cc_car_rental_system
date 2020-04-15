@@ -1,7 +1,11 @@
 <% provide(:button_text, 'Enviar') %>
 <h1>Criar uma novo cliente</h1>
 
-<%= render 'form' %>
+<div class="row">
+  <div class="col-md-12">
+    <%= render 'form' %>
+  </div>
+</div>
 
 <nav>
   <li><%= link_to "Voltar", customers_path %></li>

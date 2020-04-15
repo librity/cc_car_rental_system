@@ -24,6 +24,27 @@ class ManufacturersController < ApplicationController
     end
   end
 
+  def edit
+    @manufacturer = Manufacturer.find(params[:id])
+  end
+
+  def update
+    @manufacturer = Manufacturer.find(params[:id])
+    if @manufacturer.update(manufacturer_params)
+      flash[:success] = 'Fabricante atualizado'
+      redirect_to @manufacturer
+    else
+      flash.now[:error] = 'Algo deu errado'
+      render 'edit'
+    end
+  end
+
+  def destroy
+    Manufacturer.find(params[:id]).destroy
+    flash[:success] = 'Fabricante removido'
+    redirect_to manufacturers_url
+  end
+
   private
 
   def manufacturer_params

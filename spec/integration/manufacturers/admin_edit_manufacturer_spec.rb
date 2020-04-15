@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Admin edits manufacturer' do
@@ -14,7 +16,7 @@ feature 'Admin edits manufacturer' do
     expect(page).to have_content('Honda')
   end
 
-  scenario 'successfully' do
+  scenario 'and name can not be blank' do
     Manufacturer.create(name: 'Fiat')
 
     visit root_path
@@ -27,7 +29,7 @@ feature 'Admin edits manufacturer' do
     expect(page).to have_content('Nome não pode ficar em branco')
   end
 
-  scenario 'successfully' do
+  scenario 'and name must be unique' do
     Manufacturer.create(name: 'Fiat')
     Manufacturer.create(name: 'Honda')
 

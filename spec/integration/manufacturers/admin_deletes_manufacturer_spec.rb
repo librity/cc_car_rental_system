@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Admin deletes manufacturer' do
@@ -13,7 +15,7 @@ feature 'Admin deletes manufacturer' do
     expect(page).to have_content('Nenhum fabricante cadastrado')
   end
 
-  scenario 'and keep anothers' do
+  scenario "and doesn't delete all of them" do
     Manufacturer.create!(name: 'Fiat')
     Manufacturer.create!(name: 'Honda')
 

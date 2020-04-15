@@ -1,7 +1,11 @@
 <% provide(:button_text, 'Enviar') %>
 <h1>Criar uma nova Categoria de Veículos</h1>
 
-<%= render 'form' %>
+<div class="row">
+  <div class="col-md-12">
+    <%= render 'form' %>
+  </div>
+</div>
 
 <nav>
   <li><%= link_to "Voltar", car_categories_path %></li>
