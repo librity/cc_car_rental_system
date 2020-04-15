@@ -4,21 +4,22 @@
   <p>Todos as categorias de veículos que oferecemos.</p>
 </header>
 
-<% if @car_categories.any? %>
-  <ol>
-    <% @car_categories.each do |car_category| %>
-      <li>
-        <h3>
-          <%= link_to car_category.name, car_category %>
-        </h3>
-      </li>
-    <% end %>
-  </ol>
-<% else %>
+<% if @car_categories.empty? %>
   <p>
     Nenhuma categoria de veículos cadastrada
   </p>
 <% end %>
+
+<ol>
+  <% @car_categories.each do |car_category| %>
+    <li>
+      <h3>
+        <%= link_to car_category.name, car_category %>
+      </h3>
+    </li>
+  <% end %>
+</ol>
+
 
 <nav>
   <li><%= link_to "Registrar nova categoria de veículos", new_car_category_path %></li>

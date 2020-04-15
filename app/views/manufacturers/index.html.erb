@@ -4,21 +4,22 @@
   <p>Todos os fabricantes de carros cadastrados na plataforma.</p>
 </header>
 
-<% if @manufacturers.any? %>
-  <ol>
-    <% @manufacturers.each do |manufacturer| %>
-      <li>
-        <h3>
-          <%= link_to manufacturer.name, manufacturer %>
-        </h3>
-      </li>
-    <% end %>
-  </ol>
-<% else %>
+<% if @manufacturers.empty? %>
   <p>
     Nenhum fabricante cadastrado
   </p>
 <% end %>
+
+<ol>
+  <% @manufacturers.each do |manufacturer| %>
+    <li>
+      <h3>
+        <%= link_to manufacturer.name, manufacturer %>
+      </h3>
+    </li>
+  <% end %>
+</ol>
+
 
 <nav>
   <li><%= link_to "Registrar novo fabricante", new_manufacturer_path %></li>

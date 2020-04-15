@@ -34,8 +34,8 @@ class CpfValidator < ActiveModel::EachValidator
     record.errors[attribute] << (options[:message] || ' não é valido')
   end
 
-  def in_blacklist?(raw_cpf)
-    BLACKLIST.include?(raw_cpf)
+  def in_blacklist?(value)
+    BLACKLIST.include?(value)
   end
 
   def parse_cpf(value)

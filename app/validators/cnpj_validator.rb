@@ -32,8 +32,8 @@ class CnpjValidator < ActiveModel::EachValidator
     record.errors[attribute] << (options[:message] || ' não é valido')
   end
 
-  def in_blacklist?(raw_cnpj)
-    BLACKLIST.include?(raw_cnpj)
+  def in_blacklist?(value)
+    BLACKLIST.include?(value)
   end
 
   def parse_cnpj(value)

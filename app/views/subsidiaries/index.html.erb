@@ -1,24 +1,24 @@
 <header>
   <h1>Filiais</h1>
 
-  <p>Todos as nossas filiais.</p>
+  <p>Todas as nossas filiais.</p>
 </header>
 
-<% if @subsidiaries.any? %>
-  <ol>
-    <% @subsidiaries.each do |subsidiary| %>
-      <li>
-        <h3>
-          <%= link_to subsidiary.name, subsidiary %>
-        </h3>
-      </li>
-    <% end %>
-  </ol>
-<% else %>
+<% if @subsidiaries.empty? %>
   <p>
     Nenhuma filial cadastrada
   </p>
 <% end %>
+
+<ol>
+  <% @subsidiaries.each do |subsidiary| %>
+    <li>
+      <h3>
+        <%= link_to subsidiary.name, subsidiary %>
+      </h3>
+    </li>
+  <% end %>
+</ol>
 
 <nav>
   <li><%= link_to "Registrar nova filial", new_subsidiary_path %></li>
