@@ -13,7 +13,7 @@ describe Customer, type: :model do
     expect(subject).to be_valid
   end
 
-  context 'name validation' do
+  context 'validation: name' do
     it 'cannot be blank' do
       subject.name = ' '
 
@@ -22,12 +22,19 @@ describe Customer, type: :model do
     end
   end
 
-  context 'email validation' do
+  context 'validation: email' do
     it 'cannot be blank' do
       subject.email = ' '
 
       expect(subject).to_not be_valid
       expect(subject.errors[:email]).to include('Email não pode ficar em branco')
+    end
+
+    it 'cannot be too long' do
+      subject.email = 'a' * 244 + '@example.com'
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:email]).to include('Email muito longo')
     end
 
     it 'must be unique' do
@@ -39,17 +46,38 @@ describe Customer, type: :model do
       expect(customer.errors[:email]).to include('Email deve ser único')
     end
 
-    it 'must be valid' do
-      subject.email = 'invalidexample.com'
+    it 'should accept valid addresses' do
+      valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org
+                           first.last@foo.jp alice+bob@baz.cn]
 
-      expect(subject).to_not be_valid
-      expect(subject.errors[:email]).to include('Email não é valido')
+      valid_addresses.each do |valid_address|
+        subject.email = valid_address
+        expect(subject).to be_valid
+      end
+    end
 
-      subject.save!
+    it 'should reject invalid addresses' do
+      invalid_addresses = %w[user@example,com user_at_foo.org user.name@example.
+                             foo@bar_baz.com foo@bar+baz.com foo@bar..com]
+
+      invalid_addresses.each do |invalid_address|
+        subject.email = invalid_address
+
+        expect(subject).to_not be_valid
+        expect(subject.errors[:email]).to include('Email não é valido')
+      end
+    end
+
+    it 'should be saved as lower-case' do
+      mixed_case_email = 'Foo@ExAMPle.CoM'
+      subject.email = mixed_case_email
+
+      subject.save
+      expect(subject.reload.email).to eq(mixed_case_email.downcase)
     end
   end
 
-  context 'cpf validation' do
+  context 'validation: cpf' do
     it 'cannot be blank' do
       subject.cpf = ' '
 

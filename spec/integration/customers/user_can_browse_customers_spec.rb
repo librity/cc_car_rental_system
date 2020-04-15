@@ -46,7 +46,7 @@ feature 'Users can browse customers' do
     Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
                      email: 'johny@example.com')
     Customer.create!(name: 'Hannah Banana', cpf: '20080287042',
-                     email: 'johny@example.com')
+                     email: 'hannah@example.com')
 
     visit root_path
     click_on 'Clientes'
@@ -59,7 +59,7 @@ feature 'Users can browse customers' do
     Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
                      email: 'johny@example.com')
     Customer.create!(name: 'Hannah Banana', cpf: '20080287042',
-                     email: 'johny@example.com')
+                     email: 'hannah@example.com')
 
     visit root_path
     click_on 'Clientes'

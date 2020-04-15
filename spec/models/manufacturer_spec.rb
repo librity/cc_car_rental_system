@@ -3,22 +3,28 @@
 require 'rails_helper'
 
 describe Manufacturer, type: :model do
-  context 'name validation' do
+  subject do
+    described_class.new(name: 'Honda')
+  end
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
+  context 'validation: name' do
     it 'cannot be blank' do
-      manufacturer = Manufacturer.new
+      subject.name = ' '
 
-      manufacturer.valid?
-
-      expect(manufacturer.errors[:name])
-        .to include('Nome não pode ficar em branco')
+      expect(subject).to_not be_valid
+      expect(subject.errors[:name]).to include('Nome não pode ficar em branco')
     end
 
     it 'must be unique' do
-      Manufacturer.create!(name: 'Honda')
+      subject.save!
+
       manufacturer = Manufacturer.new(name: 'Honda')
 
-      manufacturer.valid?
-
+      expect(manufacturer).to_not be_valid
       expect(manufacturer.errors[:name]).to include('Nome deve ser único')
     end
   end
