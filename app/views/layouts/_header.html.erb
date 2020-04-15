@@ -1,13 +1,22 @@
 <header class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <%= link_to "Car Rental System", root_path, id: "logo" %>
-
     <nav class="nav navbar-right">
-      <li class="nav-item"><%= link_to "Home", root_path %>
-      <li class="nav-item"><%= link_to "Fabricantes", manufacturers_path %>
-      <li class="nav-item"><%= link_to "Filiais", subsidiaries_path %>
-      <li class="nav-item"><%= link_to "Categorias de Veículos", car_categories_path %>
-      <li class="nav-item"><%= link_to "Clientes", customers_path %>
+      <li class="nav-item"><%= link_to "Home", root_path, class: 'header_nav_link' %></li>
+      <li class="nav-item header_nav_link">
+        <div class="dropdown">
+          <a class="nav-item dropdown-toggle " role="button" id="resourcesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Recursos
+          </a>
+  
+          <div class="dropdown-menu" aria-labelledby="resourcesDropdown">
+            <%= link_to "Fabricantes", manufacturers_path, class: 'dropdown-item' %>
+            <%= link_to "Filiais", subsidiaries_path, class: 'dropdown-item' %>
+            <%= link_to "Categorias de Veículos", car_categories_path, class: 'dropdown-item' %>
+            <%= link_to "Clientes", customers_path, class: 'dropdown-item' %>
+          </div>
+        </div>
+      </li>
     </nav>
   </div>
 </header>

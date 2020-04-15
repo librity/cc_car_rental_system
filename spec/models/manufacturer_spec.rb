@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 describe Manufacturer, type: :model do
-  context 'validation' do
-    it 'name cannot be blank' do
+  context 'name validation' do
+    it 'cannot be blank' do
       manufacturer = Manufacturer.new
 
       manufacturer.valid?
@@ -13,7 +13,7 @@ describe Manufacturer, type: :model do
         .to include('Nome não pode ficar em branco')
     end
 
-    it 'name must be unique' do
+    it 'must be unique' do
       Manufacturer.create!(name: 'Honda')
       manufacturer = Manufacturer.new(name: 'Honda')
 

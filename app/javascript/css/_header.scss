@@ -27,12 +27,12 @@ header {
     padding-left: 0px;
     border-left: none;
   }
+}
 
-  a {
-    color: $gray-light;
+.header_nav_link {
+  color: $gray-light;
 
-    &:hover {
-      color: $gray-ultra-light;
-    }
+  &:hover {
+    color: $gray-ultra-light;
   }
 }

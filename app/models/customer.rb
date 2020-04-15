@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Customer < ApplicationRecord
-  validates :cpf, presence: true, length: { is: 11 }, uniqueness: true,
-                  numericality: { only_integer: true }, cpf: true
+  validates :cpf, presence: { message: 'Cpf não pode ficar em branco' },
+                  uniqueness: { message: 'Cpf deve ser único' },
+                  cpf: { message: 'Cpf não é valido' },
+                  length: { is: 11 },  numericality: { only_integer: true }
 end
