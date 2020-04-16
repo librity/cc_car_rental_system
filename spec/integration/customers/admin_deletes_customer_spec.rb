@@ -25,7 +25,7 @@ feature 'Admin deletes customer' do
     visit root_path
     click_on 'Clientes'
     click_on 'Johnny Smith'
-    click_on 'Apagar fabricante'
+    click_on 'Apagar cliente'
 
     expect(current_path).to eq customers_path
     expect(page).not_to have_content('Johnny Smith')

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :manufacturers
-  resources :subsidiaries, only: %i[index show new create]
-  resources :car_categories, only: %i[index show new create]
-  resources :customers, only: %i[index show new create]
+  resources :subsidiaries
+  resources :car_categories
+  resources :customers
 end

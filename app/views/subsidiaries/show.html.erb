@@ -16,7 +16,8 @@
     </div>
 
     <div class="actions mt-4">
-
+      <%= link_to "Editar", edit_subsidiary_path(@subsidiary), class: 'btn btn-primary' %>
+      <%= link_to "Apagar filial", @subsidiary, method: :delete, class: 'btn btn-danger' %>
     </div>
   </div>
 </div>

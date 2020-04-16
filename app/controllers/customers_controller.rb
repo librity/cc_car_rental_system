@@ -24,6 +24,27 @@ class CustomersController < ApplicationController
     end
   end
 
+  def edit
+    @customer = Customer.find(params[:id])
+  end
+
+  def update
+    @customer = Customer.find(params[:id])
+    if @customer.update(customer_params)
+      flash[:success] = 'Cliente atualizado'
+      redirect_to @customer
+    else
+      flash.now[:danger] = 'Algo deu errado'
+      render 'edit'
+    end
+  end
+
+  def destroy
+    Customer.find(params[:id]).destroy
+    flash[:success] = 'Cliente removido'
+    redirect_to customers_url
+  end
+
   private
 
   def customer_params

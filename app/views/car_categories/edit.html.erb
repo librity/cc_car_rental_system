@@ -1,0 +1,18 @@
+<% provide(:button_text, 'Enviar') %>
+
+<nav>
+  <%= link_to "Voltar", car_categories_path, class: 'btn btn-secondary' %>
+</nav>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="header">
+      <h1>Atualizar Categoria de Veículos</h1>
+    </div>
+
+    <div class="contents">
+      <%= render 'form' %>
+    </div>
+
+  </div>
+</div>

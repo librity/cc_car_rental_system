@@ -24,6 +24,27 @@ class SubsidiariesController < ApplicationController
     end
   end
 
+  def edit
+    @subsidiary = Subsidiary.find(params[:id])
+  end
+
+  def update
+    @subsidiary = Subsidiary.find(params[:id])
+    if @subsidiary.update(subsidiary_params)
+      flash[:success] = 'Filial atualizada'
+      redirect_to @subsidiary
+    else
+      flash.now[:danger] = 'Algo deu errado'
+      render 'edit'
+    end
+  end
+
+  def destroy
+    Subsidiary.find(params[:id]).destroy
+    flash[:success] = 'Filial removida'
+    redirect_to subsidiaries_url
+  end
+
   private
 
   def subsidiary_params

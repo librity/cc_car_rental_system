@@ -12,7 +12,7 @@ feature 'Admin deletes car category' do
     click_on 'Sedan'
     click_on 'Apagar categoria de veículos'
 
-    expect(current_path).to eq car_categoriess_path
+    expect(current_path).to eq car_categories_path
     expect(page).to have_content('Nenhuma categoria de veículos cadastrada')
   end
 
@@ -27,7 +27,7 @@ feature 'Admin deletes car category' do
     click_on 'Sedan'
     click_on 'Apagar categoria de veículos'
 
-    expect(current_path).to eq car_categoriess_path
+    expect(current_path).to eq car_categories_path
     expect(page).not_to have_content('Sedan')
     expect(page).to have_content('Camião')
   end
