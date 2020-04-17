@@ -9,11 +9,14 @@
     </div>
 
     <div class="contents">
-      <ul>
-        <li><strong>Diária:</strong> R$ <%= @car_category.daily_rate %></li>
-        <li><strong>Seguro:</strong> R$ <%= @car_category.insurance %></li>
-        <li><strong>Seguro de Terceiros:</strong> R$ <%= @car_category.third_party_insurance %></li>
-      </ul>
+      <dl>
+        <dt>Diária:</dt>
+        <dd> <%= number_to_currency(@car_category.daily_rate) %> </dd>
+        <dt>Seguro:</dt>
+        <dd> <%= number_to_currency(@car_category.insurance) %> </dd>
+        <dt>Seguro de Terceiros:</dt>
+        <dd> <%= number_to_currency(@car_category.third_party_insurance) %> </dd>
+      </dl>
     </div>
 
     <div class="actions mt-4">

@@ -9,10 +9,12 @@
     </div>
 
     <div class="contents">
-      <ul>
-        <li><strong>CPF:</strong> <%= @customer.cpf %></li>
-        <li><strong>Email:</strong> <%= @customer.email %></li>
-      </ul>
+      <dl>
+        <dt>CPF:</dt>
+        <dd> <%= @customer.cpf %> </dd>
+        <dt>Email:</dt>
+        <dd> <%= @customer.email %> </dd>
+      </dl>
     </div>
 
     <div class="actions mt-4">

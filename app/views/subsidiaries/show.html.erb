@@ -9,10 +9,12 @@
     </div>
 
     <div class="contents">
-      <ul>
-        <li><strong>CNPJ:</strong> <%= @subsidiary.cnpj %></li>
-        <li><strong>Endereço:</strong> <%= @subsidiary.address %></li>
-      </ul>
+      <dl>
+        <dt>CNPJ:</dt>
+        <dd> <%= @subsidiary.cnpj %> </dd>
+        <dt>Endereço:</dt>
+        <dd> <%= @subsidiary.address %> </dd>
+      </dl>
     </div>
 
     <div class="actions mt-4">
