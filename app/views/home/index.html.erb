@@ -1,5 +1,33 @@
-<header>
-  <h1>Car Rental System</h1>
-  <p>Bem vindo ao sistema de gestão de locação</p>
-</header>
+<nav>
+</nav>
 
+<div class="row">
+  <div class="col-md-12">
+    <div class="header">
+      <h1>Car Rental System</h1>
+
+      <p>Bem vindo ao sistema de gestão de locação de carros</p>
+    </div>
+
+    <div class="contents">
+      <h3>Playground do I18n</h3>
+
+      <p><%= I18n.translate('hello') %></p>
+
+      <%= I18n.localize(Time.zone.now) %>
+      <br/>
+
+      <%= I18n.localize(Date.today) %>
+      <br/>
+
+      <%= distance_of_time_in_words(12000) %>
+      <br/>
+
+      <%= number_to_currency(100000) %>
+      <br/>
+    </div>
+
+    <div class="actions mt-4">
+    </div>
+  </div>
+</div>
