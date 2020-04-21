@@ -8,7 +8,7 @@ feature 'Admin deletes subsidiary' do
                        address: 'Paper Street 49, Grand Junction, CO')
 
     visit root_path
-    click_on I18n.t('views.resources.subsidiaries.plural')
+    click_on I18n.t('activerecord.models.subsidiary.other')
     click_on 'Hertz'
     click_on I18n.t('views.actions.delete')
 
@@ -23,7 +23,7 @@ feature 'Admin deletes subsidiary' do
                        address: 'Paper Street 76, Alamo, TX')
 
     visit root_path
-    click_on I18n.t('views.resources.subsidiaries.plural')
+    click_on I18n.t('activerecord.models.subsidiary.other')
     click_on 'Hertz'
     click_on I18n.t('views.actions.delete')
 

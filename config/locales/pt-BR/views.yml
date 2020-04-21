@@ -12,7 +12,6 @@ pt-BR:
 
     messages:
       arbitrary_error: "Algo deu errado! Por favor verifique os dados e tente novamente."
-      form_error: "Este formulário contem %{error_count} erro(s)!"
       delete_resource: "Tem certeza que deseja remover o(a) %{resource}?"
       successfully:
         created: "%{resource} criado(a) com sucesso!"
@@ -27,53 +26,28 @@ pt-BR:
       new: Novo
       update: Atualizar
 
-    labels:
-      name: "Nome"
-      email: "Email"
-      cnpj: "CNPJ"
-      address: "Endereço"
-      daily_rate: "Diária"
-      insurance: "Seguro"
-      third_party_insurance: "Seguro de Terceiros"
-      cpf: "CPF"
-      year: "Ano"
-      power: "Potência"
-      fuel_type: "Tipo de combustível"
-      metric_city_milage: "Quilometragem na cidade"
-      metric_highway_milage: "Quilometragem na estrada"
-
     resources:
       manufacturers:
-        singular: "Fabricante"
-        plural: "Fabricantes"
         description: "Todos os fabricantes de carros cadastrados na plataforma."
         empty_resource: "Nenhum fabricante cadastrado"
         create: "Criar um novo Fabricante"
 
       car_categories:
-        singular: "Categoria de Veículo"
-        plural: "Categorias de Veículo"
         description: "Todos as categorias de veículo que oferecemos."
         empty_resource: "Nenhuma categoria de veículo cadastrada"
         create: "Criar uma nova Categoria de Veículo"
 
       car_models:
-        singular: "Modelo de Veículo"
-        plural: "Modelos de Veículo"
         description: "Todos os modelos de veículo que oferecemos."
         empty_resource: "Nenhum modelo de veículo cadastrado"
         create: "Criar um novo Modelo de Veículo"
 
       subsidiaries:
-        singular: "Filial"
-        plural: "Filiais"
         description: "Todas as nossas filiais."
         empty_resource: "Nenhuma filial cadastrada"
         create: "Criar uma nova Filial"
 
       customers:
-        singular: "Cliente"
-        plural: "Clientes"
         description: "Todos os nossos clientes."
         empty_resource: "Nenhum cliente cadastrado"
         create: "Cadastrar um novo Cliente"

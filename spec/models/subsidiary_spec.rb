@@ -17,7 +17,7 @@ describe Subsidiary, type: :model do
       subject.name = ' '
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:name]).to include(I18n.t('models.validations.not_empty', attribute: I18n.t('views.labels.name')))
+      expect(subject.errors[:name]).to include(I18n.t('errors.messages.blank'))
     end
 
     it 'must be unique' do
@@ -26,7 +26,7 @@ describe Subsidiary, type: :model do
       subsidiary = Subsidiary.new(name: 'Hertz')
 
       expect(subsidiary).to_not be_valid
-      expect(subsidiary.errors[:name]).to include(I18n.t('models.validations.unique', attribute: I18n.t('views.labels.name')))
+      expect(subsidiary.errors[:name]).to include(I18n.t('errors.messages.taken'))
     end
   end
 
@@ -35,7 +35,7 @@ describe Subsidiary, type: :model do
       subject.cnpj = ' '
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:cnpj]).to include('Cnpj não pode ficar em branco')
+      expect(subject.errors[:cnpj]).to include(I18n.t('errors.messages.blank'))
     end
 
     it 'must be unique' do
@@ -44,14 +44,14 @@ describe Subsidiary, type: :model do
       subsidiary = Subsidiary.new(cnpj: '84105199000102')
 
       expect(subsidiary).to_not be_valid
-      expect(subsidiary.errors[:cnpj]).to include('Cnpj deve ser único')
+      expect(subsidiary.errors[:cnpj]).to include(I18n.t('errors.messages.taken'))
     end
 
     it 'must be valid' do
       subject.cnpj = '84105199010102'
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:cnpj]).to include('Cnpj não é valido')
+      expect(subject.errors[:cnpj]).to include(I18n.t('errors.messages.invalid'))
     end
   end
 end

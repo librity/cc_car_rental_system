@@ -14,7 +14,7 @@ feature 'Admin deletes car model' do
                      metric_highway_milage: 16)
 
     visit root_path
-    click_on I18n.t('views.resources.car_models.plural')
+    click_on I18n.t('activerecord.models.car_model.other')
     click_on 'Civic'
     click_on I18n.t('views.actions.delete')
 
@@ -37,7 +37,7 @@ feature 'Admin deletes car model' do
                      metric_highway_milage: 18)
 
     visit root_path
-    click_on I18n.t('views.resources.car_models.plural')
+    click_on I18n.t('activerecord.models.car_model.other')
     click_on 'Civic'
     click_on I18n.t('views.actions.delete')
 

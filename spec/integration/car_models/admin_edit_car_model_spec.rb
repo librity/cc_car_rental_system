@@ -14,11 +14,11 @@ feature 'Admin edits car model' do
                      metric_highway_milage: 16)
 
     visit root_path
-    click_on I18n.t('views.resources.car_models.plural')
+    click_on I18n.t('activerecord.models.car_model.other')
     click_on 'Civic'
-    click_on 'Editar'
-    fill_in I18n.t('views.labels.name'), with: 'Fit'
-    click_on 'Enviar'
+    click_on I18n.t('views.actions.edit')
+    fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: 'Fit'
+    click_on I18n.t('views.actions.send')
 
     expect(page).to have_content('Fit')
   end
@@ -34,12 +34,12 @@ feature 'Admin edits car model' do
                      metric_highway_milage: 16)
 
     visit root_path
-    click_on I18n.t('views.resources.car_models.plural')
+    click_on I18n.t('activerecord.models.car_model.other')
     click_on 'Civic'
-    click_on 'Editar'
-    fill_in I18n.t('views.labels.name'), with: ''
-    click_on 'Enviar'
+    click_on I18n.t('views.actions.edit')
+    fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: ''
+    click_on I18n.t('views.actions.send')
 
-    expect(page).to have_content(I18n.t('models.validations.not_empty', attribute: I18n.t('views.labels.name')))
+    expect(page).to have_content(I18n.t('errors.messages.blank'))
   end
 end

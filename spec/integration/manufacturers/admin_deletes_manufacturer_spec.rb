@@ -7,7 +7,7 @@ feature 'Admin deletes manufacturer' do
     Manufacturer.create!(name: 'Fiat')
 
     visit root_path
-    click_on I18n.t('views.resources.manufacturers.plural')
+    click_on I18n.t('activerecord.models.manufacturer.other')
     click_on 'Fiat'
     click_on I18n.t('views.actions.delete')
 
@@ -20,7 +20,7 @@ feature 'Admin deletes manufacturer' do
     Manufacturer.create!(name: 'Honda')
 
     visit root_path
-    click_on I18n.t('views.resources.manufacturers.plural')
+    click_on I18n.t('activerecord.models.manufacturer.other')
     click_on 'Fiat'
     click_on I18n.t('views.actions.delete')
 

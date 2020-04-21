@@ -8,11 +8,11 @@ feature 'Admin edits customer' do
                      email: 'johny@example.com')
 
     visit root_path
-    click_on I18n.t('views.resources.customers.plural')
+    click_on I18n.t('activerecord.models.customer.other')
     click_on 'Johnny Smith'
-    click_on 'Editar'
-    fill_in I18n.t('views.labels.name'), with: 'Hannah Banana'
-    click_on 'Enviar'
+    click_on I18n.t('views.actions.edit')
+    fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: 'Hannah Banana'
+    click_on I18n.t('views.actions.send')
 
     expect(page).to have_content('Hannah Banana')
   end
@@ -22,12 +22,12 @@ feature 'Admin edits customer' do
                      email: 'johny@example.com')
 
     visit root_path
-    click_on I18n.t('views.resources.customers.plural')
+    click_on I18n.t('activerecord.models.customer.other')
     click_on 'Johnny Smith'
-    click_on 'Editar'
-    fill_in I18n.t('views.labels.name'), with: ''
-    click_on 'Enviar'
+    click_on I18n.t('views.actions.edit')
+    fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: ''
+    click_on I18n.t('views.actions.send')
 
-    expect(page).to have_content(I18n.t('models.validations.not_empty', attribute: I18n.t('views.labels.name')))
+    expect(page).to have_content(I18n.t('errors.messages.blank'))
   end
 end

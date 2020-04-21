@@ -23,7 +23,7 @@ describe CarModel, type: :model do
       subject.name = ' '
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:name]).to include(I18n.t('models.validations.not_empty', attribute: I18n.t('views.labels.name')))
+      expect(subject.errors[:name]).to include(I18n.t('errors.messages.blank'))
     end
   end
 
@@ -32,19 +32,19 @@ describe CarModel, type: :model do
       subject.year = ' '
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:year]).to include('Ano não pode ficar em branco')
+      expect(subject.errors[:year]).to include(I18n.t('errors.messages.blank'))
     end
 
     it 'should have 4 digits' do
       subject.year = '12345'
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:year]).to include('Ano tem que ter 4 digitos')
+      expect(subject.errors[:year]).to include(I18n.t('errors.messages.wrong_length.other', count: 4))
 
       subject.year = '123'
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:year]).to include('Ano tem que ter 4 digitos')
+      expect(subject.errors[:year]).to include(I18n.t('errors.messages.wrong_length.other', count: 4))
     end
 
     it 'should be numerical' do
@@ -52,7 +52,7 @@ describe CarModel, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:year])
-        .to include('Ano tem que ser um número inteiro')
+        .to include(I18n.t('errors.messages.not_a_number'))
     end
 
     it 'should be an integer' do
@@ -60,7 +60,7 @@ describe CarModel, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:year])
-        .to include('Ano tem que ser um número inteiro')
+        .to include(I18n.t('errors.messages.not_an_integer'))
     end
   end
 
@@ -70,7 +70,7 @@ describe CarModel, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:manufacturer])
-        .to include('Fabricante não pode ficar em branco')
+        .to include(I18n.t('errors.messages.blank'))
     end
   end
 
@@ -80,7 +80,7 @@ describe CarModel, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:metric_horsepower])
-        .to include('Potência não pode ficar em branco')
+        .to include(I18n.t('errors.messages.blank'))
     end
   end
 
@@ -90,7 +90,7 @@ describe CarModel, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:car_category])
-        .to include('Categoria de veículo não pode ficar em branco')
+        .to include(I18n.t('errors.messages.blank'))
     end
   end
 
@@ -100,7 +100,7 @@ describe CarModel, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:fuel_type])
-        .to include('Tipo de combustível não pode ficar em branco')
+        .to include(I18n.t('errors.messages.blank'))
     end
   end
 
@@ -110,7 +110,7 @@ describe CarModel, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:metric_city_milage])
-        .to include('Quilometragem na cidade não pode ficar em branco')
+        .to include(I18n.t('errors.messages.blank'))
     end
 
     it 'should be numerical' do
@@ -118,7 +118,7 @@ describe CarModel, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:metric_city_milage])
-        .to include('Quilometragem na cidade tem que ser um número inteiro')
+        .to include(I18n.t('errors.messages.not_a_number'))
     end
 
     it 'should be an integer' do
@@ -126,7 +126,7 @@ describe CarModel, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:metric_city_milage])
-        .to include('Quilometragem na cidade tem que ser um número inteiro')
+        .to include(I18n.t('errors.messages.not_an_integer'))
     end
   end
 
@@ -136,7 +136,7 @@ describe CarModel, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:metric_highway_milage])
-        .to include('Quilometragem na estrada não pode ficar em branco')
+        .to include(I18n.t('errors.messages.blank'))
     end
 
     it 'should be numerical' do
@@ -144,7 +144,7 @@ describe CarModel, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:metric_highway_milage])
-        .to include('Quilometragem na estrada tem que ser um número inteiro')
+        .to include(I18n.t('errors.messages.not_a_number'))
     end
 
     it 'should be an integer' do
@@ -152,7 +152,7 @@ describe CarModel, type: :model do
 
       expect(subject).to_not be_valid
       expect(subject.errors[:metric_highway_milage])
-        .to include('Quilometragem na estrada tem que ser um número inteiro')
+        .to include(I18n.t('errors.messages.not_an_integer'))
     end
   end
 end

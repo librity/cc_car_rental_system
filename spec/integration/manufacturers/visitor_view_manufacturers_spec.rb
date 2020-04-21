@@ -8,7 +8,7 @@ feature 'Visitor view manufacturers' do
     Manufacturer.create!(name: 'Volkswagen')
 
     visit root_path
-    click_on I18n.t('views.resources.manufacturers.plural')
+    click_on I18n.t('activerecord.models.manufacturer.other')
 
     expect(page).to have_content('Fiat')
     expect(page).to have_content('Volkswagen')
@@ -19,7 +19,7 @@ feature 'Visitor view manufacturers' do
     Manufacturer.create!(name: 'Volkswagen')
 
     visit root_path
-    click_on I18n.t('views.resources.manufacturers.plural')
+    click_on I18n.t('activerecord.models.manufacturer.other')
     click_on 'Fiat'
 
     expect(page).to have_content('Fiat')
@@ -28,7 +28,7 @@ feature 'Visitor view manufacturers' do
 
   scenario 'and no manufacturers are created' do
     visit root_path
-    click_on I18n.t('views.resources.manufacturers.plural')
+    click_on I18n.t('activerecord.models.manufacturer.other')
 
     expect(page).to have_content(I18n.t('views.resources.manufacturers.empty_resource'))
   end
@@ -38,8 +38,8 @@ feature 'Visitor view manufacturers' do
     Manufacturer.create!(name: 'Volkswagen')
 
     visit root_path
-    click_on I18n.t('views.resources.manufacturers.plural')
-    click_on 'Voltar'
+    click_on I18n.t('activerecord.models.manufacturer.other')
+    click_on I18n.t('views.actions.go_back')
 
     expect(current_path).to eq root_path
   end
@@ -49,9 +49,9 @@ feature 'Visitor view manufacturers' do
     Manufacturer.create!(name: 'Volkswagen')
 
     visit root_path
-    click_on I18n.t('views.resources.manufacturers.plural')
+    click_on I18n.t('activerecord.models.manufacturer.other')
     click_on 'Fiat'
-    click_on 'Voltar'
+    click_on I18n.t('views.actions.go_back')
 
     expect(current_path).to eq manufacturers_path
   end

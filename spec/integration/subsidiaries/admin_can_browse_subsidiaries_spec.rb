@@ -10,7 +10,7 @@ feature 'Admins can browse subsidiaries' do
                        address: 'Paper Street 76, Alamo, TX')
 
     visit root_path
-    click_on I18n.t('views.resources.subsidiaries.plural')
+    click_on I18n.t('activerecord.models.subsidiary.other')
 
     expect(page).to have_content('Hertz')
     expect(page).to have_content('Alamo')
@@ -23,7 +23,7 @@ feature 'Admins can browse subsidiaries' do
                        address: 'Paper Street 76, Alamo, TX')
 
     visit root_path
-    click_on I18n.t('views.resources.subsidiaries.plural')
+    click_on I18n.t('activerecord.models.subsidiary.other')
     click_on 'Hertz'
 
     expect(page).to have_content('Hertz')
@@ -36,7 +36,7 @@ feature 'Admins can browse subsidiaries' do
 
   scenario 'when no subisidiaries were created' do
     visit root_path
-    click_on I18n.t('views.resources.subsidiaries.plural')
+    click_on I18n.t('activerecord.models.subsidiary.other')
 
     expect(page).to have_content(I18n.t('views.resources.subsidiaries.empty_resource'))
   end
@@ -48,8 +48,8 @@ feature 'Admins can browse subsidiaries' do
                        address: 'Paper Street 76, Alamo, TX')
 
     visit root_path
-    click_on I18n.t('views.resources.subsidiaries.plural')
-    click_on 'Voltar'
+    click_on I18n.t('activerecord.models.subsidiary.other')
+    click_on I18n.t('views.actions.go_back')
 
     expect(current_path).to eq root_path
   end
@@ -61,9 +61,9 @@ feature 'Admins can browse subsidiaries' do
                        address: 'Paper Street 76, Alamo, TX')
 
     visit root_path
-    click_on I18n.t('views.resources.subsidiaries.plural')
+    click_on I18n.t('activerecord.models.subsidiary.other')
     click_on 'Hertz'
-    click_on 'Voltar'
+    click_on I18n.t('views.actions.go_back')
 
     expect(current_path).to eq subsidiaries_path
   end

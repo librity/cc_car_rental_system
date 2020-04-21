@@ -4,21 +4,12 @@ class CarModel < ApplicationRecord
   belongs_to :manufacturer
   belongs_to :car_category
 
-  validates :name, presence: { message: I18n.t('models.validations.not_empty', attribute: I18n.t('views.labels.name')) }
-  validates :year, presence: { message: 'Ano não pode ficar em branco' },
-                   numericality: { only_integer: true,
-                                   message: 'Ano tem que ser um número inteiro' },
-                   length: { is: 4, message: 'Ano tem que ter 4 digitos' }
-  validates :manufacturer, presence: { message: 'Fabricante não pode ficar em branco' }
-  validates :metric_horsepower, presence: { message: 'Potência não pode ficar em branco' }
-  validates :car_category, presence: { message: 'Categoria de veículo não pode ficar em branco' }
-  validates :fuel_type, presence: { message: 'Tipo de combustível não pode ficar em branco' }
-  validates :metric_city_milage,
-            presence: { message: 'Quilometragem na cidade não pode ficar em branco' },
-            numericality: { only_integer: true,
-                            message: 'Quilometragem na cidade tem que ser um número inteiro' }
-  validates :metric_highway_milage,
-            presence: { message: 'Quilometragem na estrada não pode ficar em branco' },
-            numericality: { only_integer: true,
-                            message: 'Quilometragem na estrada tem que ser um número inteiro' }
+  validates :name, presence: true
+  validates :year, presence: true, numericality: { only_integer: true }, length: { is: 4 }
+  validates :manufacturer, presence: true
+  validates :metric_horsepower, presence: true
+  validates :car_category, presence: true
+  validates :fuel_type, presence: true
+  validates :metric_city_milage, presence: true, numericality: { only_integer: true }
+  validates :metric_highway_milage, presence: true, numericality: { only_integer: true }
 end

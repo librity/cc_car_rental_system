@@ -8,7 +8,7 @@ feature 'Admin deletes car category' do
                         third_party_insurance: 5.0)
 
     visit root_path
-    click_on I18n.t('views.resources.car_categories.plural')
+    click_on I18n.t('activerecord.models.car_category.other')
     click_on 'Sedan'
     click_on I18n.t('views.actions.delete')
 
@@ -23,7 +23,7 @@ feature 'Admin deletes car category' do
                         third_party_insurance: 15.0)
 
     visit root_path
-    click_on I18n.t('views.resources.car_categories.plural')
+    click_on I18n.t('activerecord.models.car_category.other')
     click_on 'Sedan'
     click_on I18n.t('views.actions.delete')
 

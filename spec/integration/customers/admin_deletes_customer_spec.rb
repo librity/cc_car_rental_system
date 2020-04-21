@@ -8,7 +8,7 @@ feature 'Admin deletes customer' do
                      email: 'johny@example.com')
 
     visit root_path
-    click_on I18n.t('views.resources.customers.plural')
+    click_on I18n.t('activerecord.models.customer.other')
     click_on 'Johnny Smith'
     click_on I18n.t('views.actions.delete')
 
@@ -23,7 +23,7 @@ feature 'Admin deletes customer' do
                      email: 'hannah@example.com')
 
     visit root_path
-    click_on I18n.t('views.resources.customers.plural')
+    click_on I18n.t('activerecord.models.customer.other')
     click_on 'Johnny Smith'
     click_on I18n.t('views.actions.delete')
 

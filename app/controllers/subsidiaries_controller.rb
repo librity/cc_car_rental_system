@@ -17,7 +17,7 @@ class SubsidiariesController < ApplicationController
     @subsidiary = Subsidiary.new(subsidiary_params)
     if @subsidiary.save
       flash[:success] = t('views.messages.successfully.created',
-                          resource: t('views.resources.subsidiaries.singular'))
+                          resource: t('activerecord.models.subsidiary.one'))
       redirect_to @subsidiary
     else
       render :new
@@ -32,7 +32,7 @@ class SubsidiariesController < ApplicationController
     @subsidiary = Subsidiary.find(params[:id])
     if @subsidiary.update(subsidiary_params)
       flash[:success] = t('views.messages.successfully.updated',
-                          resource: t('views.resources.subsidiaries.singular'))
+                          resource: t('activerecord.models.subsidiary.one'))
       redirect_to @subsidiary
     else
       render :edit
@@ -42,7 +42,7 @@ class SubsidiariesController < ApplicationController
   def destroy
     Subsidiary.find(params[:id]).destroy
     flash[:success] = t('views.messages.successfully.removed',
-                        resource: t('views.resources.subsidiaries.singular'))
+                        resource: t('activerecord.models.subsidiary.one'))
     redirect_to subsidiaries_url
   end
 

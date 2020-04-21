@@ -12,33 +12,33 @@
     <section class='contents row'>
       <aside class="col-3">
         <dl class="side_info_box">
-          <dt><%= t('views.resources.manufacturers.singular') %>:</dt>
+          <dt><%= t('activerecord.models.manufacturer.one') %>:</dt>
           <dd><%= link_to @car_model.manufacturer.name, @car_model.manufacturer %> </dd>
         </dl>
 
         <dl class="side_info_box">
-          <dt><%= t('views.resources.car_categories.singular') %>:</dt>
+          <dt><%= t('activerecord.models.car_category.one') %>:</dt>
           <dd><%= link_to @car_model.car_category.name, @car_model.car_category%> </dd>
-          <dt><%= t('views.labels.daily_rate') %>:</dt>
+          <dt><%= t('activerecord.attributes.car_category.daily_rate') %>:</dt>
           <dd> <%= number_to_currency(@car_model.car_category.daily_rate) %> </dd>
-          <dt><%= t('views.labels.insurance') %>:</dt>
+          <dt><%= t('activerecord.attributes.car_category.insurance') %>:</dt>
           <dd> <%= number_to_currency(@car_model.car_category.insurance) %> </dd>
-          <dt><%= t('views.labels.third_party_insurance') %> de Terceiros:</dt>
+          <dt><%= t('activerecord.attributes.car_category.third_party_insurance') %> de Terceiros:</dt>
           <dd> <%= number_to_currency(@car_model.car_category.third_party_insurance) %> </dd>
         </dl>
       </aside>
 
       <dl>
-        <dt><%= t('views.labels.year') %>:</dt>
+        <dt><%= t('activerecord.attributes.car_model.year') %>:</dt>
         <dd><%= @car_model.year %> </dd>
-        <dt><%= t('views.labels.power') %>:</dt>
+        <dt><%= t('activerecord.attributes.car_model.power') %>:</dt>
         <dd><%= @car_model.metric_horsepower %> </dd>
-        <dt><%= t('views.labels.fuel_type') %>:</dt>
+        <dt><%= t('activerecord.attributes.car_model.fuel_type') %>:</dt>
         <dd><%= @car_model.fuel_type %> </dd>
 
-        <dt><%= t('views.labels.metric_city_milage') %>:</dt>
+        <dt><%= t('activerecord.attributes.car_model.metric_city_milage') %>:</dt>
         <dd><%= @car_model.metric_city_milage %> </dd>
-        <dt><%= t('views.labels.metric_highway_milage') %>:</dt>
+        <dt><%= t('activerecord.attributes.car_model.metric_highway_milage') %>:</dt>
         <dd><%= @car_model.metric_highway_milage %> </dd>
       </dl>
     </section>

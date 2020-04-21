@@ -17,7 +17,7 @@ describe CarCategory, type: :model do
       subject.name = ' '
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:name]).to include(I18n.t('models.validations.not_empty', attribute: I18n.t('views.labels.name')))
+      expect(subject.errors[:name]).to include(I18n.t('errors.messages.blank'))
     end
 
     it 'must be unique' do
@@ -26,7 +26,7 @@ describe CarCategory, type: :model do
       car_category = CarCategory.new(name: 'SUV')
 
       expect(car_category).to_not be_valid
-      expect(car_category.errors[:name]).to include(I18n.t('models.validations.unique', attribute: I18n.t('views.labels.name')))
+      expect(car_category.errors[:name]).to include(I18n.t('errors.messages.taken'))
     end
   end
 end

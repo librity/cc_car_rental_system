@@ -5,7 +5,7 @@ require 'rails_helper'
 feature 'Admin can register a car category' do
   scenario 'from index page' do
     visit root_path
-    click_on I18n.t('views.resources.car_categories.plural')
+    click_on I18n.t('activerecord.models.car_category.other')
 
     expect(page).to have_link(I18n.t('views.actions.new'),
                               href: new_car_category_path)
@@ -13,20 +13,20 @@ feature 'Admin can register a car category' do
 
   scenario 'successfully' do
     visit root_path
-    click_on  I18n.t('views.resources.car_categories.plural')
+    click_on  I18n.t('activerecord.models.car_category.other')
     click_on  I18n.t('views.actions.new')
 
-    fill_in I18n.t('views.labels.name'), with: 'Pickup'
-    fill_in I18n.t('views.labels.daily_rate'), with: '120'
-    fill_in I18n.t('views.labels.insurance'), with: '30'
-    fill_in I18n.t('views.labels.third_party_insurance'), with: '40'
-    click_on 'Enviar'
+    fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: 'Pickup'
+    fill_in I18n.t('activerecord.attributes.car_category.daily_rate'), with: '120'
+    fill_in I18n.t('activerecord.attributes.car_category.insurance'), with: '30'
+    fill_in I18n.t('activerecord.attributes.car_category.third_party_insurance'), with: '40'
+    click_on I18n.t('views.actions.send')
 
     expect(current_path).to eq car_category_path(CarCategory.last.id)
     expect(page).to have_content('Pickup')
     expect(page).to have_content('R$ 120')
     expect(page).to have_content('R$ 30')
     expect(page).to have_content('R$ 40')
-    expect(page).to have_link('Voltar')
+    expect(page).to have_link(I18n.t('views.actions.go_back'))
   end
 end

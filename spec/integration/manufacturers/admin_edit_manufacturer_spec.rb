@@ -7,11 +7,11 @@ feature 'Admin edits manufacturer' do
     Manufacturer.create(name: 'Fiat')
 
     visit root_path
-    click_on I18n.t('views.resources.manufacturers.plural')
+    click_on I18n.t('activerecord.models.manufacturer.other')
     click_on 'Fiat'
-    click_on 'Editar'
-    fill_in I18n.t('views.labels.name'), with: 'Honda'
-    click_on 'Enviar'
+    click_on I18n.t('views.actions.edit')
+    fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: 'Honda'
+    click_on I18n.t('views.actions.send')
 
     expect(page).to have_content('Honda')
   end
@@ -20,13 +20,13 @@ feature 'Admin edits manufacturer' do
     Manufacturer.create(name: 'Fiat')
 
     visit root_path
-    click_on I18n.t('views.resources.manufacturers.plural')
+    click_on I18n.t('activerecord.models.manufacturer.other')
     click_on 'Fiat'
-    click_on 'Editar'
-    fill_in I18n.t('views.labels.name'), with: ''
-    click_on 'Enviar'
+    click_on I18n.t('views.actions.edit')
+    fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: ''
+    click_on I18n.t('views.actions.send')
 
-    expect(page).to have_content(I18n.t('models.validations.not_empty', attribute: I18n.t('views.labels.name')))
+    expect(page).to have_content(I18n.t('errors.messages.blank'))
   end
 
   scenario 'and name must be unique' do
@@ -34,12 +34,12 @@ feature 'Admin edits manufacturer' do
     Manufacturer.create(name: 'Honda')
 
     visit root_path
-    click_on I18n.t('views.resources.manufacturers.plural')
+    click_on I18n.t('activerecord.models.manufacturer.other')
     click_on 'Fiat'
-    click_on 'Editar'
-    fill_in I18n.t('views.labels.name'), with: 'Honda'
-    click_on 'Enviar'
+    click_on I18n.t('views.actions.edit')
+    fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: 'Honda'
+    click_on I18n.t('views.actions.send')
 
-    expect(page).to have_content(I18n.t('models.validations.unique', attribute: I18n.t('views.labels.name')))
+    expect(page).to have_content(I18n.t('errors.messages.taken'))
   end
 end

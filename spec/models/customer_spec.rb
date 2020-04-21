@@ -18,7 +18,7 @@ describe Customer, type: :model do
       subject.name = ' '
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:name]).to include(I18n.t('models.validations.not_empty', attribute: I18n.t('views.labels.name')))
+      expect(subject.errors[:name]).to include(I18n.t('errors.messages.blank'))
     end
   end
 
@@ -27,14 +27,14 @@ describe Customer, type: :model do
       subject.email = ' '
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:email]).to include('Email não pode ficar em branco')
+      expect(subject.errors[:email]).to include(I18n.t('errors.messages.blank'))
     end
 
     it 'cannot be too long' do
       subject.email = 'a' * 244 + '@example.com'
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:email]).to include('Email muito longo')
+      expect(subject.errors[:email]).to include(I18n.t('errors.messages.too_long', count: 255))
     end
 
     it 'must be unique' do
@@ -43,7 +43,7 @@ describe Customer, type: :model do
       customer = Customer.new(email: 'valid@example.com')
 
       expect(customer).to_not be_valid
-      expect(customer.errors[:email]).to include('Email deve ser único')
+      expect(customer.errors[:email]).to include(I18n.t('errors.messages.taken'))
     end
 
     it 'should accept valid addresses' do
@@ -64,7 +64,7 @@ describe Customer, type: :model do
         subject.email = invalid_address
 
         expect(subject).to_not be_valid
-        expect(subject.errors[:email]).to include('Email não é valido')
+        expect(subject.errors[:email]).to include(I18n.t('errors.messages.invalid'))
       end
     end
 
@@ -83,7 +83,7 @@ describe Customer, type: :model do
 
       expect(subject).to_not be_valid
 
-      expect(subject.errors[:cpf]).to include('Cpf não pode ficar em branco')
+      expect(subject.errors[:cpf]).to include(I18n.t('errors.messages.blank'))
     end
 
     it 'must be unique' do
@@ -92,14 +92,14 @@ describe Customer, type: :model do
       customer = Customer.new(cpf: '64757188072')
 
       expect(customer).to_not be_valid
-      expect(customer.errors[:cpf]).to include('Cpf deve ser único')
+      expect(customer.errors[:cpf]).to include(I18n.t('errors.messages.taken'))
     end
 
     it 'must be valid' do
       subject.cpf = '64757178072'
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:cpf]).to include('Cpf não é valido')
+      expect(subject.errors[:cpf]).to include(I18n.t('errors.messages.invalid'))
     end
   end
 end

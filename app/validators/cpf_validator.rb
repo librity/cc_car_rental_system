@@ -31,7 +31,7 @@ class CpfValidator < ActiveModel::EachValidator
   private
 
   def fail_validation(record, attribute)
-    record.errors[attribute] << (options[:message] || ' não é valido')
+    record.errors[attribute] << (options[:message] || I18n.t('errors.messages.invalid'))
   end
 
   def in_blacklist?(value)
