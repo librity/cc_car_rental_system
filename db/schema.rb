@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_204500) do
+ActiveRecord::Schema.define(version: 2020_04_21_021354) do
 
   create_table "car_categories", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,21 @@ ActiveRecord::Schema.define(version: 2020_04_15_204500) do
     t.float "third_party_insurance"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "car_models", force: :cascade do |t|
+    t.string "name"
+    t.string "year"
+    t.string "metric_horsepower"
+    t.string "fuel_type"
+    t.integer "metric_city_milage"
+    t.integer "metric_highway_milage"
+    t.integer "car_category_id", null: false
+    t.integer "manufacturer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["car_category_id"], name: "index_car_models_on_car_category_id"
+    t.index ["manufacturer_id"], name: "index_car_models_on_manufacturer_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -46,4 +61,6 @@ ActiveRecord::Schema.define(version: 2020_04_15_204500) do
     t.index ["cnpj"], name: "index_subsidiaries_on_cnpj", unique: true
   end
 
+  add_foreign_key "car_models", "car_categories"
+  add_foreign_key "car_models", "manufacturers"
 end
