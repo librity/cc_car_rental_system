@@ -8,6 +8,15 @@ Metrics/BlockLength:
 Metrics/MethodLength:
   Max: 1000
 
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: true
   Max: 120
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true

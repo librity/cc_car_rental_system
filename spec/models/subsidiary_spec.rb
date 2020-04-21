@@ -54,4 +54,13 @@ describe Subsidiary, type: :model do
       expect(subject.errors[:cnpj]).to include(I18n.t('errors.messages.invalid'))
     end
   end
+
+  context 'validation: address' do
+    it 'cannot be blank' do
+      subject.address = ' '
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:address]).to include(I18n.t('errors.messages.blank'))
+    end
+  end
 end

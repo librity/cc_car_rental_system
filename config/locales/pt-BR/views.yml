@@ -53,7 +53,7 @@ pt-BR:
         create: "Cadastrar um novo Cliente"
 
     footer:
-      message_1: "Aplicação Rails desenvolvida por "
-      message_2: " como parte do "
-      message_3: ", um programa de bolsa para desenvolvimento web."
+      message_1: "Aplicação Rails desenvolvida por"
+      message_2: "como parte do"
+      message_3: "um programa de bolsa para desenvolvimento web."
       original_repo: "Repositório Original"
