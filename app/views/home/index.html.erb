@@ -10,21 +10,18 @@
     </header>
 
     <section class='contents'>
-      <h3>I18n demo</h3>
 
-      <p><%= t('views.hello') %></p>
+      <%= image_tag("cars/1.png", alt: "Car", width:  "360") %>
+      <%= image_tag("cars/2.png", alt: "Car", width:  "360") %>
+      <%= image_tag("cars/3.png", alt: "Car", width:  "360") %>
+      <%= image_tag("cars/4.png", alt: "Car", width:  "360") %>
+      <%= image_tag("cars/5.png", alt: "Car", width:  "360") %>
+      <%= image_tag("cars/6.png", alt: "Car", width:  "360") %>
+      <%= image_tag("cars/7.png", alt: "Car", width:  "360") %>
+      <%= image_tag("cars/8.png", alt: "Car", width:  "360") %>
+      <%= image_tag("cars/9.png", alt: "Car", width:  "360") %>
+      <%= image_tag("cars/10.png", alt: "Car", width: "360") %>
 
-      <%= I18n.localize(Time.zone.now) %>
-      <br/>
-
-      <%= I18n.localize(Date.today) %>
-      <br/>
-
-      <%= distance_of_time_in_words(12000) %>
-      <br/>
-
-      <%= number_to_currency(100000) %>
-      <br/>
     </section>
 
     <div class='actions mt-4'>

@@ -29,4 +29,55 @@ describe CarCategory, type: :model do
       expect(car_category.errors[:name]).to include(I18n.t('errors.messages.taken'))
     end
   end
+
+  context 'validation: daily_rate' do
+    it 'cannot be blank' do
+      subject.daily_rate = ' '
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:daily_rate]).to include(I18n.t('errors.messages.blank'))
+    end
+    
+    it 'should be numerical' do
+      subject.daily_rate = '12.B4'
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:daily_rate])
+        .to include(I18n.t('errors.messages.not_a_number'))
+    end
+  end
+
+  context 'validation: insurance' do
+    it 'cannot be blank' do
+      subject.insurance = ' '
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:insurance]).to include(I18n.t('errors.messages.blank'))
+    end
+
+    it 'should be numerical' do
+      subject.insurance = '12.B4'
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:insurance])
+        .to include(I18n.t('errors.messages.not_a_number'))
+    end
+  end
+
+  context 'validation: third_party_insurance' do
+    it 'cannot be blank' do
+      subject.third_party_insurance = ' '
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:third_party_insurance]).to include(I18n.t('errors.messages.blank'))
+    end
+
+    it 'should be numerical' do
+      subject.third_party_insurance = '12.B4'
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:third_party_insurance])
+        .to include(I18n.t('errors.messages.not_a_number'))
+    end
+  end
 end
