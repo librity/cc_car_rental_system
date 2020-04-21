@@ -16,7 +16,8 @@ class ManufacturersController < ApplicationController
   def create
     @manufacturer = Manufacturer.new(manufacturer_params)
     if @manufacturer.save
-      flash[:success] = 'Fabricante criado com sucesso'
+      flash[:success] = I18n.t('views.messages.successfully.created',
+                               resource: I18n.t('views.resources.manufacturers.singular'))
       redirect_to @manufacturer
     else
       render :new
@@ -30,7 +31,8 @@ class ManufacturersController < ApplicationController
   def update
     @manufacturer = Manufacturer.find(params[:id])
     if @manufacturer.update(manufacturer_params)
-      flash[:success] = 'Fabricante atualizado'
+      flash[:success] = I18n.t('views.messages.successfully.updated',
+                               resource: I18n.t('views.resources.manufacturers.singular'))
       redirect_to @manufacturer
     else
       render :edit
@@ -39,7 +41,8 @@ class ManufacturersController < ApplicationController
 
   def destroy
     Manufacturer.find(params[:id]).destroy
-    flash[:success] = 'Fabricante removido'
+    flash[:success] = I18n.t('views.messages.successfully.removed',
+                             resource: I18n.t('views.resources.manufacturers.singular'))
     redirect_to manufacturers_url
   end
 

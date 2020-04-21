@@ -13,7 +13,7 @@ pt-BR:
       arbitrary_error: "Algo deu errado! Por favor verifique os dados e tente novamente."
       delete_resource: "Tem certeza que deseja remover o(a) %{resource}?"
       successfully:
-        created: "%{resource} salvo(a) com sucesso!"
+        created: "%{resource} criado(a) com sucesso!"
         updated: "%{resource} atualizado(a) com sucesso!"
         destroyed: "%{resource} removido(a) com sucesso!"
 

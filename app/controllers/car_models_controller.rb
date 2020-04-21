@@ -17,7 +17,8 @@ class CarModelsController < ApplicationController
   def create
     @car_model = CarModel.new(car_model_params)
     if @car_model.save
-      flash[:success] = 'Modelo de veículos criado com sucesso'
+      flash[:success] = I18n.t('views.messages.successfully.created',
+                               resource: I18n.t('views.resources.car_models.singular'))
       redirect_to @car_model
     else
       load_dependent_models
@@ -33,7 +34,8 @@ class CarModelsController < ApplicationController
   def update
     @car_model = CarModel.find(params[:id])
     if @car_model.update(car_model_params)
-      flash[:success] = 'Modelo de veículos atualizado'
+      flash[:success] = I18n.t('views.messages.successfully.updated',
+                               resource: I18n.t('views.resources.car_models.singular'))
       redirect_to @car_model
     else
       load_dependent_models
@@ -43,7 +45,8 @@ class CarModelsController < ApplicationController
 
   def destroy
     CarModel.find(params[:id]).destroy
-    flash[:success] = 'Modelo de veículos removido'
+    flash[:success] = I18n.t('views.messages.successfully.removed',
+                             resource: I18n.t('views.resources.car_models.singular'))
     redirect_to car_models_url
   end
 

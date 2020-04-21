@@ -22,7 +22,8 @@
     <div class='actions mt-4'>
       <%= link_to I18n.t('views.actions.edit'), edit_car_category_path(@car_category), class: 'btn btn-primary' %>
       <%= link_to I18n.t('views.actions.delete'), @car_category, method: :delete, 
-                  data: { confirm: 'Tem certeza?' }, class: 'btn btn-danger' %>
+                  data: { confirm: I18n.t('messages.delete_resource', resource: @car_category.name) },
+                  class: 'btn btn-danger' %>
     </div>
   </div>
 </main>
