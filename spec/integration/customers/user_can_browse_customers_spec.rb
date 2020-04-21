@@ -39,7 +39,7 @@ feature 'Users can browse customers' do
     visit root_path
     click_on I18n.t('views.resources.customers.plural')
 
-    expect(page).to have_content('Nenhum cliente cadastrado')
+    expect(page).to have_content(I18n.t('views.resources.customers.empty_resource'))
   end
 
   scenario 'and return to home page' do

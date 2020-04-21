@@ -19,7 +19,7 @@ feature 'Admin deletes car model' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq car_models_path
-    expect(page).to have_content('Nenhum modelo de veículos cadastrado')
+    expect(page).to have_content(I18n.t('views.resources.car_models.empty_resource'))
   end
 
   scenario "and doesn't delete all of them" do

@@ -8,32 +8,38 @@
       <h1> <%= @car_model.name %> </h1>
     </header>
 
-    <section class='contents'>
+
+    <section class='contents row'>
+      <aside class="col-3">
+        <dl class="side_info_box">
+          <dt><%= I18n.t('views.resources.manufacturers.singular') %>:</dt>
+          <dd><%= link_to @car_model.manufacturer.name, @car_model.manufacturer %> </dd>
+        </dl>
+
+        <dl class="side_info_box">
+          <dt><%= I18n.t('views.resources.car_categories.singular') %>:</dt>
+          <dd><%= link_to @car_model.car_category.name, @car_model.car_category%> </dd>
+          <dt><%= I18n.t('views.labels.daily_rate') %>:</dt>
+          <dd> <%= number_to_currency(@car_model.car_category.daily_rate) %> </dd>
+          <dt><%= I18n.t('views.labels.insurance') %>:</dt>
+          <dd> <%= number_to_currency(@car_model.car_category.insurance) %> </dd>
+          <dt><%= I18n.t('views.labels.third_party_insurance') %> de Terceiros:</dt>
+          <dd> <%= number_to_currency(@car_model.car_category.third_party_insurance) %> </dd>
+        </dl>
+      </aside>
+
       <dl>
-        <dt>Fabricante:</dt>
-        <dd><%= link_to @car_model.manufacturer.name, @car_model.manufacturer %> </dd>
-
-        <dt>Categoria de veículo:</dt>
-        <dd><%= link_to @car_model.car_category.name, @car_model.car_category%> </dd>
-        <dt>Diária:</dt>
-        <dd> <%= number_to_currency(@car_model.car_category.daily_rate) %> </dd>
-        <dt>Seguro:</dt>
-        <dd> <%= number_to_currency(@car_model.car_category.insurance) %> </dd>
-        <dt>Seguro de Terceiros:</dt>
-        <dd> <%= number_to_currency(@car_model.car_category.third_party_insurance) %> </dd>
-
-        <dt>Ano:</dt>
+        <dt><%= I18n.t('views.labels.year') %>:</dt>
         <dd><%= @car_model.year %> </dd>
-        <dt>Potência:</dt>
+        <dt><%= I18n.t('views.labels.power') %>:</dt>
         <dd><%= @car_model.metric_horsepower %> </dd>
-        <dt>Tipo de combustível:</dt>
+        <dt><%= I18n.t('views.labels.fuel_type') %>:</dt>
         <dd><%= @car_model.fuel_type %> </dd>
 
-        <dt>Quilometragem na cidade:</dt>
+        <dt><%= I18n.t('views.labels.metric_city_milage') %>:</dt>
         <dd><%= @car_model.metric_city_milage %> </dd>
-        <dt>Quilometragem na estrada:</dt>
+        <dt><%= I18n.t('views.labels.metric_highway_milage') %>:</dt>
         <dd><%= @car_model.metric_highway_milage %> </dd>
-
       </dl>
     </section>
 

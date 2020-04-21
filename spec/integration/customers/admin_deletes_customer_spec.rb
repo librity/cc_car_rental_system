@@ -13,7 +13,7 @@ feature 'Admin deletes customer' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq customers_path
-    expect(page).to have_content('Nenhum cliente cadastrado')
+    expect(page).to have_content(I18n.t('views.resources.customers.empty_resource'))
   end
 
   scenario "and doesn't delete all of them" do

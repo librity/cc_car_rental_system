@@ -30,7 +30,7 @@ feature 'Visitor view manufacturers' do
     visit root_path
     click_on I18n.t('views.resources.manufacturers.plural')
 
-    expect(page).to have_content('Nenhum fabricante cadastrado')
+    expect(page).to have_content(I18n.t('views.resources.manufacturers.empty_resource'))
   end
 
   scenario 'and return to home page' do

@@ -85,6 +85,7 @@ p {
   @include box_sizing;
 }
 
-@import "./_header.scss";
-@import "./_forms.scss";
-@import "./_footer.scss";
+@import "./header.scss";
+@import "./forms.scss";
+@import "./footer.scss";
+@import "./show.scss";

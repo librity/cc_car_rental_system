@@ -40,7 +40,7 @@ feature 'Admins can browse car categories' do
     visit root_path
     click_on I18n.t('views.resources.car_categories.plural')
 
-    expect(page).to have_content('Nenhuma categoria de veículos cadastrada')
+    expect(page).to have_content(I18n.t('views.resources.car_categories.empty_resource'))
   end
 
   scenario 'and return to home page' do

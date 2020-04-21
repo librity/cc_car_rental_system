@@ -12,7 +12,7 @@ feature 'Admin deletes manufacturer' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq manufacturers_path
-    expect(page).to have_content('Nenhum fabricante cadastrado')
+    expect(page).to have_content(I18n.t('views.resources.manufacturers.empty_resource'))
   end
 
   scenario "and doesn't delete all of them" do

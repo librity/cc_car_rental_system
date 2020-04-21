@@ -13,7 +13,7 @@ feature 'Admin deletes subsidiary' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq subsidiaries_path
-    expect(page).to have_content('Nenhuma filial cadastrada')
+    expect(page).to have_content(I18n.t('views.resources.subsidiaries.empty_resource'))
   end
 
   scenario "and doesn't delete all of them" do

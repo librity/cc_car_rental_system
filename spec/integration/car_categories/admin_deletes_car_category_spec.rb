@@ -13,7 +13,7 @@ feature 'Admin deletes car category' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq car_categories_path
-    expect(page).to have_content('Nenhuma categoria de veículos cadastrada')
+    expect(page).to have_content(I18n.t('views.resources.car_categories.empty_resource'))
   end
 
   scenario "and doesn't delete all of them" do

@@ -1,8 +1,9 @@
 <% if object.errors.any? %>
   <div id='error_explanation'>
     <div class='alert alert-danger'>
-      Este formulário contem <%= object.errors.count %> erro(s)!
+      <%= I18n.t('views.messages.form_error', error_count: object.errors.count ) %>
     </div>
+
     <ul>
       <% object.errors.full_messages.each do |msg| %>
         <li> <%= msg %> </li>

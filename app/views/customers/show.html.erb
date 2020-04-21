@@ -10,10 +10,10 @@
 
     <section class='contents'>
       <dl>
-        <dt>CPF:</dt>
-        <dd> <%= @customer.cpf %> </dd>
-        <dt>Email:</dt>
+        <dt><%= I18n.t('views.labels.email') %>:</dt>
         <dd> <%= @customer.email %> </dd>
+        <dt><%= I18n.t('views.labels.cpf') %>:</dt>
+        <dd> <%= @customer.cpf %> </dd>
       </dl>
     </section>
 

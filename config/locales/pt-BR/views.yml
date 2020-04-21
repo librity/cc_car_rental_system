@@ -4,6 +4,7 @@ pt-BR:
     hello: "Olá mundo!"
 
     application_name: "Car Rental System"
+    greeting: "Bem vindo ao sistema de gestão de locação de carros"
 
     navigation:
       home: "Home"
@@ -11,6 +12,7 @@ pt-BR:
 
     messages:
       arbitrary_error: "Algo deu errado! Por favor verifique os dados e tente novamente."
+      form_error: "Este formulário contem %{error_count} erro(s)!"
       delete_resource: "Tem certeza que deseja remover o(a) %{resource}?"
       successfully:
         created: "%{resource} criado(a) com sucesso!"
@@ -23,6 +25,7 @@ pt-BR:
       edit: Editar
       delete: Apagar
       new: Novo
+      update: Atualizar
 
     labels:
       name: "Nome"
@@ -43,27 +46,37 @@ pt-BR:
       manufacturers:
         singular: "Fabricante"
         plural: "Fabricantes"
-        description:
+        description: "Todos os fabricantes de carros cadastrados na plataforma."
+        empty_resource: "Nenhum fabricante cadastrado"
+        create: "Criar um novo Fabricante"
 
       car_categories:
         singular: "Categoria de Veículo"
         plural: "Categorias de Veículo"
-        description:
+        description: "Todos as categorias de veículo que oferecemos."
+        empty_resource: "Nenhuma categoria de veículo cadastrada"
+        create: "Criar uma nova Categoria de Veículo"
 
       car_models:
         singular: "Modelo de Veículo"
         plural: "Modelos de Veículo"
-        description:
+        description: "Todos os modelos de veículo que oferecemos."
+        empty_resource: "Nenhum modelo de veículo cadastrado"
+        create: "Criar um novo Modelo de Veículo"
 
       subsidiaries:
         singular: "Filial"
         plural: "Filiais"
-        description:
+        description: "Todas as nossas filiais."
+        empty_resource: "Nenhuma filial cadastrada"
+        create: "Criar uma nova Filial"
 
       customers:
         singular: "Cliente"
         plural: "Clientes"
-        description:
+        description: "Todos os nossos clientes."
+        empty_resource: "Nenhum cliente cadastrado"
+        create: "Cadastrar um novo Cliente"
 
     footer:
       message_1: "Aplicação Rails desenvolvida por "

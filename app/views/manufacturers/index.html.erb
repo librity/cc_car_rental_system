@@ -5,14 +5,14 @@
 <main class='row'>
   <div class='col-md-12'>
     <header class='header'>
-      <h1>Fabricantes</h1>
+      <h1><%= I18n.t('views.resources.manufacturers.plural') %></h1>
 
-      <p>Todos os fabricantes de carros cadastrados na plataforma.</p>
+      <p><%= I18n.t('views.resources.manufacturers.description') %></p>
     </header>
 
     <section class='contents'>
       <% if @manufacturers.empty? %>
-        <p>Nenhum fabricante cadastrado</p>
+        <p><%= I18n.t('views.resources.manufacturers.empty_resource') %></p>
       <% end %>
 
       <ol>

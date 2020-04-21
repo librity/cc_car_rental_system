@@ -38,7 +38,7 @@ feature 'Admins can browse subsidiaries' do
     visit root_path
     click_on I18n.t('views.resources.subsidiaries.plural')
 
-    expect(page).to have_content('Nenhuma filial cadastrada')
+    expect(page).to have_content(I18n.t('views.resources.subsidiaries.empty_resource'))
   end
 
   scenario 'and return to home page' do

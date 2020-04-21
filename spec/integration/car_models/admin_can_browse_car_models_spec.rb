@@ -61,7 +61,7 @@ feature 'Admins can browse car models' do
     visit root_path
     click_on I18n.t('views.resources.car_models.plural')
 
-    expect(page).to have_content('Nenhum modelo de veículos cadastrado')
+    expect(page).to have_content(I18n.t('views.resources.car_models.empty_resource'))
   end
 
   scenario 'and return to home page' do
