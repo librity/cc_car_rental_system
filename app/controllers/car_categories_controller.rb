@@ -16,8 +16,8 @@ class CarCategoriesController < ApplicationController
   def create
     @car_category = CarCategory.new(car_category_params)
     if @car_category.save
-      flash[:success] = I18n.t('views.messages.successfully.created',
-                               resource: I18n.t('views.resources.car_categories.singular'))
+      flash[:success] = t('views.messages.successfully.created',
+                          resource: t('views.resources.car_categories.singular'))
       redirect_to @car_category
     else
       render :new
@@ -31,8 +31,8 @@ class CarCategoriesController < ApplicationController
   def update
     @car_category = CarCategory.find(params[:id])
     if @car_category.update(car_category_params)
-      flash[:success] = I18n.t('views.messages.successfully.updated',
-                               resource: I18n.t('views.resources.car_categories.singular'))
+      flash[:success] = t('views.messages.successfully.updated',
+                          resource: t('views.resources.car_categories.singular'))
       redirect_to @car_category
     else
       render :edit
@@ -41,8 +41,8 @@ class CarCategoriesController < ApplicationController
 
   def destroy
     CarCategory.find(params[:id]).destroy
-    flash[:success] = I18n.t('views.messages.successfully.removed',
-                             resource: I18n.t('views.resources.car_categories.singular'))
+    flash[:success] = t('views.messages.successfully.removed',
+                        resource: t('views.resources.car_categories.singular'))
     redirect_to car_categories_url
   end
 

@@ -40,6 +40,6 @@ feature 'Admin edits car model' do
     fill_in I18n.t('views.labels.name'), with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content(I18n.t('models.validations.name.not_empty'))
+    expect(page).to have_content(I18n.t('models.validations.not_empty', attribute: I18n.t('views.labels.name')))
   end
 end

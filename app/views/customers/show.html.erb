@@ -1,5 +1,5 @@
 <nav clas='col'>
-  <%= link_to I18n.t('views.actions.go_back'), customers_path, class: 'btn btn-secondary' %>
+  <%= link_to t('views.actions.go_back'), customers_path, class: 'btn btn-secondary' %>
 </nav>
 
 <main class='row'>
@@ -10,17 +10,17 @@
 
     <section class='contents'>
       <dl>
-        <dt><%= I18n.t('views.labels.email') %>:</dt>
+        <dt><%= t('views.labels.email') %>:</dt>
         <dd> <%= @customer.email %> </dd>
-        <dt><%= I18n.t('views.labels.cpf') %>:</dt>
+        <dt><%= t('views.labels.cpf') %>:</dt>
         <dd> <%= @customer.cpf %> </dd>
       </dl>
     </section>
 
     <div class='actions mt-4'>
-      <%= link_to I18n.t('views.actions.edit'), edit_customer_path(@customer), class: 'btn btn-primary' %>
-      <%= link_to I18n.t('views.actions.delete'), @customer, method: :delete,
-                  data: { confirm: I18n.t('messages.delete_resource', resource: @customer.name) },
+      <%= link_to t('views.actions.edit'), edit_customer_path(@customer), class: 'btn btn-primary' %>
+      <%= link_to t('views.actions.delete'), @customer, method: :delete,
+                  data: { confirm: t('messages.delete_resource', resource: @customer.name) },
                   class: 'btn btn-danger' %>
     </div>
   </div>

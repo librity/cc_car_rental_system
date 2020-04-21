@@ -1,0 +1,12 @@
+Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+
+Metrics/MethodLength:
+  Max: 1000
+
+Metrics/LineLength:
+  Max: 120

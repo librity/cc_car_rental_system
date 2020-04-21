@@ -22,6 +22,6 @@ feature 'Admin register valid car model' do
     fill_in I18n.t('views.labels.metric_highway_milage'), with: '16'
     click_on 'Enviar'
 
-    expect(page).to have_content(I18n.t('models.validations.name.not_empty'))
+    expect(page).to have_content(I18n.t('models.validations.not_empty', attribute: I18n.t('views.labels.name')))
   end
 end

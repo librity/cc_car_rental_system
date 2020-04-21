@@ -1,8 +1,8 @@
 <%= form_with model: @manufacturer, local: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :name, I18n.t('views.labels.name') %>
+  <%= f.label :name, t('views.labels.name') %>
   <%= f.text_field :name, class: 'form-control' %>
 
-  <%= f.submit I18n.t('views.actions.send'), class: 'btn btn-primary' %>
+  <%= f.submit t('views.actions.send'), class: 'btn btn-primary' %>
 <% end %>

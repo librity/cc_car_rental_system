@@ -16,8 +16,8 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
     if @customer.save
-      flash[:success] = I18n.t('views.messages.successfully.created',
-                               resource: I18n.t('views.resources.customers.singular'))
+      flash[:success] = t('views.messages.successfully.created',
+                          resource: t('views.resources.customers.singular'))
       redirect_to @customer
     else
       render :new
@@ -31,8 +31,8 @@ class CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
-      flash[:success] = I18n.t('views.messages.successfully.updated',
-                               resource: I18n.t('views.resources.customers.singular'))
+      flash[:success] = t('views.messages.successfully.updated',
+                          resource: t('views.resources.customers.singular'))
       redirect_to @customer
     else
       render :edit
@@ -41,8 +41,8 @@ class CustomersController < ApplicationController
 
   def destroy
     Customer.find(params[:id]).destroy
-    flash[:success] = I18n.t('views.messages.successfully.removed',
-                             resource: I18n.t('views.resources.customers.singular'))
+    flash[:success] = t('views.messages.successfully.removed',
+                        resource: t('views.resources.customers.singular'))
     redirect_to customers_url
   end
 

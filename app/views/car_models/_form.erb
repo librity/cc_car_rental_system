@@ -1,31 +1,31 @@
 <%= form_with model: @car_model, local: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :name, I18n.t('views.labels.name') %>
+  <%= f.label :name, t('views.labels.name') %>
   <%= f.text_field :name, class: 'form-control' %>
 
-  <%= f.label :manufacturer_id, I18n.t('views.resources.manufacturers.singular') %>
+  <%= f.label :manufacturer_id, t('views.resources.manufacturers.singular') %>
   <%= f.collection_select :manufacturer_id, @manufacturers, :id, :name, {}, 
                           { class: 'form-control' } %>
 
-  <%= f.label :car_category_id, I18n.t('views.resources.car_categories.singular') %>
+  <%= f.label :car_category_id, t('views.resources.car_categories.singular') %>
   <%= f.collection_select :car_category_id, @car_categories, :id, :name, {}, 
                           { class: 'form-control' } %>
 
-  <%= f.label :year, I18n.t('views.labels.year') %>
+  <%= f.label :year, t('views.labels.year') %>
   <%= f.text_field :year, class: 'form-control' %>
 
-  <%= f.label :metric_horsepower, I18n.t('views.labels.power') %>
+  <%= f.label :metric_horsepower, t('views.labels.power') %>
   <%= f.text_field :metric_horsepower, class: 'form-control' %>
 
-  <%= f.label :fuel_type, I18n.t('views.labels.fuel_type') %>
+  <%= f.label :fuel_type, t('views.labels.fuel_type') %>
   <%= f.text_field :fuel_type, class: 'form-control' %>
 
-  <%= f.label :metric_city_milage, I18n.t('views.labels.metric_city_milage') %>
+  <%= f.label :metric_city_milage, t('views.labels.metric_city_milage') %>
   <%= f.number_field :metric_city_milage, class: 'form-control' %>
 
-  <%= f.label :metric_highway_milage, I18n.t('views.labels.metric_highway_milage') %>
+  <%= f.label :metric_highway_milage, t('views.labels.metric_highway_milage') %>
   <%= f.number_field :metric_highway_milage, class: 'form-control' %>
 
-  <%= f.submit I18n.t('views.actions.send'), class: 'btn btn-primary' %>
+  <%= f.submit t('views.actions.send'), class: 'btn btn-primary' %>
 <% end %>

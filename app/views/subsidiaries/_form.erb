@@ -1,14 +1,14 @@
 <%= form_with model: @subsidiary, local: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :name, I18n.t('views.labels.name') %>
+  <%= f.label :name, t('views.labels.name') %>
   <%= f.text_field :name, class: 'form-control' %>
 
-  <%= f.label :cnpj, I18n.t('views.labels.cnpj') %>
+  <%= f.label :cnpj, t('views.labels.cnpj') %>
   <%= f.number_field :cnpj, class: 'form-control' %>
 
-  <%= f.label :address, I18n.t('views.labels.address') %>
+  <%= f.label :address, t('views.labels.address') %>
   <%= f.text_field :address, class: 'form-control' %>
 
-  <%= f.submit I18n.t('views.actions.send'), class: 'btn btn-primary' %>
+  <%= f.submit t('views.actions.send'), class: 'btn btn-primary' %>
 <% end %>

@@ -3,7 +3,7 @@
 class Customer < ApplicationRecord
   before_save { email.downcase! }
 
-  validates :name, presence: { message: I18n.t('models.validations.name.not_empty') }
+  validates :name, presence: { message: I18n.t('models.validations.not_empty', attribute: I18n.t('views.labels.name')) }
   validates :email, presence: { message: 'Email não pode ficar em branco' },
                     uniqueness: { message: 'Email deve ser único' },
                     format: { with: URI::MailTo::EMAIL_REGEXP,

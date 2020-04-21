@@ -1,5 +1,5 @@
 <nav clas='col'>
-  <%= link_to I18n.t('views.actions.go_back'), car_categories_path, class: 'btn btn-secondary' %>
+  <%= link_to t('views.actions.go_back'), car_categories_path, class: 'btn btn-secondary' %>
 </nav>
 
 <main class='row'>
@@ -10,19 +10,19 @@
 
     <section class='contents'>
       <dl>
-        <dt><%= I18n.t('views.labels.daily_rate') %>:</dt>
+        <dt><%= t('views.labels.daily_rate') %>:</dt>
         <dd> <%= number_to_currency(@car_category.daily_rate) %> </dd>
-        <dt><%= I18n.t('views.labels.insurance') %>:</dt>
+        <dt><%= t('views.labels.insurance') %>:</dt>
         <dd> <%= number_to_currency(@car_category.insurance) %> </dd>
-        <dt><%= I18n.t('views.labels.third_party_insurance') %>:</dt>
+        <dt><%= t('views.labels.third_party_insurance') %>:</dt>
         <dd> <%= number_to_currency(@car_category.third_party_insurance) %> </dd>
       </dl>
     </section>
 
     <div class='actions mt-4'>
-      <%= link_to I18n.t('views.actions.edit'), edit_car_category_path(@car_category), class: 'btn btn-primary' %>
-      <%= link_to I18n.t('views.actions.delete'), @car_category, method: :delete, 
-                  data: { confirm: I18n.t('messages.delete_resource', resource: @car_category.name) },
+      <%= link_to t('views.actions.edit'), edit_car_category_path(@car_category), class: 'btn btn-primary' %>
+      <%= link_to t('views.actions.delete'), @car_category, method: :delete, 
+                  data: { confirm: t('messages.delete_resource', resource: @car_category.name) },
                   class: 'btn btn-danger' %>
     </div>
   </div>

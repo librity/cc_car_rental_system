@@ -1,5 +1,5 @@
 <nav clas='col'>
-  <%= link_to I18n.t('views.actions.go_back'), car_models_path, class: 'btn btn-secondary' %>
+  <%= link_to t('views.actions.go_back'), car_models_path, class: 'btn btn-secondary' %>
 </nav>
 
 <main class='row'>
@@ -12,41 +12,41 @@
     <section class='contents row'>
       <aside class="col-3">
         <dl class="side_info_box">
-          <dt><%= I18n.t('views.resources.manufacturers.singular') %>:</dt>
+          <dt><%= t('views.resources.manufacturers.singular') %>:</dt>
           <dd><%= link_to @car_model.manufacturer.name, @car_model.manufacturer %> </dd>
         </dl>
 
         <dl class="side_info_box">
-          <dt><%= I18n.t('views.resources.car_categories.singular') %>:</dt>
+          <dt><%= t('views.resources.car_categories.singular') %>:</dt>
           <dd><%= link_to @car_model.car_category.name, @car_model.car_category%> </dd>
-          <dt><%= I18n.t('views.labels.daily_rate') %>:</dt>
+          <dt><%= t('views.labels.daily_rate') %>:</dt>
           <dd> <%= number_to_currency(@car_model.car_category.daily_rate) %> </dd>
-          <dt><%= I18n.t('views.labels.insurance') %>:</dt>
+          <dt><%= t('views.labels.insurance') %>:</dt>
           <dd> <%= number_to_currency(@car_model.car_category.insurance) %> </dd>
-          <dt><%= I18n.t('views.labels.third_party_insurance') %> de Terceiros:</dt>
+          <dt><%= t('views.labels.third_party_insurance') %> de Terceiros:</dt>
           <dd> <%= number_to_currency(@car_model.car_category.third_party_insurance) %> </dd>
         </dl>
       </aside>
 
       <dl>
-        <dt><%= I18n.t('views.labels.year') %>:</dt>
+        <dt><%= t('views.labels.year') %>:</dt>
         <dd><%= @car_model.year %> </dd>
-        <dt><%= I18n.t('views.labels.power') %>:</dt>
+        <dt><%= t('views.labels.power') %>:</dt>
         <dd><%= @car_model.metric_horsepower %> </dd>
-        <dt><%= I18n.t('views.labels.fuel_type') %>:</dt>
+        <dt><%= t('views.labels.fuel_type') %>:</dt>
         <dd><%= @car_model.fuel_type %> </dd>
 
-        <dt><%= I18n.t('views.labels.metric_city_milage') %>:</dt>
+        <dt><%= t('views.labels.metric_city_milage') %>:</dt>
         <dd><%= @car_model.metric_city_milage %> </dd>
-        <dt><%= I18n.t('views.labels.metric_highway_milage') %>:</dt>
+        <dt><%= t('views.labels.metric_highway_milage') %>:</dt>
         <dd><%= @car_model.metric_highway_milage %> </dd>
       </dl>
     </section>
 
     <div class='actions mt-4'>
-      <%= link_to I18n.t('views.actions.edit'), edit_car_model_path(@car_model), class: 'btn btn-primary' %>
-      <%= link_to I18n.t('views.actions.delete'), @car_model, method: :delete,
-                  data: { confirm: I18n.t('messages.delete_resource', resource: @car_model.name) },
+      <%= link_to t('views.actions.edit'), edit_car_model_path(@car_model), class: 'btn btn-primary' %>
+      <%= link_to t('views.actions.delete'), @car_model, method: :delete,
+                  data: { confirm: t('messages.delete_resource', resource: @car_model.name) },
                   class: 'btn btn-danger' %>
     </div>
   </div>

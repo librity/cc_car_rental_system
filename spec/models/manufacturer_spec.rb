@@ -16,7 +16,7 @@ describe Manufacturer, type: :model do
       subject.name = ' '
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:name]).to include(I18n.t('models.validations.name.not_empty'))
+      expect(subject.errors[:name]).to include(I18n.t('models.validations.not_empty', attribute: I18n.t('views.labels.name')))
     end
 
     it 'must be unique' do
@@ -25,7 +25,7 @@ describe Manufacturer, type: :model do
       manufacturer = Manufacturer.new(name: 'Honda')
 
       expect(manufacturer).to_not be_valid
-      expect(manufacturer.errors[:name]).to include(I18n.t('models.validations.name.unique'))
+      expect(manufacturer.errors[:name]).to include(I18n.t('models.validations.unique', attribute: I18n.t('views.labels.name')))
     end
   end
 end

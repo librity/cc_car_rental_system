@@ -1,18 +1,18 @@
 <nav>
-  <%= link_to I18n.t('views.actions.go_back'), root_path, class: 'btn btn-secondary' %>
+  <%= link_to t('views.actions.go_back'), root_path, class: 'btn btn-secondary' %>
 </nav>
 
 <main class='row'>
   <div class='col-md-12'>
     <header class='header'>
-      <h1><%= I18n.t('views.resources.car_categories.plural') %></h1>
+      <h1><%= t('views.resources.car_categories.plural') %></h1>
 
-      <p><%= I18n.t('views.resources.car_categories.description') %></p>
+      <p><%= t('views.resources.car_categories.description') %></p>
     </header>
 
     <section class='contents'>
       <% if @car_categories.empty? %>
-        <p><%= I18n.t('views.resources.car_categories.empty_resource') %></p>
+        <p><%= t('views.resources.car_categories.empty_resource') %></p>
       <% end %>
 
       <ol>
@@ -27,7 +27,7 @@
     </section>
 
     <div class='actions mt-4'>
-      <%= link_to  I18n.t('views.actions.new'), new_car_category_path, class: 'btn btn-primary' %>
+      <%= link_to  t('views.actions.new'), new_car_category_path, class: 'btn btn-primary' %>
     </div>
   </div>
 </main>
