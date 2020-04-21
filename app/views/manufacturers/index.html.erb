@@ -2,15 +2,15 @@
   <%= link_to "Voltar", root_path, class: 'btn btn-secondary' %>
 </nav>
 
-<div class="row">
+<main class="row">
   <div class="col-md-12">
-    <div class="header">
+    <header class="header">
       <h1>Fabricantes</h1>
 
       <p>Todos os fabricantes de carros cadastrados na plataforma.</p>
-    </div>
+    </header>
 
-    <div class="contents">
+    <section class="contents">
       <% if @manufacturers.empty? %>
         <p>Nenhum fabricante cadastrado</p>
       <% end %>
@@ -24,10 +24,10 @@
           </li>
         <% end %>
       </ol>
-    </div>
+    </section>
 
     <div class="actions mt-4">
         <%= link_to "Registrar novo fabricante", new_manufacturer_path, class: 'btn btn-primary' %>
     </div>
   </div>
-</div>
+</main>

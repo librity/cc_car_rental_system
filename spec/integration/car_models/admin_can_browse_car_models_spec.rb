@@ -1,0 +1,109 @@
+# frozen_string_literal: true
+
+require 'rails_helper'
+
+feature 'Admins can browse car models' do
+  scenario 'successfully' do
+    honda = Manufacturer.create!(name: 'Honda')
+    sedan = CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
+                                third_party_insurance: 5.0)
+
+    CarModel.create!(name: 'Civic', year: '2010', manufacturer: honda,
+                     metric_horsepower: '135 @ 6500 rpm', car_category: sedan,
+                     fuel_type: 'gasolina', metric_city_milage: 12,
+                     metric_highway_milage: 16)
+    CarModel.create!(name: 'Fit', year: '2005', manufacturer: honda,
+                     metric_horsepower: '120 @ 6500 rpm', car_category: sedan,
+                     fuel_type: 'gasolina', metric_city_milage: 14,
+                     metric_highway_milage: 18)
+
+    visit root_path
+    click_on 'Modelos de Veículos'
+
+    expect(page).to have_content('Civic')
+    expect(page).to have_content('Fit')
+  end
+
+  scenario 'and view details' do
+    honda = Manufacturer.create!(name: 'Honda')
+    sedan = CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
+                                third_party_insurance: 5.0)
+
+    CarModel.create!(name: 'Civic', year: '2010', manufacturer: honda,
+                     metric_horsepower: '135 @ 6500 rpm', car_category: sedan,
+                     fuel_type: 'gasolina', metric_city_milage: 12,
+                     metric_highway_milage: 16)
+    CarModel.create!(name: 'Fit', year: '2005', manufacturer: honda,
+                     metric_horsepower: '120 @ 6500 rpm', car_category: sedan,
+                     fuel_type: 'gasolina', metric_city_milage: 14,
+                     metric_highway_milage: 18)
+
+    visit root_path
+    click_on 'Modelos de Veículos'
+    click_on 'Civic'
+
+    expect(page).to have_content('Civic')
+    expect(page).to have_content('2010')
+    expect(page).to have_content('Honda')
+    expect(page).to have_content('135 @ 6500 rpm')
+    expect(page).to have_content('Sedan')
+    expect(page).to have_content('gasolina')
+    expect(page).to have_content('12')
+    expect(page).to have_content('16')
+    expect(page).not_to have_content('Fit')
+    expect(page).not_to have_content('2005')
+    expect(page).not_to have_content('120 @ 6500 rpm')
+    expect(page).not_to have_content('14')
+    expect(page).not_to have_content('18')
+  end
+
+  scenario 'when no car models were created' do
+    visit root_path
+    click_on 'Modelos de Veículos'
+
+    expect(page).to have_content('Nenhum modelo de veículos cadastrado')
+  end
+
+  scenario 'and return to home page' do
+    honda = Manufacturer.create!(name: 'Honda')
+    sedan = CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
+                                third_party_insurance: 5.0)
+
+    CarModel.create!(name: 'Civic', year: '2010', manufacturer: honda,
+                     metric_horsepower: '135 @ 6500 rpm', car_category: sedan,
+                     fuel_type: 'gasolina', metric_city_milage: 12,
+                     metric_highway_milage: 16)
+    CarModel.create!(name: 'Fit', year: '2005', manufacturer: honda,
+                     metric_horsepower: '120 @ 6500 rpm', car_category: sedan,
+                     fuel_type: 'gasolina', metric_city_milage: 14,
+                     metric_highway_milage: 18)
+
+    visit root_path
+    click_on 'Modelos de Veículos'
+    click_on 'Voltar'
+
+    expect(current_path).to eq root_path
+  end
+
+  scenario 'and return to car models page' do
+    honda = Manufacturer.create!(name: 'Honda')
+    sedan = CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
+                                third_party_insurance: 5.0)
+
+    CarModel.create!(name: 'Civic', year: '2010', manufacturer: honda,
+                     metric_horsepower: '135 @ 6500 rpm', car_category: sedan,
+                     fuel_type: 'gasolina', metric_city_milage: 12,
+                     metric_highway_milage: 16)
+    CarModel.create!(name: 'Fit', year: '2005', manufacturer: honda,
+                     metric_horsepower: '120 @ 6500 rpm', car_category: sedan,
+                     fuel_type: 'gasolina', metric_city_milage: 14,
+                     metric_highway_milage: 18)
+
+    visit root_path
+    click_on 'Modelos de Veículos'
+    click_on 'Civic'
+    click_on 'Voltar'
+
+    expect(current_path).to eq car_models_path
+  end
+end

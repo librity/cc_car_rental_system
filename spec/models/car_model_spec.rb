@@ -10,7 +10,7 @@ describe CarModel, type: :model do
 
     described_class.new(name: 'Civic', year: '2010', manufacturer: honda,
                         metric_horsepower: '135 @ 6500 rpm', car_category: sedan,
-                        fuel_type: 'gas', metric_city_milage: 12,
+                        fuel_type: 'gasolina', metric_city_milage: 12,
                         metric_highway_milage: 16)
   end
 

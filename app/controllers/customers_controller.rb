@@ -35,7 +35,7 @@ class CustomersController < ApplicationController
       redirect_to @customer
     else
       flash.now[:danger] = 'Algo deu errado'
-      render 'edit'
+      render :edit
     end
   end
 

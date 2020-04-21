@@ -2,24 +2,24 @@
   <%= link_to "Voltar", subsidiaries_path, class: 'btn btn-secondary' %>
 </nav>
 
-<div class="row">
+<main class="row">
   <div class="col-12">
-    <div class="header">
+    <header class="header">
       <h1> <%= @subsidiary.name %> </h1>
-    </div>
+    </header>
 
-    <div class="contents">
+    <section class="contents">
       <dl>
         <dt>CNPJ:</dt>
         <dd> <%= @subsidiary.cnpj %> </dd>
         <dt>Endereço:</dt>
         <dd> <%= @subsidiary.address %> </dd>
       </dl>
-    </div>
+    </section>
 
     <div class="actions mt-4">
       <%= link_to "Editar", edit_subsidiary_path(@subsidiary), class: 'btn btn-primary' %>
       <%= link_to "Apagar filial", @subsidiary, method: :delete, class: 'btn btn-danger' %>
     </div>
   </div>
-</div>
+</main>

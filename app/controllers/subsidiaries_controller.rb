@@ -35,7 +35,7 @@ class SubsidiariesController < ApplicationController
       redirect_to @subsidiary
     else
       flash.now[:danger] = 'Algo deu errado'
-      render 'edit'
+      render :edit
     end
   end
 

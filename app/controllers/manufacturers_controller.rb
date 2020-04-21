@@ -35,7 +35,7 @@ class ManufacturersController < ApplicationController
       redirect_to @manufacturer
     else
       flash.now[:danger] = 'Algo deu errado'
-      render 'edit'
+      render :edit
     end
   end
 

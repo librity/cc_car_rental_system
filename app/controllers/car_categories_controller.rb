@@ -16,7 +16,7 @@ class CarCategoriesController < ApplicationController
   def create
     @car_category = CarCategory.new(car_category_params)
     if @car_category.save
-      flash[:success] = 'Categoria de veículo criada com sucesso'
+      flash[:success] = 'Categoria de veículos criada com sucesso'
       redirect_to @car_category
     else
       flash.now[:danger] = 'Algo deu errado'
@@ -31,17 +31,17 @@ class CarCategoriesController < ApplicationController
   def update
     @car_category = CarCategory.find(params[:id])
     if @car_category.update(car_category_params)
-      flash[:success] = 'Fabricante atualizado'
+      flash[:success] = 'Categoria de veículos atualizada'
       redirect_to @car_category
     else
       flash.now[:danger] = 'Algo deu errado'
-      render 'edit'
+      render :edit
     end
   end
 
   def destroy
     CarCategory.find(params[:id]).destroy
-    flash[:success] = 'Fabricante removido'
+    flash[:success] = 'Categoria de veículos removida'
     redirect_to car_categories_url
   end
 

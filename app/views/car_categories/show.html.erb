@@ -2,13 +2,13 @@
   <%= link_to "Voltar", car_categories_path, class: 'btn btn-secondary' %>
 </nav>
 
-<div class="row">
+<main class="row">
   <div class="col-12">
-    <div class="header">
+    <header class="header">
       <h1> <%= @car_category.name %> </h1>
-    </div>
+    </header>
 
-    <div class="contents">
+    <section class="contents">
       <dl>
         <dt>Diária:</dt>
         <dd> <%= number_to_currency(@car_category.daily_rate) %> </dd>
@@ -17,11 +17,11 @@
         <dt>Seguro de Terceiros:</dt>
         <dd> <%= number_to_currency(@car_category.third_party_insurance) %> </dd>
       </dl>
-    </div>
+    </section>
 
     <div class="actions mt-4">
       <%= link_to "Editar", edit_car_category_path(@car_category), class: 'btn btn-primary' %>
       <%= link_to "Apagar categoria de veículos", @car_category, method: :delete, class: 'btn btn-danger' %>
     </div>
   </div>
-</div>
+</main>

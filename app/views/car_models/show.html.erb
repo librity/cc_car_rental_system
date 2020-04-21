@@ -1,0 +1,45 @@
+<nav clas="col">
+  <%= link_to "Voltar", car_models_path, class: 'btn btn-secondary' %>
+</nav>
+
+<main class="row">
+  <div class="col-12">
+    <header class="header">
+      <h1> <%= @car_model.name %> </h1>
+    </header>
+
+    <section class="contents">
+      <dl>
+        <dt>Fabricante:</dt>
+        <dd><%= link_to @car_model.manufacturer.name, @car_model.manufacturer %> </dd>
+
+        <dt>Categoria de veículo:</dt>
+        <dd><%= link_to @car_model.car_category.name, @car_model.car_category%> </dd>
+        <dt>Diária:</dt>
+        <dd> <%= number_to_currency(@car_model.car_category.daily_rate) %> </dd>
+        <dt>Seguro:</dt>
+        <dd> <%= number_to_currency(@car_model.car_category.insurance) %> </dd>
+        <dt>Seguro de Terceiros:</dt>
+        <dd> <%= number_to_currency(@car_model.car_category.third_party_insurance) %> </dd>
+
+        <dt>Ano:</dt>
+        <dd><%= @car_model.year %> </dd>
+        <dt>Potência:</dt>
+        <dd><%= @car_model.metric_horsepower %> </dd>
+        <dt>Tipo de combustível:</dt>
+        <dd><%= @car_model.fuel_type %> </dd>
+
+        <dt>Quilometragem na cidade:</dt>
+        <dd><%= @car_model.metric_city_milage %> </dd>
+        <dt>Quilometragem na estrada:</dt>
+        <dd><%= @car_model.metric_highway_milage %> </dd>
+
+      </dl>
+    </section>
+
+    <div class="actions mt-4">
+      <%= link_to "Editar", edit_car_model_path(@car_model), class: 'btn btn-primary' %>
+      <%= link_to "Apagar modelo de veículos", @car_model, method: :delete, class: 'btn btn-danger' %>
+    </div>
+  </div>
+</main>
