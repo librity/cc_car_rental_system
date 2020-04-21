@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCarCategories < ActiveRecord::Migration[6.0]
   def change
     create_table :car_categories do |t|

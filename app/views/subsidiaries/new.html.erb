@@ -1,16 +1,16 @@
 <% provide(:button_text, 'Enviar') %>
 
 <nav>
-  <%= link_to "Voltar", subsidiaries_path, class: 'btn btn-secondary' %>
+  <%= link_to I18n.t('views.actions.go_back'), subsidiaries_path, class: 'btn btn-secondary' %>
 </nav>
 
-<main class="row">
-  <div class="col-md-12">
-    <header class="header">
+<main class='row'>
+  <div class='col-md-12'>
+    <header class='header'>
       <h1>Criar uma nova Filial</h1>
     </header>
 
-    <section class="contents">
+    <section class='contents'>
       <%= render 'form' %>
     </section>
 

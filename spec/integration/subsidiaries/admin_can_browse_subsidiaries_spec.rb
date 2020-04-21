@@ -10,7 +10,7 @@ feature 'Admins can browse subsidiaries' do
                        address: 'Paper Street 76, Alamo, TX')
 
     visit root_path
-    click_on 'Filiais'
+    click_on I18n.t('views.resources.subsidiaries.plural')
 
     expect(page).to have_content('Hertz')
     expect(page).to have_content('Alamo')
@@ -23,7 +23,7 @@ feature 'Admins can browse subsidiaries' do
                        address: 'Paper Street 76, Alamo, TX')
 
     visit root_path
-    click_on 'Filiais'
+    click_on I18n.t('views.resources.subsidiaries.plural')
     click_on 'Hertz'
 
     expect(page).to have_content('Hertz')
@@ -36,7 +36,7 @@ feature 'Admins can browse subsidiaries' do
 
   scenario 'when no subisidiaries were created' do
     visit root_path
-    click_on 'Filiais'
+    click_on I18n.t('views.resources.subsidiaries.plural')
 
     expect(page).to have_content('Nenhuma filial cadastrada')
   end
@@ -48,7 +48,7 @@ feature 'Admins can browse subsidiaries' do
                        address: 'Paper Street 76, Alamo, TX')
 
     visit root_path
-    click_on 'Filiais'
+    click_on I18n.t('views.resources.subsidiaries.plural')
     click_on 'Voltar'
 
     expect(current_path).to eq root_path
@@ -61,7 +61,7 @@ feature 'Admins can browse subsidiaries' do
                        address: 'Paper Street 76, Alamo, TX')
 
     visit root_path
-    click_on 'Filiais'
+    click_on I18n.t('views.resources.subsidiaries.plural')
     click_on 'Hertz'
     click_on 'Voltar'
 

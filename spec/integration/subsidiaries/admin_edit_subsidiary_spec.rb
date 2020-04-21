@@ -8,10 +8,10 @@ feature 'Admin edits subsidiary' do
                        address: 'Paper Street 49, Grand Junction, CO')
 
     visit root_path
-    click_on 'Filiais'
+    click_on I18n.t('views.resources.subsidiaries.plural')
     click_on 'Hertz'
     click_on 'Editar'
-    fill_in 'Nome', with: 'Alamo'
+    fill_in I18n.t('views.labels.name'), with: 'Alamo'
     click_on 'Enviar'
 
     expect(page).to have_content('Alamo')
@@ -22,13 +22,13 @@ feature 'Admin edits subsidiary' do
                        address: 'Paper Street 49, Grand Junction, CO')
 
     visit root_path
-    click_on 'Filiais'
+    click_on I18n.t('views.resources.subsidiaries.plural')
     click_on 'Hertz'
     click_on 'Editar'
-    fill_in 'Nome', with: ''
+    fill_in I18n.t('views.labels.name'), with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome não pode ficar em branco')
+    expect(page).to have_content(I18n.t('models.validations.name.not_empty'))
   end
 
   scenario 'and name must be unique' do
@@ -38,12 +38,12 @@ feature 'Admin edits subsidiary' do
                        address: 'Paper Street 76, Alamo, TX')
 
     visit root_path
-    click_on 'Filiais'
+    click_on I18n.t('views.resources.subsidiaries.plural')
     click_on 'Hertz'
     click_on 'Editar'
-    fill_in 'Nome', with: 'Alamo'
+    fill_in I18n.t('views.labels.name'), with: 'Alamo'
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome deve ser único')
+    expect(page).to have_content(I18n.t('models.validations.name.unique'))
   end
 end

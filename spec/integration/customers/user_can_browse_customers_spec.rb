@@ -10,7 +10,7 @@ feature 'Users can browse customers' do
                      email: 'hannah@example.com')
 
     visit root_path
-    click_on 'Clientes'
+    click_on I18n.t('views.resources.customers.plural')
 
     expect(page).to have_content('Johnny Smith')
     expect(page).to have_content('Hannah Banana')
@@ -23,7 +23,7 @@ feature 'Users can browse customers' do
                      email: 'hannah@example.com')
 
     visit root_path
-    click_on 'Clientes'
+    click_on I18n.t('views.resources.customers.plural')
     click_on 'Johnny Smith'
 
     expect(page).to have_content('Johnny Smith')
@@ -37,7 +37,7 @@ feature 'Users can browse customers' do
 
   scenario 'when no car categories were created' do
     visit root_path
-    click_on 'Clientes'
+    click_on I18n.t('views.resources.customers.plural')
 
     expect(page).to have_content('Nenhum cliente cadastrado')
   end
@@ -49,7 +49,7 @@ feature 'Users can browse customers' do
                      email: 'hannah@example.com')
 
     visit root_path
-    click_on 'Clientes'
+    click_on I18n.t('views.resources.customers.plural')
     click_on 'Voltar'
 
     expect(current_path).to eq root_path
@@ -62,7 +62,7 @@ feature 'Users can browse customers' do
                      email: 'hannah@example.com')
 
     visit root_path
-    click_on 'Clientes'
+    click_on I18n.t('views.resources.customers.plural')
     click_on 'Johnny Smith'
     click_on 'Voltar'
 

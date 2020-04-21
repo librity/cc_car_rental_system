@@ -6,9 +6,9 @@ feature 'Visitor view manufacturers' do
   scenario 'successfully' do
     Manufacturer.create!(name: 'Fiat')
     Manufacturer.create!(name: 'Volkswagen')
-    
+
     visit root_path
-    click_on 'Fabricantes'
+    click_on I18n.t('views.resources.manufacturers.plural')
 
     expect(page).to have_content('Fiat')
     expect(page).to have_content('Volkswagen')
@@ -19,7 +19,7 @@ feature 'Visitor view manufacturers' do
     Manufacturer.create!(name: 'Volkswagen')
 
     visit root_path
-    click_on 'Fabricantes'
+    click_on I18n.t('views.resources.manufacturers.plural')
     click_on 'Fiat'
 
     expect(page).to have_content('Fiat')
@@ -28,7 +28,7 @@ feature 'Visitor view manufacturers' do
 
   scenario 'and no manufacturers are created' do
     visit root_path
-    click_on 'Fabricantes'
+    click_on I18n.t('views.resources.manufacturers.plural')
 
     expect(page).to have_content('Nenhum fabricante cadastrado')
   end
@@ -38,7 +38,7 @@ feature 'Visitor view manufacturers' do
     Manufacturer.create!(name: 'Volkswagen')
 
     visit root_path
-    click_on 'Fabricantes'
+    click_on I18n.t('views.resources.manufacturers.plural')
     click_on 'Voltar'
 
     expect(current_path).to eq root_path
@@ -49,7 +49,7 @@ feature 'Visitor view manufacturers' do
     Manufacturer.create!(name: 'Volkswagen')
 
     visit root_path
-    click_on 'Fabricantes'
+    click_on I18n.t('views.resources.manufacturers.plural')
     click_on 'Fiat'
     click_on 'Voltar'
 

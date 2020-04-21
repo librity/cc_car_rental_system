@@ -6,23 +6,23 @@ feature 'Admin register valid manufacturer' do
   scenario 'and name must be unique' do
     Manufacturer.create(name: 'Fiat')
     visit root_path
-    click_on 'Fabricantes'
-    click_on 'Registrar novo fabricante'
+    click_on I18n.t('views.resources.manufacturers.plural')
+    click_on I18n.t('views.actions.new')
 
-    fill_in 'Nome', with: 'Fiat'
+    fill_in I18n.t('views.labels.name'), with: 'Fiat'
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome deve ser único')
+    expect(page).to have_content(I18n.t('models.validations.name.unique'))
   end
 
   scenario 'and name can not be blank' do
     visit root_path
-    click_on 'Fabricantes'
-    click_on 'Registrar novo fabricante'
+    click_on I18n.t('views.resources.manufacturers.plural')
+    click_on I18n.t('views.actions.new')
 
-    fill_in 'Nome', with: ''
+    fill_in I18n.t('views.labels.name'), with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome não pode ficar em branco')
+    expect(page).to have_content(I18n.t('models.validations.name.not_empty'))
   end
 end

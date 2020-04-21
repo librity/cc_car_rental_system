@@ -1,3 +1,56 @@
 ---
 pt-BR:
-  hello: "Olá mundo!"
+  views:
+    hello: "Olá mundo!"
+
+    application_name: "Car Rental System"
+
+    navigation:
+      home: "Home"
+      resources: "Recursos"
+
+    messages:
+      arbitrary_error: "Algo deu errado! Por favor verifique os dados e tente novamente."
+      delete_resource: "Tem certeza que deseja remover o(a) %{resource}?"
+      successfully:
+        created: "%{resource} salvo(a) com sucesso!"
+        updated: "%{resource} atualizado(a) com sucesso!"
+        destroyed: "%{resource} removido(a) com sucesso!"
+
+    actions:
+      go_back: Voltar
+      send: Enviar
+      edit: Editar
+      delete: Apagar
+      new: Novo
+
+    labels:
+      name: "Nome"
+  
+    resources:
+      manufacturers:
+        singular: "Fabricante"
+        plural: "Fabricantes"
+        description: 
+
+      car_categories:
+        singular: "Categoria de Veículo"
+        plural: "Categorias de Veículo"
+        description: 
+
+      car_models:
+        singular: "Modelo de Veículo"
+        plural: "Modelos de Veículo"
+        description: 
+
+      subsidiaries:
+        singular: "Filial"
+        plural: "Filiais"
+        description: 
+
+      customers:
+        singular: "Cliente"
+        plural: "Clientes"
+        description: 
+
+          

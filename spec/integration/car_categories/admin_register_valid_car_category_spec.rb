@@ -8,23 +8,23 @@ feature 'Admin register valid car category' do
                         third_party_insurance: 5.0)
 
     visit root_path
-    click_on 'Categorias de Veículos'
-    click_on 'Registrar nova categoria de veículos'
+    click_on  I18n.t('views.resources.car_categories.plural')
+    click_on  I18n.t('views.actions.new')
 
-    fill_in 'Nome', with: 'Sedan'
+    fill_in I18n.t('views.labels.name'), with: 'Sedan'
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome deve ser único')
+    expect(page).to have_content(I18n.t('models.validations.name.unique'))
   end
 
   scenario 'and name can not be blank' do
     visit root_path
-    click_on 'Categorias de Veículos'
-    click_on 'Registrar nova categoria de veículos'
+    click_on  I18n.t('views.resources.car_categories.plural')
+    click_on  I18n.t('views.actions.new')
 
-    fill_in 'Nome', with: ''
+    fill_in I18n.t('views.labels.name'), with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome não pode ficar em branco')
+    expect(page).to have_content(I18n.t('models.validations.name.not_empty'))
   end
 end

@@ -8,9 +8,9 @@ feature 'Admin deletes subsidiary' do
                        address: 'Paper Street 49, Grand Junction, CO')
 
     visit root_path
-    click_on 'Filiais'
+    click_on I18n.t('views.resources.subsidiaries.plural')
     click_on 'Hertz'
-    click_on 'Apagar filial'
+    click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq subsidiaries_path
     expect(page).to have_content('Nenhuma filial cadastrada')
@@ -23,9 +23,9 @@ feature 'Admin deletes subsidiary' do
                        address: 'Paper Street 76, Alamo, TX')
 
     visit root_path
-    click_on 'Filiais'
+    click_on I18n.t('views.resources.subsidiaries.plural')
     click_on 'Hertz'
-    click_on 'Apagar filial'
+    click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq subsidiaries_path
     expect(page).not_to have_content('Hertz')

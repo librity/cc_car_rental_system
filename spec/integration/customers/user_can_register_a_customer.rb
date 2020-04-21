@@ -5,18 +5,18 @@ require 'rails_helper'
 feature 'Users can register a customer' do
   scenario 'from index page' do
     visit root_path
-    click_on 'Clientes'
+    click_on I18n.t('views.resources.customers.plural')
 
-    expect(page).to have_link('Registrar novo cliente',
+    expect(page).to have_link(I18n.t('views.actions.new'),
                               href: new_client_path)
   end
 
   scenario 'successfully' do
     visit root_path
-    click_on 'Clientes'
-    click_on 'Registrar novo cliente'
+    click_on I18n.t('views.resources.customers.plural')
+    click_on I18n.t('views.actions.new')
 
-    fill_in 'Nome', with: 'Andrew Dalton'
+    fill_in I18n.t('views.labels.name'), with: 'Andrew Dalton'
     fill_in 'Email', with: 'andrew@example.com'
     fill_in 'CPF', with: '14831482030'
     click_on 'Enviar'

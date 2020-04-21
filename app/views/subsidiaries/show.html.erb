@@ -1,14 +1,14 @@
-<nav clas="col">
-  <%= link_to "Voltar", subsidiaries_path, class: 'btn btn-secondary' %>
+<nav clas='col'>
+  <%= link_to I18n.t('views.actions.go_back'), subsidiaries_path, class: 'btn btn-secondary' %>
 </nav>
 
-<main class="row">
-  <div class="col-12">
-    <header class="header">
+<main class='row'>
+  <div class='col-12'>
+    <header class='header'>
       <h1> <%= @subsidiary.name %> </h1>
     </header>
 
-    <section class="contents">
+    <section class='contents'>
       <dl>
         <dt>CNPJ:</dt>
         <dd> <%= @subsidiary.cnpj %> </dd>
@@ -17,9 +17,10 @@
       </dl>
     </section>
 
-    <div class="actions mt-4">
-      <%= link_to "Editar", edit_subsidiary_path(@subsidiary), class: 'btn btn-primary' %>
-      <%= link_to "Apagar filial", @subsidiary, method: :delete, class: 'btn btn-danger' %>
+    <div class='actions mt-4'>
+      <%= link_to I18n.t('views.actions.edit'), edit_subsidiary_path(@subsidiary), class: 'btn btn-primary' %>
+      <%= link_to I18n.t('views.actions.delete'), @subsidiary, method: :delete,
+                  data: { confirm: 'Tem certeza?' }, class: 'btn btn-danger' %>
     </div>
   </div>
 </main>

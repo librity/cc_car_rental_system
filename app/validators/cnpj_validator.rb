@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Validates the format of "Cadastro Nacional da Pessoa Juridica", a Brazilian
+# Validates the format of 'Cadastro Nacional da Pessoa Juridica', a Brazilian
 # taxpayer registry identification for businesses and companies, issued by the
 # Brazilian Department of Federal Revenue.
 class CnpjValidator < ActiveModel::EachValidator

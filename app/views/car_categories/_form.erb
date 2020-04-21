@@ -1,17 +1,17 @@
 <%= form_with model: @car_category, local: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :name, "Nome" %>
+  <%= f.label :name, I18n.t('views.labels.name') %>
   <%= f.text_field :name, class: 'form-control' %>
 
-  <%= f.label :daily_rate, "Diária" %>
+  <%= f.label :daily_rate, 'Diária' %>
   <%= f.number_field :daily_rate, class: 'form-control' %>
 
-  <%= f.label :insurance, "Seguro" %>
+  <%= f.label :insurance, 'Seguro' %>
   <%= f.number_field :insurance, class: 'form-control' %>
 
-  <%= f.label :third_party_insurance, "Seguro de Terceiros" %>
+  <%= f.label :third_party_insurance, 'Seguro de Terceiros' %>
   <%= f.number_field :third_party_insurance, class: 'form-control' %>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
 <% end %>

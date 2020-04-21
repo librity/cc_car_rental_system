@@ -1,14 +1,14 @@
-<nav clas="col">
-  <%= link_to "Voltar", car_categories_path, class: 'btn btn-secondary' %>
+<nav clas='col'>
+  <%= link_to I18n.t('views.actions.go_back'), car_categories_path, class: 'btn btn-secondary' %>
 </nav>
 
-<main class="row">
-  <div class="col-12">
-    <header class="header">
+<main class='row'>
+  <div class='col-12'>
+    <header class='header'>
       <h1> <%= @car_category.name %> </h1>
     </header>
 
-    <section class="contents">
+    <section class='contents'>
       <dl>
         <dt>Diária:</dt>
         <dd> <%= number_to_currency(@car_category.daily_rate) %> </dd>
@@ -19,9 +19,10 @@
       </dl>
     </section>
 
-    <div class="actions mt-4">
-      <%= link_to "Editar", edit_car_category_path(@car_category), class: 'btn btn-primary' %>
-      <%= link_to "Apagar categoria de veículos", @car_category, method: :delete, class: 'btn btn-danger' %>
+    <div class='actions mt-4'>
+      <%= link_to I18n.t('views.actions.edit'), edit_car_category_path(@car_category), class: 'btn btn-primary' %>
+      <%= link_to I18n.t('views.actions.delete'), @car_category, method: :delete, 
+                  data: { confirm: 'Tem certeza?' }, class: 'btn btn-danger' %>
     </div>
   </div>
 </main>

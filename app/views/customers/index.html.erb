@@ -1,16 +1,16 @@
 <nav>
-  <%= link_to "Voltar", root_path, class: 'btn btn-secondary' %>
+  <%= link_to I18n.t('views.actions.go_back'), root_path, class: 'btn btn-secondary' %>
 </nav>
 
-<main class="row">
-  <div class="col-md-12">
-    <header class="header">
+<main class='row'>
+  <div class='col-md-12'>
+    <header class='header'>
       <h1>Clientes</h1>
 
       <p>Todos os nosses clientes.</p>
     </header>
 
-    <section class="contents">
+    <section class='contents'>
       <% if @customers.empty? %>
         <p>
           Nenhum cliente cadastrado
@@ -28,8 +28,8 @@
       </ol>
     </section>
 
-    <div class="actions mt-4">
-      <%= link_to "Registrar novo cliente", new_customer_path, class: 'btn btn-primary' %>
+    <div class='actions mt-4'>
+      <%= link_to  I18n.t('views.actions.new'), new_customer_path, class: 'btn btn-primary' %>
     </div>
   </div>
 </main>

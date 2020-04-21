@@ -18,7 +18,7 @@ feature 'Admins can browse car models' do
                      metric_highway_milage: 18)
 
     visit root_path
-    click_on 'Modelos de Veículos'
+    click_on I18n.t('views.resources.car_models.plural')
 
     expect(page).to have_content('Civic')
     expect(page).to have_content('Fit')
@@ -39,7 +39,7 @@ feature 'Admins can browse car models' do
                      metric_highway_milage: 18)
 
     visit root_path
-    click_on 'Modelos de Veículos'
+    click_on I18n.t('views.resources.car_models.plural')
     click_on 'Civic'
 
     expect(page).to have_content('Civic')
@@ -59,7 +59,7 @@ feature 'Admins can browse car models' do
 
   scenario 'when no car models were created' do
     visit root_path
-    click_on 'Modelos de Veículos'
+    click_on I18n.t('views.resources.car_models.plural')
 
     expect(page).to have_content('Nenhum modelo de veículos cadastrado')
   end
@@ -79,7 +79,7 @@ feature 'Admins can browse car models' do
                      metric_highway_milage: 18)
 
     visit root_path
-    click_on 'Modelos de Veículos'
+    click_on I18n.t('views.resources.car_models.plural')
     click_on 'Voltar'
 
     expect(current_path).to eq root_path
@@ -100,7 +100,7 @@ feature 'Admins can browse car models' do
                      metric_highway_milage: 18)
 
     visit root_path
-    click_on 'Modelos de Veículos'
+    click_on I18n.t('views.resources.car_models.plural')
     click_on 'Civic'
     click_on 'Voltar'
 

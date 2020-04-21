@@ -5,18 +5,18 @@ require 'rails_helper'
 feature 'Admin register manufacturer' do
   scenario 'from index page' do
     visit root_path
-    click_on 'Fabricantes'
+    click_on I18n.t('views.resources.manufacturers.plural')
 
-    expect(page).to have_link('Registrar novo fabricante',
+    expect(page).to have_link(I18n.t('views.actions.new'),
                               href: new_manufacturer_path)
   end
 
   scenario 'successfully' do
     visit root_path
-    click_on 'Fabricantes'
-    click_on 'Registrar novo fabricante'
+    click_on I18n.t('views.resources.manufacturers.plural')
+    click_on I18n.t('views.actions.new')
 
-    fill_in 'Nome', with: 'Fiat'
+    fill_in I18n.t('views.labels.name'), with: 'Fiat'
     click_on 'Enviar'
 
     expect(current_path).to eq manufacturer_path(Manufacturer.last.id)

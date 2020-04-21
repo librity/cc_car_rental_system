@@ -1,0 +1,22 @@
+---
+pt-BR:
+  models:
+    validations:
+      name:
+        not_empty: "Nome não pode ficar em branco"
+        unique: "Nome deve ser único"
+
+    manufacturer:
+      validations:
+
+    car_category:
+      validations:
+
+    car_model:
+      validations:
+
+    subsidiary:
+      validations:
+
+    customer:
+      validations:

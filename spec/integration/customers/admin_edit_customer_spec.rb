@@ -8,10 +8,10 @@ feature 'Admin edits customer' do
                      email: 'johny@example.com')
 
     visit root_path
-    click_on 'Clientes'
+    click_on I18n.t('views.resources.customers.plural')
     click_on 'Johnny Smith'
     click_on 'Editar'
-    fill_in 'Nome', with: 'Hannah Banana'
+    fill_in I18n.t('views.labels.name'), with: 'Hannah Banana'
     click_on 'Enviar'
 
     expect(page).to have_content('Hannah Banana')
@@ -22,12 +22,12 @@ feature 'Admin edits customer' do
                      email: 'johny@example.com')
 
     visit root_path
-    click_on 'Clientes'
+    click_on I18n.t('views.resources.customers.plural')
     click_on 'Johnny Smith'
     click_on 'Editar'
-    fill_in 'Nome', with: ''
+    fill_in I18n.t('views.labels.name'), with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome não pode ficar em branco')
+    expect(page).to have_content(I18n.t('models.validations.name.not_empty'))
   end
 end

@@ -1,20 +1,22 @@
-<header class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <%= link_to "Car Rental System", root_path, id: "logo" %>
-    <nav class="nav navbar-right">
-      <li class="nav-item"><%= link_to "Home", root_path, class: 'header_nav_link' %></li>
-      <li class="nav-item header_nav_link">
-        <div class="dropdown">
-          <a class="nav-item dropdown-toggle " role="button" id="resourcesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Recursos
+<header class='navbar navbar-expand-lg navbar-dark bg-dark'>
+  <div class='container'>
+    <%= link_to I18n.t('views.application_name'), root_path, id: 'logo' %>
+
+    <nav class='nav navbar-right'>
+      <li class='nav-item'><%= link_to I18n.t('views.navigation.home'), root_path, class: 'header_nav_link' %></li>
+
+      <li class='nav-item header_nav_link'>
+        <div class='dropdown'>
+          <a class='nav-item dropdown-toggle ' role='button' id='resourcesDropdown' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+            <%= I18n.t('views.navigation.resources') %>
           </a>
   
-          <div class="dropdown-menu" aria-labelledby="resourcesDropdown">
-            <%= link_to "Fabricantes", manufacturers_path, class: 'dropdown-item' %>
-            <%= link_to "Filiais", subsidiaries_path, class: 'dropdown-item' %>
-            <%= link_to "Categorias de Veículos", car_categories_path, class: 'dropdown-item' %>
-            <%= link_to "Modelos de Veículos", car_models_path, class: 'dropdown-item' %>
-            <%= link_to "Clientes", customers_path, class: 'dropdown-item' %>
+          <div class='dropdown-menu' aria-labelledby='resourcesDropdown'>
+            <%= link_to I18n.t('views.resources.manufacturers.plural'), manufacturers_path, class: 'dropdown-item' %>
+            <%= link_to I18n.t('views.resources.car_categories.plural'), car_categories_path, class: 'dropdown-item' %>
+            <%= link_to I18n.t('views.resources.car_models.plural'), car_models_path, class: 'dropdown-item' %>
+            <%= link_to I18n.t('views.resources.subsidiaries.plural'), subsidiaries_path, class: 'dropdown-item' %>
+            <%= link_to I18n.t('views.resources.customers.plural'), customers_path, class: 'dropdown-item' %>
           </div>
         </div>
       </li>

@@ -8,9 +8,9 @@ feature 'Admin deletes car category' do
                         third_party_insurance: 5.0)
 
     visit root_path
-    click_on 'Categorias de Veículos'
+    click_on I18n.t('views.resources.car_categories.plural')
     click_on 'Sedan'
-    click_on 'Apagar categoria de veículos'
+    click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq car_categories_path
     expect(page).to have_content('Nenhuma categoria de veículos cadastrada')
@@ -23,9 +23,9 @@ feature 'Admin deletes car category' do
                         third_party_insurance: 15.0)
 
     visit root_path
-    click_on 'Categorias de Veículos'
+    click_on I18n.t('views.resources.car_categories.plural')
     click_on 'Sedan'
-    click_on 'Apagar categoria de veículos'
+    click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq car_categories_path
     expect(page).not_to have_content('Sedan')

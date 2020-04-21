@@ -4,7 +4,7 @@ class CarModel < ApplicationRecord
   belongs_to :manufacturer
   belongs_to :car_category
 
-  validates :name, presence: { message: 'Nome não pode ficar em branco' }
+  validates :name, presence: { message: I18n.t('models.validations.name.not_empty') }
   validates :year, presence: { message: 'Ano não pode ficar em branco' },
                    numericality: { only_integer: true,
                                    message: 'Ano tem que ser um número inteiro' },

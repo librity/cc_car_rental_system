@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Validates the format of "Cadastro de Pessoas Fisicas", a Brazilian individual
+# Validates the format of 'Cadastro de Pessoas Fisicas', a Brazilian individual
 # taxpayer registry identification for citizens and resident aliens, issued by
 # the Brazilian Department of Federal Revenue.
 class CpfValidator < ActiveModel::EachValidator

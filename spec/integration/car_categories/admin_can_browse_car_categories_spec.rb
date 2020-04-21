@@ -10,7 +10,7 @@ feature 'Admins can browse car categories' do
                         third_party_insurance: 15.0)
 
     visit root_path
-    click_on 'Categorias de Veículos'
+    click_on I18n.t('views.resources.car_categories.plural')
 
     expect(page).to have_content('Sedan')
     expect(page).to have_content('Camião')
@@ -23,7 +23,7 @@ feature 'Admins can browse car categories' do
                         third_party_insurance: 15.0)
 
     visit root_path
-    click_on 'Categorias de Veículos'
+    click_on I18n.t('views.resources.car_categories.plural')
     click_on 'Sedan'
 
     expect(page).to have_content('Sedan')
@@ -38,7 +38,7 @@ feature 'Admins can browse car categories' do
 
   scenario 'when no car categories were created' do
     visit root_path
-    click_on 'Categorias de Veículos'
+    click_on I18n.t('views.resources.car_categories.plural')
 
     expect(page).to have_content('Nenhuma categoria de veículos cadastrada')
   end
@@ -50,7 +50,7 @@ feature 'Admins can browse car categories' do
                         third_party_insurance: 15.0)
 
     visit root_path
-    click_on 'Categorias de Veículos'
+    click_on I18n.t('views.resources.car_categories.plural')
     click_on 'Voltar'
 
     expect(current_path).to eq root_path
@@ -63,7 +63,7 @@ feature 'Admins can browse car categories' do
                         third_party_insurance: 15.0)
 
     visit root_path
-    click_on 'Categorias de Veículos'
+    click_on I18n.t('views.resources.car_categories.plural')
     click_on 'Sedan'
     click_on 'Voltar'
 

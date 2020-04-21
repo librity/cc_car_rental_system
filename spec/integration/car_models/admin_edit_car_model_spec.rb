@@ -14,10 +14,10 @@ feature 'Admin edits car model' do
                      metric_highway_milage: 16)
 
     visit root_path
-    click_on 'Modelos de Veículos'
+    click_on I18n.t('views.resources.car_models.plural')
     click_on 'Civic'
     click_on 'Editar'
-    fill_in 'Nome', with: 'Fit'
+    fill_in I18n.t('views.labels.name'), with: 'Fit'
     click_on 'Enviar'
 
     expect(page).to have_content('Fit')
@@ -34,12 +34,12 @@ feature 'Admin edits car model' do
                      metric_highway_milage: 16)
 
     visit root_path
-    click_on 'Modelos de Veículos'
+    click_on I18n.t('views.resources.car_models.plural')
     click_on 'Civic'
     click_on 'Editar'
-    fill_in 'Nome', with: ''
+    fill_in I18n.t('views.labels.name'), with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome não pode ficar em branco')
+    expect(page).to have_content(I18n.t('models.validations.name.not_empty'))
   end
 end

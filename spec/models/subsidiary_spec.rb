@@ -17,7 +17,7 @@ describe Subsidiary, type: :model do
       subject.name = ' '
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:name]).to include('Nome não pode ficar em branco')
+      expect(subject.errors[:name]).to include(I18n.t('models.validations.name.not_empty'))
     end
 
     it 'must be unique' do
@@ -26,7 +26,7 @@ describe Subsidiary, type: :model do
       subsidiary = Subsidiary.new(name: 'Hertz')
 
       expect(subsidiary).to_not be_valid
-      expect(subsidiary.errors[:name]).to include('Nome deve ser único')
+      expect(subsidiary.errors[:name]).to include(I18n.t('models.validations.name.unique'))
     end
   end
 

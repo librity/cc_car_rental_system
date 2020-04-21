@@ -8,23 +8,23 @@ feature 'Admin register valid subsidiary' do
                        address: 'Paper Street 49, Grand Junction, CO')
 
     visit root_path
-    click_on 'Filiais'
-    click_on 'Registrar nova filial'
+    click_on I18n.t('views.resources.subsidiaries.plural')
+    click_on I18n.t('views.actions.new')
 
-    fill_in 'Nome', with: 'Hertz'
+    fill_in I18n.t('views.labels.name'), with: 'Hertz'
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome deve ser único')
+    expect(page).to have_content(I18n.t('models.validations.name.unique'))
   end
 
   scenario 'and name can not be blank' do
     visit root_path
-    click_on 'Filiais'
-    click_on 'Registrar nova filial'
+    click_on I18n.t('views.resources.subsidiaries.plural')
+    click_on I18n.t('views.actions.new')
 
-    fill_in 'Nome', with: ''
+    fill_in I18n.t('views.labels.name'), with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome não pode ficar em branco')
+    expect(page).to have_content(I18n.t('models.validations.name.not_empty'))
   end
 end

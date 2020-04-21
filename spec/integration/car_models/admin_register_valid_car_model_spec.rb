@@ -9,19 +9,19 @@ feature 'Admin register valid car model' do
                         third_party_insurance: 5.0)
 
     visit root_path
-    click_on 'Modelos de Veículos'
-    click_on 'Registrar novo modelo de veículos'
+    click_on I18n.t('views.resources.car_models.plural')
+    click_on I18n.t('views.actions.new')
 
-    fill_in 'Nome', with: ''
+    fill_in I18n.t('views.labels.name'), with: ''
     fill_in 'Ano', with: '2010'
-    select 'Honda', from: 'Fabricante'
+    select 'Honda', from: I18n.t('views.resources.manufacturers.singular')
     fill_in 'Potência', with: '135 @ 6500 rpm'
-    select 'Sedan', from: 'Categoria de veículo'
+    select 'Sedan', from: I18n.t('views.resources.car_categories.singular')
     fill_in 'Tipo de combustível', with: 'gasolina'
     fill_in 'Quilometragem na cidade', with: '12'
     fill_in 'Quilometragem na estrada', with: '16'
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome não pode ficar em branco')
+    expect(page).to have_content(I18n.t('models.validations.name.not_empty'))
   end
 end

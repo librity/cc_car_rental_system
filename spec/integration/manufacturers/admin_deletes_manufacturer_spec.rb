@@ -7,9 +7,9 @@ feature 'Admin deletes manufacturer' do
     Manufacturer.create!(name: 'Fiat')
 
     visit root_path
-    click_on 'Fabricantes'
+    click_on I18n.t('views.resources.manufacturers.plural')
     click_on 'Fiat'
-    click_on 'Apagar fabricante'
+    click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq manufacturers_path
     expect(page).to have_content('Nenhum fabricante cadastrado')
@@ -20,9 +20,9 @@ feature 'Admin deletes manufacturer' do
     Manufacturer.create!(name: 'Honda')
 
     visit root_path
-    click_on 'Fabricantes'
+    click_on I18n.t('views.resources.manufacturers.plural')
     click_on 'Fiat'
-    click_on 'Apagar fabricante'
+    click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq manufacturers_path
     expect(page).not_to have_content('Fiat')

@@ -8,9 +8,9 @@ feature 'Admin deletes customer' do
                      email: 'johny@example.com')
 
     visit root_path
-    click_on 'Clientes'
+    click_on I18n.t('views.resources.customers.plural')
     click_on 'Johnny Smith'
-    click_on 'Apagar cliente'
+    click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq customers_path
     expect(page).to have_content('Nenhum cliente cadastrado')
@@ -23,9 +23,9 @@ feature 'Admin deletes customer' do
                      email: 'hannah@example.com')
 
     visit root_path
-    click_on 'Clientes'
+    click_on I18n.t('views.resources.customers.plural')
     click_on 'Johnny Smith'
-    click_on 'Apagar cliente'
+    click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq customers_path
     expect(page).not_to have_content('Johnny Smith')

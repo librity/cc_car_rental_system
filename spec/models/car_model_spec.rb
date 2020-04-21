@@ -23,7 +23,7 @@ describe CarModel, type: :model do
       subject.name = ' '
 
       expect(subject).to_not be_valid
-      expect(subject.errors[:name]).to include('Nome não pode ficar em branco')
+      expect(subject.errors[:name]).to include(I18n.t('models.validations.name.not_empty'))
     end
   end
 

@@ -14,9 +14,9 @@ feature 'Admin deletes car model' do
                      metric_highway_milage: 16)
 
     visit root_path
-    click_on 'Modelos de Veículos'
+    click_on I18n.t('views.resources.car_models.plural')
     click_on 'Civic'
-    click_on 'Apagar modelo de veículos'
+    click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq car_models_path
     expect(page).to have_content('Nenhum modelo de veículos cadastrado')
@@ -37,9 +37,9 @@ feature 'Admin deletes car model' do
                      metric_highway_milage: 18)
 
     visit root_path
-    click_on 'Modelos de Veículos'
+    click_on I18n.t('views.resources.car_models.plural')
     click_on 'Civic'
-    click_on 'Apagar modelo de veículos'
+    click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq car_models_path
     expect(page).not_to have_content('Civic')

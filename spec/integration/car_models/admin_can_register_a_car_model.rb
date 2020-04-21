@@ -5,22 +5,22 @@ require 'rails_helper'
 feature 'Admin can register a car model' do
   scenario 'from index page' do
     visit root_path
-    click_on 'Modelos de Veículos'
+    click_on I18n.t('views.resources.car_models.plural')
 
-    expect(page).to have_link('Registrar novo modelo de veículos',
+    expect(page).to have_link(I18n.t('views.actions.new'),
                               href: new_car_model_path)
   end
 
   scenario 'successfully' do
     visit root_path
-    click_on 'Modelos de Veículos'
-    click_on 'Registrar novo modelo de veículos'
+    click_on I18n.t('views.resources.car_models.plural')
+    click_on I18n.t('views.actions.new')
 
-    fill_in 'Nome', with: 'Civic'
+    fill_in I18n.t('views.labels.name'), with: 'Civic'
     fill_in 'Ano', with: '2010'
-    select 'Honda', from: 'Fabricante'
+    select 'Honda', from: I18n.t('views.resources.manufacturers.singular')
     fill_in 'Potência', with: '135 @ 6500 rpm'
-    select 'Sedan', from: 'Categoria de veículo'
+    select 'Sedan', from: I18n.t('views.resources.car_categories.singular')
     fill_in 'Tipo de combustível', with: 'gasolina'
     fill_in 'Quilometragem na cidade', with: '12'
     fill_in 'Quilometragem na estrada', with: '16'

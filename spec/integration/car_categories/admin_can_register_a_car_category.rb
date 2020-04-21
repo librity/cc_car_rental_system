@@ -5,18 +5,18 @@ require 'rails_helper'
 feature 'Admin can register a car category' do
   scenario 'from index page' do
     visit root_path
-    click_on 'Categorias de Veículos'
+    click_on I18n.t('views.resources.car_categories.plural')
 
-    expect(page).to have_link('Registrar nova categoria de veículos',
+    expect(page).to have_link(I18n.t('views.actions.new'),
                               href: new_car_category_path)
   end
 
   scenario 'successfully' do
     visit root_path
-    click_on 'Categorias de Veículos'
-    click_on 'Registrar nova categoria de veículos'
+    click_on  I18n.t('views.resources.car_categories.plural')
+    click_on  I18n.t('views.actions.new')
 
-    fill_in 'Nome', with: 'Pickup'
+    fill_in I18n.t('views.labels.name'), with: 'Pickup'
     fill_in 'Diária', with: '120'
     fill_in 'Seguro', with: '30'
     fill_in 'Seguro de Terceiros', with: '40'

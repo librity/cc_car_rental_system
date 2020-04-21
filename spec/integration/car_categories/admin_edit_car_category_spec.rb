@@ -8,10 +8,10 @@ feature 'Admin edits car category' do
                         third_party_insurance: 5.0)
 
     visit root_path
-    click_on 'Categorias de Veículos'
+    click_on I18n.t('views.resources.car_categories.plural')
     click_on 'Sedan'
     click_on 'Editar'
-    fill_in 'Nome', with: 'Camião'
+    fill_in I18n.t('views.labels.name'), with: 'Camião'
     click_on 'Enviar'
 
     expect(page).to have_content('Camião')
@@ -22,13 +22,13 @@ feature 'Admin edits car category' do
                         third_party_insurance: 5.0)
 
     visit root_path
-    click_on 'Categorias de Veículos'
+    click_on I18n.t('views.resources.car_categories.plural')
     click_on 'Sedan'
     click_on 'Editar'
-    fill_in 'Nome', with: ''
+    fill_in I18n.t('views.labels.name'), with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome não pode ficar em branco')
+    expect(page).to have_content(I18n.t('models.validations.name.not_empty'))
   end
 
   scenario 'and name must be unique' do
@@ -38,12 +38,12 @@ feature 'Admin edits car category' do
                         third_party_insurance: 15.0)
 
     visit root_path
-    click_on 'Categorias de Veículos'
+    click_on I18n.t('views.resources.car_categories.plural')
     click_on 'Sedan'
     click_on 'Editar'
-    fill_in 'Nome', with: 'Camião'
+    fill_in I18n.t('views.labels.name'), with: 'Camião'
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome deve ser único')
+    expect(page).to have_content(I18n.t('models.validations.name.unique'))
   end
 end

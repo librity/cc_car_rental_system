@@ -1,14 +1,14 @@
-<nav clas="col">
-  <%= link_to "Voltar", customers_path, class: 'btn btn-secondary' %>
+<nav clas='col'>
+  <%= link_to I18n.t('views.actions.go_back'), customers_path, class: 'btn btn-secondary' %>
 </nav>
 
-<main class="row">
-  <div class="col-12">
-    <header class="header">
+<main class='row'>
+  <div class='col-12'>
+    <header class='header'>
       <h1> <%= @customer.name %> </h1>
     </header>
 
-    <section class="contents">
+    <section class='contents'>
       <dl>
         <dt>CPF:</dt>
         <dd> <%= @customer.cpf %> </dd>
@@ -17,9 +17,11 @@
       </dl>
     </section>
 
-    <div class="actions mt-4">
-      <%= link_to "Editar", edit_customer_path(@customer), class: 'btn btn-primary' %>
-      <%= link_to "Apagar cliente", @customer, method: :delete, class: 'btn btn-danger' %>
+    <div class='actions mt-4'>
+      <%= link_to I18n.t('views.actions.edit'), edit_customer_path(@customer), class: 'btn btn-primary' %>
+      <%= link_to I18n.t('views.actions.delete'), @customer, method: :delete,
+                  data: { confirm: I18n.t('messages.delete_resource', resource: @customer.name) },
+                  class: 'btn btn-danger' %>
     </div>
   </div>
 </main>

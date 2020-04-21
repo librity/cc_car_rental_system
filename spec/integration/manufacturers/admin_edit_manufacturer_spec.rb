@@ -7,10 +7,10 @@ feature 'Admin edits manufacturer' do
     Manufacturer.create(name: 'Fiat')
 
     visit root_path
-    click_on 'Fabricantes'
+    click_on I18n.t('views.resources.manufacturers.plural')
     click_on 'Fiat'
     click_on 'Editar'
-    fill_in 'Nome', with: 'Honda'
+    fill_in I18n.t('views.labels.name'), with: 'Honda'
     click_on 'Enviar'
 
     expect(page).to have_content('Honda')
@@ -20,13 +20,13 @@ feature 'Admin edits manufacturer' do
     Manufacturer.create(name: 'Fiat')
 
     visit root_path
-    click_on 'Fabricantes'
+    click_on I18n.t('views.resources.manufacturers.plural')
     click_on 'Fiat'
     click_on 'Editar'
-    fill_in 'Nome', with: ''
+    fill_in I18n.t('views.labels.name'), with: ''
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome não pode ficar em branco')
+    expect(page).to have_content(I18n.t('models.validations.name.not_empty'))
   end
 
   scenario 'and name must be unique' do
@@ -34,12 +34,12 @@ feature 'Admin edits manufacturer' do
     Manufacturer.create(name: 'Honda')
 
     visit root_path
-    click_on 'Fabricantes'
+    click_on I18n.t('views.resources.manufacturers.plural')
     click_on 'Fiat'
     click_on 'Editar'
-    fill_in 'Nome', with: 'Honda'
+    fill_in I18n.t('views.labels.name'), with: 'Honda'
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome deve ser único')
+    expect(page).to have_content(I18n.t('models.validations.name.unique'))
   end
 end
