@@ -9,8 +9,8 @@ feature "Customers' cpf should" do
     click_on I18n.t('views.actions.new')
 
     fill_in I18n.t('views.labels.name'), with: 'Ronnie Maldonado'
-    fill_in 'Email', with: 'ronnie@example.com'
-    fill_in 'CPF', with: '64757188072'
+    fill_in I18n.t('views.labels.email'), with: 'ronnie@example.com'
+    fill_in I18n.t('views.labels.cpf'), with: '64757188072'
     click_on 'Enviar'
 
     expect(current_path).to eq customer_path(Customer.last.id)
@@ -18,12 +18,12 @@ feature "Customers' cpf should" do
     click_on I18n.t('views.actions.new')
 
     fill_in I18n.t('views.labels.name'), with: 'Julia Townsend'
-    fill_in 'Email', with: 'julia@example.com'
-    fill_in 'CPF', with: '64757188072'
+    fill_in I18n.t('views.labels.email'), with: 'julia@example.com'
+    fill_in I18n.t('views.labels.cpf'), with: '64757188072'
     click_on 'Enviar'
 
     expect(current_path).to eq customers_path
-    expect(page).to have_content(I18n.t('views.messages.arbitrary_error'))
+    expect(page).to have_css('div.alert-danger', text: 'Este formulário contem')
   end
 
   scenario 'not be blank or empty' do
@@ -32,19 +32,19 @@ feature "Customers' cpf should" do
     click_on I18n.t('views.actions.new')
 
     fill_in I18n.t('views.labels.name'), with: 'Ronnie Maldonado'
-    fill_in 'Email', with: 'ronnie@example.com'
+    fill_in I18n.t('views.labels.email'), with: 'ronnie@example.com'
     click_on 'Enviar'
 
     expect(current_path).to eq customers_path
-    expect(page).to have_content(I18n.t('views.messages.arbitrary_error'))
+    expect(page).to have_css('div.alert-danger', text: 'Este formulário contem')
 
     fill_in I18n.t('views.labels.name'), with: 'Ronnie Maldonado'
-    fill_in 'Email', with: 'ronnie@example.com'
-    fill_in 'CPF', with: '     '
+    fill_in I18n.t('views.labels.email'), with: 'ronnie@example.com'
+    fill_in I18n.t('views.labels.cpf'), with: '     '
     click_on 'Enviar'
 
     expect(current_path).to eq customers_path
-    expect(page).to have_content(I18n.t('views.messages.arbitrary_error'))
+    expect(page).to have_css('div.alert-danger', text: 'Este formulário contem')
   end
 
   scenario 'have 11 characters' do
@@ -53,20 +53,20 @@ feature "Customers' cpf should" do
     click_on I18n.t('views.actions.new')
 
     fill_in I18n.t('views.labels.name'), with: 'Ronnie Maldonado'
-    fill_in 'Email', with: 'ronnie@example.com'
-    fill_in 'CPF', with: '647718807212'
+    fill_in I18n.t('views.labels.email'), with: 'ronnie@example.com'
+    fill_in I18n.t('views.labels.cpf'), with: '647718807212'
     click_on 'Enviar'
 
     expect(current_path).to eq customers_path
-    expect(page).to have_content(I18n.t('views.messages.arbitrary_error'))
+    expect(page).to have_css('div.alert-danger', text: 'Este formulário contem')
 
     fill_in I18n.t('views.labels.name'), with: 'Ronnie Maldonado'
-    fill_in 'Email', with: 'ronnie@example.com'
-    fill_in 'CPF', with: '6477188012'
+    fill_in I18n.t('views.labels.email'), with: 'ronnie@example.com'
+    fill_in I18n.t('views.labels.cpf'), with: '6477188012'
     click_on 'Enviar'
 
     expect(current_path).to eq customers_path
-    expect(page).to have_content(I18n.t('views.messages.arbitrary_error'))
+    expect(page).to have_css('div.alert-danger', text: 'Este formulário contem')
   end
 
   scenario 'be a numerical integer' do
@@ -75,12 +75,12 @@ feature "Customers' cpf should" do
     click_on I18n.t('views.actions.new')
 
     fill_in I18n.t('views.labels.name'), with: 'Ronnie Maldonado'
-    fill_in 'Email', with: 'ronnie@example.com'
-    fill_in 'CPF', with: '6477188A7212'
+    fill_in I18n.t('views.labels.email'), with: 'ronnie@example.com'
+    fill_in I18n.t('views.labels.cpf'), with: '6477188A7212'
     click_on 'Enviar'
 
     expect(current_path).to eq customers_path
-    expect(page).to have_content(I18n.t('views.messages.arbitrary_error'))
+    expect(page).to have_css('div.alert-danger', text: 'Este formulário contem')
   end
 
   scenario 'not be blacklisted' do
@@ -89,12 +89,12 @@ feature "Customers' cpf should" do
     click_on I18n.t('views.actions.new')
 
     fill_in I18n.t('views.labels.name'), with: 'Ronnie Maldonado'
-    fill_in 'Email', with: 'ronnie@example.com'
-    fill_in 'CPF', with: '77777777777'
+    fill_in I18n.t('views.labels.email'), with: 'ronnie@example.com'
+    fill_in I18n.t('views.labels.cpf'), with: '77777777777'
     click_on 'Enviar'
 
     expect(current_path).to eq customers_path
-    expect(page).to have_content(I18n.t('views.messages.arbitrary_error'))
+    expect(page).to have_css('div.alert-danger', text: 'Este formulário contem')
   end
 
   scenario 'be valid' do
@@ -103,11 +103,11 @@ feature "Customers' cpf should" do
     click_on I18n.t('views.actions.new')
 
     fill_in I18n.t('views.labels.name'), with: 'Ronnie Maldonado'
-    fill_in 'Email', with: 'ronnie@example.com'
-    fill_in 'CPF', with: '85215440008'
+    fill_in I18n.t('views.labels.email'), with: 'ronnie@example.com'
+    fill_in I18n.t('views.labels.cpf'), with: '85215440008'
     click_on 'Enviar'
 
     expect(current_path).to eq customers_path
-    expect(page).to have_content(I18n.t('views.messages.arbitrary_error'))
+    expect(page).to have_css('div.alert-danger', text: 'Este formulário contem')
   end
 end

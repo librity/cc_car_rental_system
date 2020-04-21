@@ -2,9 +2,8 @@
 pt-BR:
   models:
     validations:
-      name:
-        not_empty: "Nome não pode ficar em branco"
-        unique: "Nome deve ser único"
+      not_empty: "%{attribute} não pode ficar em branco"
+      unique: "%{attribute} deve ser único"
 
     manufacturer:
       validations:

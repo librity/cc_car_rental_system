@@ -19,7 +19,6 @@ class ManufacturersController < ApplicationController
       flash[:success] = 'Fabricante criado com sucesso'
       redirect_to @manufacturer
     else
-      flash.now[:danger] = I18n.t('views.messages.arbitrary_error')
       render :new
     end
   end
@@ -34,7 +33,6 @@ class ManufacturersController < ApplicationController
       flash[:success] = 'Fabricante atualizado'
       redirect_to @manufacturer
     else
-      flash.now[:danger] = I18n.t('views.messages.arbitrary_error')
       render :edit
     end
   end

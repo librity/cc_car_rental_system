@@ -19,7 +19,6 @@ class CarCategoriesController < ApplicationController
       flash[:success] = 'Categoria de veículos criada com sucesso'
       redirect_to @car_category
     else
-      flash.now[:danger] = I18n.t('views.messages.arbitrary_error')
       render :new
     end
   end
@@ -34,7 +33,6 @@ class CarCategoriesController < ApplicationController
       flash[:success] = 'Categoria de veículos atualizada'
       redirect_to @car_category
     else
-      flash.now[:danger] = I18n.t('views.messages.arbitrary_error')
       render :edit
     end
   end

@@ -4,14 +4,14 @@
   <%= f.label :name, I18n.t('views.labels.name') %>
   <%= f.text_field :name, class: 'form-control' %>
 
-  <%= f.label :daily_rate, 'Diária' %>
+  <%= f.label :daily_rate, I18n.t('views.labels.daily_rate') %>
   <%= f.number_field :daily_rate, class: 'form-control' %>
 
-  <%= f.label :insurance, 'Seguro' %>
+  <%= f.label :insurance, I18n.t('views.labels.insurance') %>
   <%= f.number_field :insurance, class: 'form-control' %>
 
-  <%= f.label :third_party_insurance, 'Seguro de Terceiros' %>
+  <%= f.label :third_party_insurance, I18n.t('views.labels.third_party_insurance') %>
   <%= f.number_field :third_party_insurance, class: 'form-control' %>
 
-  <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
+  <%= f.submit I18n.t('views.actions.send'), class: 'btn btn-primary' %>
 <% end %>

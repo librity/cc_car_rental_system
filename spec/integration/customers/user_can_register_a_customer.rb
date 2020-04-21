@@ -17,8 +17,8 @@ feature 'Users can register a customer' do
     click_on I18n.t('views.actions.new')
 
     fill_in I18n.t('views.labels.name'), with: 'Andrew Dalton'
-    fill_in 'Email', with: 'andrew@example.com'
-    fill_in 'CPF', with: '14831482030'
+    fill_in I18n.t('views.labels.email'), with: 'andrew@example.com'
+    fill_in I18n.t('views.labels.cpf'), with: '14831482030'
     click_on 'Enviar'
 
     expect(current_path).to eq customer_path(Customer.last.id)

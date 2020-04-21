@@ -17,8 +17,8 @@ feature 'Admin can register a subsidiary' do
     click_on I18n.t('views.actions.new')
 
     fill_in I18n.t('views.labels.name'), with: 'National'
-    fill_in 'CNPJ', with: '35229090000171'
-    fill_in 'Endereço', with: 'Paper Street 123, Portland, OR'
+    fill_in I18n.t('views.labels.cnpj'), with: '35229090000171'
+    fill_in I18n.t('views.labels.address'), with: 'Paper Street 123, Portland, OR'
     click_on 'Enviar'
 
     expect(current_path).to eq subsidiary_path(Subsidiary.last.id)

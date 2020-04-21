@@ -26,31 +26,47 @@ pt-BR:
 
     labels:
       name: "Nome"
-  
+      email: "Email"
+      cnpj: "CNPJ"
+      address: "Endereço"
+      daily_rate: "Diária"
+      insurance: "Seguro"
+      third_party_insurance: "Seguro de Terceiros"
+      cpf: "CPF"
+      year: "Ano"
+      power: "Potência"
+      fuel_type: "Tipo de combustível"
+      metric_city_milage: "Quilometragem na cidade"
+      metric_highway_milage: "Quilometragem na estrada"
+
     resources:
       manufacturers:
         singular: "Fabricante"
         plural: "Fabricantes"
-        description: 
+        description:
 
       car_categories:
         singular: "Categoria de Veículo"
         plural: "Categorias de Veículo"
-        description: 
+        description:
 
       car_models:
         singular: "Modelo de Veículo"
         plural: "Modelos de Veículo"
-        description: 
+        description:
 
       subsidiaries:
         singular: "Filial"
         plural: "Filiais"
-        description: 
+        description:
 
       customers:
         singular: "Cliente"
         plural: "Clientes"
-        description: 
+        description:
 
-          
+    footer:
+      message_1: "Aplicação Rails desenvolvida por "
+      message_2: " como parte do "
+      message_3: ", um programa de bolsa para desenvolvimento web."
+      original_repo: "Repositório Original"

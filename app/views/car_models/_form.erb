@@ -12,20 +12,20 @@
   <%= f.collection_select :car_category_id, @car_categories, :id, :name, {}, 
                           { class: 'form-control' } %>
 
-  <%= f.label :year, 'Ano' %>
+  <%= f.label :year, I18n.t('views.labels.year') %>
   <%= f.text_field :year, class: 'form-control' %>
 
-  <%= f.label :metric_horsepower, 'Potência' %>
+  <%= f.label :metric_horsepower, I18n.t('views.labels.power') %>
   <%= f.text_field :metric_horsepower, class: 'form-control' %>
 
-  <%= f.label :fuel_type, 'Tipo de combustível' %>
+  <%= f.label :fuel_type, I18n.t('views.labels.fuel_type') %>
   <%= f.text_field :fuel_type, class: 'form-control' %>
 
-  <%= f.label :metric_city_milage, 'Quilometragem na cidade' %>
+  <%= f.label :metric_city_milage, I18n.t('views.labels.metric_city_milage') %>
   <%= f.number_field :metric_city_milage, class: 'form-control' %>
 
-  <%= f.label :metric_highway_milage, 'Quilometragem na estrada' %>
+  <%= f.label :metric_highway_milage, I18n.t('views.labels.metric_highway_milage') %>
   <%= f.number_field :metric_highway_milage, class: 'form-control' %>
 
-  <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
+  <%= f.submit I18n.t('views.actions.send'), class: 'btn btn-primary' %>
 <% end %>

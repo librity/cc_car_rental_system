@@ -19,7 +19,6 @@ class SubsidiariesController < ApplicationController
       flash[:success] = 'Filial criada com sucesso'
       redirect_to @subsidiary
     else
-      flash.now[:danger] = I18n.t('views.messages.arbitrary_error')
       render :new
     end
   end
@@ -34,7 +33,6 @@ class SubsidiariesController < ApplicationController
       flash[:success] = 'Filial atualizada'
       redirect_to @subsidiary
     else
-      flash.now[:danger] = I18n.t('views.messages.arbitrary_error')
       render :edit
     end
   end

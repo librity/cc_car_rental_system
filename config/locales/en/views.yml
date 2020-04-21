@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+
+  footer:
+    message_1: "Rails app developed by "
+    message_2: "as part of "
+    message_3: ", a Rails development scholarship."
+    original_repo: "Original Repo"

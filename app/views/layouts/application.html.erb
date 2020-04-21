@@ -7,14 +7,14 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <title>Car Rental System</title>
+    <title><%= I18n.t('views.application_name') %></title>
   </head>
   <body>
     <%= render 'layouts/header' %>
 
     <div class='container'>
       <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: 'alert alert-#{message_type}') %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
 
       <%= yield %>

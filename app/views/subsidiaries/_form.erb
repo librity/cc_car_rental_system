@@ -4,11 +4,11 @@
   <%= f.label :name, I18n.t('views.labels.name') %>
   <%= f.text_field :name, class: 'form-control' %>
 
-  <%= f.label :cnpj, 'CNPJ' %>
+  <%= f.label :cnpj, I18n.t('views.labels.cnpj') %>
   <%= f.number_field :cnpj, class: 'form-control' %>
 
-  <%= f.label :address, 'Endereço' %>
+  <%= f.label :address, I18n.t('views.labels.address') %>
   <%= f.text_field :address, class: 'form-control' %>
 
-  <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
+  <%= f.submit I18n.t('views.actions.send'), class: 'btn btn-primary' %>
 <% end %>

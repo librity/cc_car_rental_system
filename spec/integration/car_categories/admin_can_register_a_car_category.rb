@@ -17,9 +17,9 @@ feature 'Admin can register a car category' do
     click_on  I18n.t('views.actions.new')
 
     fill_in I18n.t('views.labels.name'), with: 'Pickup'
-    fill_in 'Diária', with: '120'
-    fill_in 'Seguro', with: '30'
-    fill_in 'Seguro de Terceiros', with: '40'
+    fill_in I18n.t('views.labels.daily_rate'), with: '120'
+    fill_in I18n.t('views.labels.insurance'), with: '30'
+    fill_in I18n.t('views.labels.third_party_insurance'), with: '40'
     click_on 'Enviar'
 
     expect(current_path).to eq car_category_path(CarCategory.last.id)

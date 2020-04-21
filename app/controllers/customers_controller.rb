@@ -19,7 +19,6 @@ class CustomersController < ApplicationController
       flash[:success] = 'Cliente criado com sucesso'
       redirect_to @customer
     else
-      flash.now[:danger] = I18n.t('views.messages.arbitrary_error')
       render :new
     end
   end
@@ -34,7 +33,6 @@ class CustomersController < ApplicationController
       flash[:success] = 'Cliente atualizado'
       redirect_to @customer
     else
-      flash.now[:danger] = I18n.t('views.messages.arbitrary_error')
       render :edit
     end
   end

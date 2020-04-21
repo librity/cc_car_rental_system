@@ -20,7 +20,6 @@ class CarModelsController < ApplicationController
       flash[:success] = 'Modelo de veículos criado com sucesso'
       redirect_to @car_model
     else
-      flash.now[:danger] = I18n.t('views.messages.arbitrary_error')
       load_dependent_models
       render :new
     end
@@ -37,7 +36,6 @@ class CarModelsController < ApplicationController
       flash[:success] = 'Modelo de veículos atualizado'
       redirect_to @car_model
     else
-      flash.now[:danger] = I18n.t('views.messages.arbitrary_error')
       load_dependent_models
       render :edit
     end

@@ -7,14 +7,14 @@
   </div>
 
   <div class='form-group'>
-    <%= f.label :cpf, 'CPF' %>
+    <%= f.label :cpf, I18n.t('views.labels.cpf') %>
     <%= f.text_field :cpf, class: 'form-control' %>
   </div>
 
   <div class='form-group'>
-    <%= f.label :email, 'Email' %>
+    <%= f.label :email, I18n.t('views.labels.email') %>
     <%= f.email_field :email, class: 'form-control' %>
   </div>
 
-  <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
+  <%= f.submit I18n.t('views.actions.send'), class: 'btn btn-primary' %>
 <% end %>
