@@ -20,11 +20,12 @@ pt-BR:
 
     actions:
       go_back: Voltar
+      details: Detalhes
+      new: Novo
       send: Enviar
       edit: Editar
-      delete: Apagar
-      new: Novo
       update: Atualizar
+      delete: Apagar
 
     resources:
       manufacturers:

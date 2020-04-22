@@ -15,15 +15,28 @@
         <p><%= t('views.resources.car_models.empty_resource') %></p>
       <% end %>
 
-      <ol>
-        <% @car_models.each do |car_model| %>
-          <li>
-            <h3>
-              <%= link_to car_model.name, car_model %>
-            </h3>
-          </li>
-        <% end %>
-      </ol>
+      <table class="col index_table">
+        <thead class="index_table_head">
+          <tr class="index_table_row">
+            <th>Fabricante</th>
+            <th>Nome</th>
+            <th>Ano</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody class="index_table_body">
+          <% @car_models.each do |car_model| %>
+            <tr class="index_table_row" id="car-model-<%= car_model.id %>">
+              <td><%= car_model.manufacturer.name %></td>
+              <td><%= car_model.name %></td>
+              <td><%= car_model.year %></td>
+              <td><%= link_to t('views.actions.details'), car_model, id: "details-#{car_model.id}" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
     </section>
 
     <div class='actions mt-4'>
