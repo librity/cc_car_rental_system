@@ -15,15 +15,26 @@
         <p><%= t('views.resources.manufacturers.empty_resource') %></p>
       <% end %>
 
-      <ol>
-        <% @manufacturers.each do |manufacturer| %>
-          <li>
-            <h3>
-              <%= link_to manufacturer.name, manufacturer %>
-            </h3>
-          </li>
-        <% end %>
-      </ol>
+      <table class="col index_table">
+        <thead class="index_table_head">
+          <tr class="index_table_row">
+            <th><%= t('activerecord.attributes.manufacturer.id') %></th>
+            <th><%= t('activerecord.attributes.manufacturer.name') %></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody class="index_table_body">
+          <% @manufacturers.each do |manufacturer| %>
+            <tr class="index_table_row" id="manufacturer-<%= manufacturer.id %>">
+              <td><%= manufacturer.id %></td>
+              <td><%= manufacturer.name %></td>
+              <td><%= link_to t('views.actions.details'), manufacturer, id: "details-#{manufacturer.id}" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
     </section>
 
     <div class='actions mt-4'>

@@ -62,6 +62,14 @@ describe CarModel, type: :model do
       expect(subject.errors[:year])
         .to include(I18n.t('errors.messages.not_an_integer'))
     end
+
+    it 'should be greater than 1960' do
+      subject.year = '1960'
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:year])
+        .to include(I18n.t('errors.messages.greater_than', count: 1960))
+    end
   end
 
   context 'validation: manufacturer' do

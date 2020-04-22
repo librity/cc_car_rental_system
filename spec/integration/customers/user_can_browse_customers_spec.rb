@@ -17,14 +17,16 @@ feature 'Users can browse customers' do
   end
 
   scenario 'and view details' do
-    Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
-                     email: 'johny@example.com')
+    customer_one = Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
+                                    email: 'johny@example.com')
     Customer.create!(name: 'Hannah Banana', cpf: '20080287042',
                      email: 'hannah@example.com')
 
     visit root_path
     click_on I18n.t('activerecord.models.customer.other')
-    click_on 'Johnny Smith'
+    within "tr#customer-#{customer_one.id}" do
+      click_on I18n.t('views.actions.details')
+    end
 
     expect(page).to have_content('Johnny Smith')
     expect(page).to have_content('84226580036')
@@ -56,14 +58,16 @@ feature 'Users can browse customers' do
   end
 
   scenario 'and return to clients page' do
-    Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
-                     email: 'johny@example.com')
+    customer_one = Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
+                                    email: 'johny@example.com')
     Customer.create!(name: 'Hannah Banana', cpf: '20080287042',
                      email: 'hannah@example.com')
 
     visit root_path
     click_on I18n.t('activerecord.models.customer.other')
-    click_on 'Johnny Smith'
+    within "tr#customer-#{customer_one.id}" do
+      click_on I18n.t('views.actions.details')
+    end
     click_on I18n.t('views.actions.go_back')
 
     expect(current_path).to eq customers_path

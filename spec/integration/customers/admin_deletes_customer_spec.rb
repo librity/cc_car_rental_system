@@ -4,12 +4,14 @@ require 'rails_helper'
 
 feature 'Admin deletes customer' do
   scenario 'successfully' do
-    Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
-                     email: 'johny@example.com')
+    customer_one = Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
+                                    email: 'johny@example.com')
 
     visit root_path
     click_on I18n.t('activerecord.models.customer.other')
-    click_on 'Johnny Smith'
+    within "tr#customer-#{customer_one.id}" do
+      click_on I18n.t('views.actions.details')
+    end
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq customers_path
@@ -17,14 +19,16 @@ feature 'Admin deletes customer' do
   end
 
   scenario "and doesn't delete all of them" do
-    Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
-                     email: 'johny@example.com')
+    customer_one = Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
+                                    email: 'johny@example.com')
     Customer.create!(name: 'Hannah Banana', cpf: '20080287042',
                      email: 'hannah@example.com')
 
     visit root_path
     click_on I18n.t('activerecord.models.customer.other')
-    click_on 'Johnny Smith'
+    within "tr#customer-#{customer_one.id}" do
+      click_on I18n.t('views.actions.details')
+    end
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq customers_path

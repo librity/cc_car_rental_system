@@ -4,12 +4,14 @@ require 'rails_helper'
 
 feature 'Admin deletes car category' do
   scenario 'successfully' do
-    CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
-                        third_party_insurance: 5.0)
+    car_category_one = CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
+                                           third_party_insurance: 5.0)
 
     visit root_path
     click_on I18n.t('activerecord.models.car_category.other')
-    click_on 'Sedan'
+    within "tr#car-category-#{car_category_one.id}" do
+      click_on I18n.t('views.actions.details')
+    end
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq car_categories_path
@@ -17,14 +19,16 @@ feature 'Admin deletes car category' do
   end
 
   scenario "and doesn't delete all of them" do
-    CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
-                        third_party_insurance: 5.0)
+    car_category_one = CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
+                                           third_party_insurance: 5.0)
     CarCategory.create!(name: 'Camião', daily_rate: 140.0, insurance: 20.0,
                         third_party_insurance: 15.0)
 
     visit root_path
     click_on I18n.t('activerecord.models.car_category.other')
-    click_on 'Sedan'
+    within "tr#car-category-#{car_category_one.id}" do
+      click_on I18n.t('views.actions.details')
+    end
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq car_categories_path

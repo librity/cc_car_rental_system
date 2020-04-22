@@ -27,6 +27,7 @@ pt-BR:
 
     attributes:
       attr_defaults: &attr_defaults
+        id: ID
         name: Nome
         created_at: Criado
         updated_at: Alterado

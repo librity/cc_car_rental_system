@@ -15,15 +15,26 @@
         <p><%= t('views.resources.subsidiaries.empty_resource') %></p>
       <% end %>
 
-      <ol>
-        <% @subsidiaries.each do |subsidiary| %>
-          <li>
-            <h3>
-              <%= link_to subsidiary.name, subsidiary %>
-            </h3>
-          </li>
-        <% end %>
-      </ol>
+      <table class="col index_table">
+        <thead class="index_table_head">
+          <tr class="index_table_row">
+            <th><%= t('activerecord.attributes.subsidiary.name') %></th>
+            <th><%= t('activerecord.attributes.subsidiary.cnpj') %></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody class="index_table_body">
+          <% @subsidiaries.each do |subsidiary| %>
+            <tr class="index_table_row" id="subsidiary-<%= subsidiary.id %>">
+              <td><%= subsidiary.name %></td>
+              <td><%= subsidiary.cnpj %></td>
+              <td><%= link_to t('views.actions.details'), subsidiary, id: "details-#{subsidiary.id}" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
     </section>
 
     <div class='actions mt-4'>

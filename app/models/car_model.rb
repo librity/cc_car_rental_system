@@ -5,8 +5,8 @@ class CarModel < ApplicationRecord
   belongs_to :car_category
 
   validates :name, presence: true
-  validates :year, presence: true, numericality: { only_integer: true },
-                   length: { is: 4 }
+  validates :year, presence: true, length: { is: 4 },
+                   numericality: { only_integer: true, greater_than: 1960 }
   validates :manufacturer, presence: true
   validates :metric_horsepower, presence: true
   validates :car_category, presence: true

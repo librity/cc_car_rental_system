@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_421_021_354) do
+ActiveRecord::Schema.define(version: 20_200_422_222_936) do
   create_table 'car_categories', force: :cascade do |t|
     t.string 'name'
     t.float 'daily_rate'
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20_200_421_021_354) do
 
   create_table 'car_models', force: :cascade do |t|
     t.string 'name'
-    t.string 'year'
+    t.integer 'year'
     t.string 'metric_horsepower'
     t.string 'fuel_type'
     t.integer 'metric_city_milage'

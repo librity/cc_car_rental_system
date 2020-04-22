@@ -37,7 +37,7 @@ describe CarCategory, type: :model do
       expect(subject).to_not be_valid
       expect(subject.errors[:daily_rate]).to include(I18n.t('errors.messages.blank'))
     end
-    
+
     it 'should be numerical' do
       subject.daily_rate = '12.B4'
 
