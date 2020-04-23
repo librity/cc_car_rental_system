@@ -45,6 +45,7 @@ pt-BR:
       car_model:
         <<: *attr_defaults
         year: "Ano"
+        engine: "Motor"
         power: "Potência"
         fuel_type: "Tipo de combustível"
         metric_city_milage: "Quilometragem na cidade"

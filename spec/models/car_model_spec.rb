@@ -11,7 +11,7 @@ describe CarModel, type: :model do
     described_class.new(name: 'Civic', year: '2010', manufacturer: honda,
                         metric_horsepower: '135 @ 6500 rpm', car_category: sedan,
                         fuel_type: 'gasolina', metric_city_milage: 12,
-                        metric_highway_milage: 16)
+                        metric_highway_milage: 16, engine: '1.6 L R16A1 I4')
   end
 
   it 'is valid with valid attributes' do
@@ -161,6 +161,16 @@ describe CarModel, type: :model do
       expect(subject).to_not be_valid
       expect(subject.errors[:metric_highway_milage])
         .to include(I18n.t('errors.messages.not_an_integer'))
+    end
+  end
+
+  context 'validation: engine' do
+    it 'cannot be blank' do
+      subject.engine = ' '
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:engine])
+        .to include(I18n.t('errors.messages.blank'))
     end
   end
 end

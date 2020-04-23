@@ -11,7 +11,7 @@ feature 'Admin deletes car model' do
     car_model_one = CarModel.create!(name: 'Civic', year: '2010', manufacturer: honda,
                                      metric_horsepower: '135 @ 6500 rpm', car_category: sedan,
                                      fuel_type: 'gasolina', metric_city_milage: 12,
-                                     metric_highway_milage: 16)
+                                     metric_highway_milage: 16, engine: '1.6 L R16A1 I4')
 
     visit root_path
     click_on I18n.t('activerecord.models.car_model.other')
@@ -32,11 +32,11 @@ feature 'Admin deletes car model' do
     car_model_one = CarModel.create!(name: 'Civic', year: '2010', manufacturer: honda,
                                      metric_horsepower: '135 @ 6500 rpm', car_category: sedan,
                                      fuel_type: 'gasolina', metric_city_milage: 12,
-                                     metric_highway_milage: 16)
+                                     metric_highway_milage: 16, engine: '1.6 L R16A1 I4')
     CarModel.create!(name: 'Fit', year: '2005', manufacturer: honda,
                      metric_horsepower: '120 @ 6500 rpm', car_category: sedan,
                      fuel_type: 'gasolina', metric_city_milage: 14,
-                     metric_highway_milage: 18)
+                     metric_highway_milage: 18, engine: '1.3 L L13A I4')
 
     visit root_path
     click_on I18n.t('activerecord.models.car_model.other')
