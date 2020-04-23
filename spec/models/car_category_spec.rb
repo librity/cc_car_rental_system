@@ -30,7 +30,7 @@ describe CarCategory, type: :model do
     end
   end
 
-  context 'validation: daily_rate' do
+  context 'validation: daily rate' do
     it 'cannot be blank' do
       subject.daily_rate = ' '
 
@@ -44,6 +44,14 @@ describe CarCategory, type: :model do
       expect(subject).to_not be_valid
       expect(subject.errors[:daily_rate])
         .to include(I18n.t('errors.messages.not_a_number'))
+    end
+
+    it 'should be greater than zero' do
+      subject.daily_rate = 0
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:daily_rate])
+        .to include(I18n.t('errors.messages.greater_than', count: 0))
     end
   end
 
@@ -62,9 +70,17 @@ describe CarCategory, type: :model do
       expect(subject.errors[:insurance])
         .to include(I18n.t('errors.messages.not_a_number'))
     end
+
+    it 'should be greater than zero' do
+      subject.insurance = 0
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:insurance])
+        .to include(I18n.t('errors.messages.greater_than', count: 0))
+    end
   end
 
-  context 'validation: third_party_insurance' do
+  context 'validation: third party insurance' do
     it 'cannot be blank' do
       subject.third_party_insurance = ' '
 
@@ -78,6 +94,14 @@ describe CarCategory, type: :model do
       expect(subject).to_not be_valid
       expect(subject.errors[:third_party_insurance])
         .to include(I18n.t('errors.messages.not_a_number'))
+    end
+
+    it 'should be greater than zero' do
+      subject.third_party_insurance = 0
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:third_party_insurance])
+        .to include(I18n.t('errors.messages.greater_than', count: 0))
     end
   end
 end

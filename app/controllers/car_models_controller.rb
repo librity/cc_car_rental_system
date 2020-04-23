@@ -56,7 +56,7 @@ class CarModelsController < ApplicationController
     params.require(:car_model).permit(:name, :year, :manufacturer_id, :fuel_type,
                                       :metric_horsepower, :car_category_id,
                                       :metric_city_milage, :metric_highway_milage,
-                                    :engine)
+                                      :engine)
   end
 
   def load_dependent_models
