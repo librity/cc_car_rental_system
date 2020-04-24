@@ -4,9 +4,9 @@ require 'rails_helper'
 
 describe Customer, type: :model do
   subject do
-    described_class.new(name: 'John Smith',
+    described_class.new name: 'John Smith',
                         email: 'valid@example.com',
-                        cpf: '64757188072')
+                        cpf: '64757188072'
   end
 
   it 'is valid with valid attributes' do
@@ -40,7 +40,7 @@ describe Customer, type: :model do
     it 'must be unique' do
       subject.save!
 
-      customer = Customer.new(email: 'valid@example.com')
+      customer = Customer.new email: 'valid@example.com'
 
       expect(customer).to_not be_valid
       expect(customer.errors[:email]).to include(I18n.t('errors.messages.taken'))
@@ -89,7 +89,7 @@ describe Customer, type: :model do
     it 'must be unique' do
       subject.save!
 
-      customer = Customer.new(cpf: '64757188072')
+      customer = Customer.new cpf: '64757188072'
 
       expect(customer).to_not be_valid
       expect(customer.errors[:cpf]).to include(I18n.t('errors.messages.taken'))

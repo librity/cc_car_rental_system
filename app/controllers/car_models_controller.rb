@@ -6,7 +6,7 @@ class CarModelsController < ApplicationController
   end
 
   def show
-    @car_model = CarModel.find(params[:id])
+    @car_model = CarModel.find params[:id]
   end
 
   def new
@@ -15,10 +15,10 @@ class CarModelsController < ApplicationController
   end
 
   def create
-    @car_model = CarModel.new(car_model_params)
+    @car_model = CarModel.new car_model_params
     if @car_model.save
-      flash[:success] = t('views.messages.successfully.created',
-                          resource: t('activerecord.models.car_model.one'))
+      flash[:success] = t 'views.messages.successfully.created',
+                          resource: t('activerecord.models.car_model.one')
       redirect_to @car_model
     else
       load_dependent_models
@@ -27,15 +27,15 @@ class CarModelsController < ApplicationController
   end
 
   def edit
-    @car_model = CarModel.find(params[:id])
+    @car_model = CarModel.find params[:id]
     load_dependent_models
   end
 
   def update
-    @car_model = CarModel.find(params[:id])
-    if @car_model.update(car_model_params)
-      flash[:success] = t('views.messages.successfully.updated',
-                          resource: t('activerecord.models.car_model.one'))
+    @car_model = CarModel.find params[:id]
+    if @car_model.update car_model_params
+      flash[:success] = t 'views.messages.successfully.updated',
+                          resource: t('activerecord.models.car_model.one')
       redirect_to @car_model
     else
       load_dependent_models
@@ -45,18 +45,18 @@ class CarModelsController < ApplicationController
 
   def destroy
     CarModel.find(params[:id]).destroy
-    flash[:success] = t('views.messages.successfully.removed',
-                        resource: t('activerecord.models.car_model.one'))
+    flash[:success] = t 'views.messages.successfully.removed',
+                        resource: t('activerecord.models.car_model.one')
     redirect_to car_models_url
   end
 
   private
 
   def car_model_params
-    params.require(:car_model).permit(:name, :year, :manufacturer_id, :fuel_type,
+    params.require(:car_model).permit :name, :year, :manufacturer_id, :fuel_type,
                                       :metric_horsepower, :car_category_id,
                                       :metric_city_milage, :metric_highway_milage,
-                                      :engine)
+                                      :engine
   end
 
   def load_dependent_models

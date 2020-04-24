@@ -4,8 +4,8 @@ require 'rails_helper'
 
 describe CarCategory, type: :model do
   subject do
-    described_class.new(name: 'SUV', daily_rate: 1.23, insurance: 4.52,
-                        third_party_insurance: 16.61)
+    described_class.new name: 'SUV', daily_rate: 1.23, insurance: 4.52,
+                        third_party_insurance: 16.61
   end
 
   it 'is valid with valid attributes' do
@@ -23,7 +23,7 @@ describe CarCategory, type: :model do
     it 'must be unique' do
       subject.save!
 
-      car_category = CarCategory.new(name: 'SUV')
+      car_category = CarCategory.new name: 'SUV'
 
       expect(car_category).to_not be_valid
       expect(car_category.errors[:name]).to include(I18n.t('errors.messages.taken'))

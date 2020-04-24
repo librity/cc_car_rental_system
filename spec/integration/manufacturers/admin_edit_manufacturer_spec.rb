@@ -4,7 +4,7 @@ require 'rails_helper'
 
 feature 'Admin edits manufacturer' do
   scenario 'successfully' do
-    manufacturer_one = Manufacturer.create(name: 'Fiat')
+    manufacturer_one = Manufacturer.create name: 'Fiat'
 
     visit root_path
     click_on I18n.t('activerecord.models.manufacturer.other')
@@ -19,7 +19,7 @@ feature 'Admin edits manufacturer' do
   end
 
   scenario 'and name can not be blank' do
-    manufacturer_one = Manufacturer.create(name: 'Fiat')
+    manufacturer_one = Manufacturer.create name: 'Fiat'
 
     visit root_path
     click_on I18n.t('activerecord.models.manufacturer.other')
@@ -34,8 +34,8 @@ feature 'Admin edits manufacturer' do
   end
 
   scenario 'and name must be unique' do
-    manufacturer_one = Manufacturer.create(name: 'Fiat')
-    Manufacturer.create(name: 'Honda')
+    manufacturer_one = Manufacturer.create name: 'Fiat'
+    Manufacturer.create name: 'Honda'
 
     visit root_path
     click_on I18n.t('activerecord.models.manufacturer.other')

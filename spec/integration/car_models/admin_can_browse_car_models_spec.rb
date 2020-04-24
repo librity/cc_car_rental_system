@@ -4,18 +4,18 @@ require 'rails_helper'
 
 feature 'Admins can browse car models' do
   scenario 'successfully' do
-    honda = Manufacturer.create!(name: 'Honda')
-    sedan = CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
-                                third_party_insurance: 5.0)
+    honda = Manufacturer.create! name: 'Honda'
+    sedan = CarCategory.create! name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
+                                third_party_insurance: 5.0
 
-    CarModel.create!(name: 'Civic', year: '2010', manufacturer: honda,
+    CarModel.create! name: 'Civic', year: '2010', manufacturer: honda,
                      metric_horsepower: '135 @ 6500 rpm', car_category: sedan,
                      fuel_type: 'gasolina', metric_city_milage: 12,
-                     metric_highway_milage: 16, engine: '1.6 L R16A1 I4')
-    CarModel.create!(name: 'Fit', year: '2005', manufacturer: honda,
+                     metric_highway_milage: 16, engine: '1.6 L R16A1 I4'
+    CarModel.create! name: 'Fit', year: '2005', manufacturer: honda,
                      metric_horsepower: '120 @ 6500 rpm', car_category: sedan,
                      fuel_type: 'gasolina', metric_city_milage: 14,
-                     metric_highway_milage: 18, engine: '1.3 L L13A I4')
+                     metric_highway_milage: 18, engine: '1.3 L L13A I4'
 
     visit root_path
     click_on I18n.t('activerecord.models.car_model.other')
@@ -25,18 +25,18 @@ feature 'Admins can browse car models' do
   end
 
   scenario 'and view details' do
-    honda = Manufacturer.create!(name: 'Honda')
-    sedan = CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
-                                third_party_insurance: 5.0)
+    honda = Manufacturer.create! name: 'Honda'
+    sedan = CarCategory.create! name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
+                                third_party_insurance: 5.0
 
-    car_model_one = CarModel.create!(name: 'Civic', year: '2010', manufacturer: honda,
+    car_model_one = CarModel.create! name: 'Civic', year: '2010', manufacturer: honda,
                                      metric_horsepower: '135 @ 6500 rpm', car_category: sedan,
                                      fuel_type: 'gasolina', metric_city_milage: 12,
-                                     metric_highway_milage: 16, engine: '1.6 L R16A1 I4')
-    CarModel.create!(name: 'Fit', year: '2005', manufacturer: honda,
+                                     metric_highway_milage: 16, engine: '1.6 L R16A1 I4'
+    CarModel.create! name: 'Fit', year: '2005', manufacturer: honda,
                      metric_horsepower: '120 @ 6500 rpm', car_category: sedan,
                      fuel_type: 'gasolina', metric_city_milage: 14,
-                     metric_highway_milage: 18, engine: '1.3 L L13A I4')
+                     metric_highway_milage: 18, engine: '1.3 L L13A I4'
 
     visit root_path
     click_on I18n.t('activerecord.models.car_model.other')
@@ -69,18 +69,18 @@ feature 'Admins can browse car models' do
   end
 
   scenario 'and return to home page' do
-    honda = Manufacturer.create!(name: 'Honda')
-    sedan = CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
-                                third_party_insurance: 5.0)
+    honda = Manufacturer.create! name: 'Honda'
+    sedan = CarCategory.create! name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
+                                third_party_insurance: 5.0
 
-    CarModel.create!(name: 'Civic', year: '2010', manufacturer: honda,
+    CarModel.create! name: 'Civic', year: '2010', manufacturer: honda,
                      metric_horsepower: '135 @ 6500 rpm', car_category: sedan,
                      fuel_type: 'gasolina', metric_city_milage: 12,
-                     metric_highway_milage: 16, engine: '1.6 L R16A1 I4')
-    CarModel.create!(name: 'Fit', year: '2005', manufacturer: honda,
+                     metric_highway_milage: 16, engine: '1.6 L R16A1 I4'
+    CarModel.create! name: 'Fit', year: '2005', manufacturer: honda,
                      metric_horsepower: '120 @ 6500 rpm', car_category: sedan,
                      fuel_type: 'gasolina', metric_city_milage: 14,
-                     metric_highway_milage: 18, engine: '1.3 L L13A I4')
+                     metric_highway_milage: 18, engine: '1.3 L L13A I4'
 
     visit root_path
     click_on I18n.t('activerecord.models.car_model.other')
@@ -90,18 +90,18 @@ feature 'Admins can browse car models' do
   end
 
   scenario 'and return to car models page' do
-    honda = Manufacturer.create!(name: 'Honda')
-    sedan = CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
-                                third_party_insurance: 5.0)
+    honda = Manufacturer.create! name: 'Honda'
+    sedan = CarCategory.create! name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
+                                third_party_insurance: 5.0
 
-    car_model_one = CarModel.create!(name: 'Civic', year: '2010', manufacturer: honda,
+    car_model_one = CarModel.create! name: 'Civic', year: '2010', manufacturer: honda,
                                      metric_horsepower: '135 @ 6500 rpm', car_category: sedan,
                                      fuel_type: 'gasolina', metric_city_milage: 12,
-                                     metric_highway_milage: 16, engine: '1.6 L R16A1 I4')
-    CarModel.create!(name: 'Fit', year: '2005', manufacturer: honda,
+                                     metric_highway_milage: 16, engine: '1.6 L R16A1 I4'
+    CarModel.create! name: 'Fit', year: '2005', manufacturer: honda,
                      metric_horsepower: '120 @ 6500 rpm', car_category: sedan,
                      fuel_type: 'gasolina', metric_city_milage: 14,
-                     metric_highway_milage: 18, engine: '1.3 L L13A I4')
+                     metric_highway_milage: 18, engine: '1.3 L L13A I4'
 
     visit root_path
     click_on I18n.t('activerecord.models.car_model.other')

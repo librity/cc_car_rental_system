@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_423_022_923) do
+ActiveRecord::Schema.define version: 20_200_423_022_923 do
   create_table 'car_categories', force: :cascade do |t|
     t.string 'name'
     t.float 'daily_rate'

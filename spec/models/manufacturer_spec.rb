@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe Manufacturer, type: :model do
   subject do
-    described_class.new(name: 'Honda')
+    described_class.new name: 'Honda'
   end
 
   it 'is valid with valid attributes' do
@@ -22,7 +22,7 @@ describe Manufacturer, type: :model do
     it 'must be unique' do
       subject.save!
 
-      manufacturer = Manufacturer.new(name: 'Honda')
+      manufacturer = Manufacturer.new name: 'Honda'
 
       expect(manufacturer).to_not be_valid
       expect(manufacturer.errors[:name]).to include(I18n.t('errors.messages.taken'))

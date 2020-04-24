@@ -4,8 +4,8 @@ require 'rails_helper'
 
 feature 'Admin edits subsidiary' do
   scenario 'successfully' do
-    subsidiary_one = Subsidiary.create!(name: 'Hertz', cnpj: '84105199000102',
-                                        address: 'Paper Street 49, Grand Junction, CO')
+    subsidiary_one = Subsidiary.create! name: 'Hertz', cnpj: '84105199000102',
+                                        address: 'Paper Street 49, Grand Junction, CO'
 
     visit root_path
     click_on I18n.t('activerecord.models.subsidiary.other')
@@ -20,8 +20,8 @@ feature 'Admin edits subsidiary' do
   end
 
   scenario 'and name can not be blank' do
-    subsidiary_one = Subsidiary.create!(name: 'Hertz', cnpj: '84105199000102',
-                                        address: 'Paper Street 49, Grand Junction, CO')
+    subsidiary_one = Subsidiary.create! name: 'Hertz', cnpj: '84105199000102',
+                                        address: 'Paper Street 49, Grand Junction, CO'
 
     visit root_path
     click_on I18n.t('activerecord.models.subsidiary.other')
@@ -36,10 +36,10 @@ feature 'Admin edits subsidiary' do
   end
 
   scenario 'and name must be unique' do
-    subsidiary_one = Subsidiary.create!(name: 'Hertz', cnpj: '84105199000102',
-                                        address: 'Paper Street 49, Grand Junction, CO')
-    Subsidiary.create!(name: 'Alamo', cnpj: '35229090000171',
-                       address: 'Paper Street 76, Alamo, TX')
+    subsidiary_one = Subsidiary.create! name: 'Hertz', cnpj: '84105199000102',
+                                        address: 'Paper Street 49, Grand Junction, CO'
+    Subsidiary.create! name: 'Alamo', cnpj: '35229090000171',
+                       address: 'Paper Street 76, Alamo, TX'
 
     visit root_path
     click_on I18n.t('activerecord.models.subsidiary.other')

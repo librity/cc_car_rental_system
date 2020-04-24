@@ -4,14 +4,14 @@ require 'rails_helper'
 
 describe CarModel, type: :model do
   subject do
-    honda = Manufacturer.create(name: 'Honda')
-    sedan = CarCategory.create(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
-                               third_party_insurance: 5.0)
+    honda = Manufacturer.create name: 'Honda'
+    sedan = CarCategory.create name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
+                               third_party_insurance: 5.0
 
-    described_class.new(name: 'Civic', year: '2010', manufacturer: honda,
+    described_class.new name: 'Civic', year: '2010', manufacturer: honda,
                         metric_horsepower: '135 @ 6500 rpm', car_category: sedan,
                         fuel_type: 'gasolina', metric_city_milage: 12,
-                        metric_highway_milage: 16, engine: '1.6 L R16A1 I4')
+                        metric_highway_milage: 16, engine: '1.6 L R16A1 I4'
   end
 
   it 'is valid with valid attributes' do

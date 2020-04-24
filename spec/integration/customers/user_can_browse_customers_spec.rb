@@ -4,10 +4,10 @@ require 'rails_helper'
 
 feature 'Users can browse customers' do
   scenario 'successfully' do
-    Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
-                     email: 'johny@example.com')
-    Customer.create!(name: 'Hannah Banana', cpf: '20080287042',
-                     email: 'hannah@example.com')
+    Customer.create! name: 'Johnny Smith', cpf: '84226580036',
+                     email: 'johny@example.com'
+    Customer.create! name: 'Hannah Banana', cpf: '20080287042',
+                     email: 'hannah@example.com'
 
     visit root_path
     click_on I18n.t('activerecord.models.customer.other')
@@ -17,10 +17,10 @@ feature 'Users can browse customers' do
   end
 
   scenario 'and view details' do
-    customer_one = Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
-                                    email: 'johny@example.com')
-    Customer.create!(name: 'Hannah Banana', cpf: '20080287042',
-                     email: 'hannah@example.com')
+    customer_one = Customer.create! name: 'Johnny Smith', cpf: '84226580036',
+                                    email: 'johny@example.com'
+    Customer.create! name: 'Hannah Banana', cpf: '20080287042',
+                     email: 'hannah@example.com'
 
     visit root_path
     click_on I18n.t('activerecord.models.customer.other')
@@ -45,10 +45,10 @@ feature 'Users can browse customers' do
   end
 
   scenario 'and return to home page' do
-    Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
-                     email: 'johny@example.com')
-    Customer.create!(name: 'Hannah Banana', cpf: '20080287042',
-                     email: 'hannah@example.com')
+    Customer.create! name: 'Johnny Smith', cpf: '84226580036',
+                     email: 'johny@example.com'
+    Customer.create! name: 'Hannah Banana', cpf: '20080287042',
+                     email: 'hannah@example.com'
 
     visit root_path
     click_on I18n.t('activerecord.models.customer.other')
@@ -58,10 +58,10 @@ feature 'Users can browse customers' do
   end
 
   scenario 'and return to clients page' do
-    customer_one = Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
-                                    email: 'johny@example.com')
-    Customer.create!(name: 'Hannah Banana', cpf: '20080287042',
-                     email: 'hannah@example.com')
+    customer_one = Customer.create! name: 'Johnny Smith', cpf: '84226580036',
+                                    email: 'johny@example.com'
+    Customer.create! name: 'Hannah Banana', cpf: '20080287042',
+                     email: 'hannah@example.com'
 
     visit root_path
     click_on I18n.t('activerecord.models.customer.other')

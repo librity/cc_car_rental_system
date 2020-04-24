@@ -4,10 +4,10 @@ require 'rails_helper'
 
 feature 'Admins can browse subsidiaries' do
   scenario 'successfully' do
-    Subsidiary.create!(name: 'Hertz', cnpj: '84105199000102',
-                       address: 'Paper Street 49, Grand Junction, CO')
-    Subsidiary.create!(name: 'Alamo', cnpj: '35229090000171',
-                       address: 'Paper Street 76, Alamo, TX')
+    Subsidiary.create! name: 'Hertz', cnpj: '84105199000102',
+                       address: 'Paper Street 49, Grand Junction, CO'
+    Subsidiary.create! name: 'Alamo', cnpj: '35229090000171',
+                       address: 'Paper Street 76, Alamo, TX'
 
     visit root_path
     click_on I18n.t('activerecord.models.subsidiary.other')
@@ -17,10 +17,10 @@ feature 'Admins can browse subsidiaries' do
   end
 
   scenario 'and view details' do
-    subsidiary_one = Subsidiary.create!(name: 'Hertz', cnpj: '84105199000102',
-                                        address: 'Paper Street 49, Grand Junction, CO')
-    Subsidiary.create!(name: 'Alamo', cnpj: '35229090000171',
-                       address: 'Paper Street 76, Alamo, TX')
+    subsidiary_one = Subsidiary.create! name: 'Hertz', cnpj: '84105199000102',
+                                        address: 'Paper Street 49, Grand Junction, CO'
+    Subsidiary.create! name: 'Alamo', cnpj: '35229090000171',
+                       address: 'Paper Street 76, Alamo, TX'
 
     visit root_path
     click_on I18n.t('activerecord.models.subsidiary.other')
@@ -44,10 +44,10 @@ feature 'Admins can browse subsidiaries' do
   end
 
   scenario 'and return to home page' do
-    Subsidiary.create!(name: 'Hertz', cnpj: '84105199000102',
-                       address: 'Paper Street 49, Grand Junction, CO')
-    Subsidiary.create!(name: 'Alamo', cnpj: '35229090000171',
-                       address: 'Paper Street 76, Alamo, TX')
+    Subsidiary.create! name: 'Hertz', cnpj: '84105199000102',
+                       address: 'Paper Street 49, Grand Junction, CO'
+    Subsidiary.create! name: 'Alamo', cnpj: '35229090000171',
+                       address: 'Paper Street 76, Alamo, TX'
 
     visit root_path
     click_on I18n.t('activerecord.models.subsidiary.other')
@@ -57,10 +57,10 @@ feature 'Admins can browse subsidiaries' do
   end
 
   scenario 'and return to subsidiaries page' do
-    subsidiary_one = Subsidiary.create!(name: 'Hertz', cnpj: '84105199000102',
-                                        address: 'Paper Street 49, Grand Junction, CO')
-    Subsidiary.create!(name: 'Alamo', cnpj: '35229090000171',
-                       address: 'Paper Street 76, Alamo, TX')
+    subsidiary_one = Subsidiary.create! name: 'Hertz', cnpj: '84105199000102',
+                                        address: 'Paper Street 49, Grand Junction, CO'
+    Subsidiary.create! name: 'Alamo', cnpj: '35229090000171',
+                       address: 'Paper Street 76, Alamo, TX'
 
     visit root_path
     click_on I18n.t('activerecord.models.subsidiary.other')

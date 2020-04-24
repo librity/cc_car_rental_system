@@ -4,7 +4,7 @@ require 'rails_helper'
 
 feature 'Admin register valid manufacturer' do
   scenario 'and name must be unique' do
-    Manufacturer.create(name: 'Fiat')
+    Manufacturer.create name: 'Fiat'
     visit root_path
     click_on I18n.t('activerecord.models.manufacturer.other')
     click_on I18n.t('views.actions.new')

@@ -4,9 +4,9 @@ require 'rails_helper'
 
 feature 'Admin register valid car model' do
   scenario 'and name can not be blank' do
-    Manufacturer.create!(name: 'Honda')
-    CarCategory.create!(name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
-                        third_party_insurance: 5.0)
+    Manufacturer.create! name: 'Honda'
+    CarCategory.create! name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
+                        third_party_insurance: 5.0
 
     visit root_path
     click_on I18n.t('activerecord.models.car_model.other')

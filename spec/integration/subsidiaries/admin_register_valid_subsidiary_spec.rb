@@ -4,8 +4,8 @@ require 'rails_helper'
 
 feature 'Admin register valid subsidiary' do
   scenario 'and name must be unique' do
-    Subsidiary.create!(name: 'Hertz', cnpj: '84105199000102',
-                       address: 'Paper Street 49, Grand Junction, CO')
+    Subsidiary.create! name: 'Hertz', cnpj: '84105199000102',
+                       address: 'Paper Street 49, Grand Junction, CO'
 
     visit root_path
     click_on I18n.t('activerecord.models.subsidiary.other')

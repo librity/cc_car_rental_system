@@ -2,7 +2,7 @@
 
 # Validates the format of 'Cadastro Nacional da Pessoa Juridica', a Brazilian
 # taxpayer registry identification for businesses and companies, issued by the
-# Brazilian Department of Federal Revenue.
+# Brazil's Department of Federal Revenue.
 class CnpjValidator < ActiveModel::EachValidator
   BLACKLIST = %w[
     00000000000000
@@ -17,30 +17,30 @@ class CnpjValidator < ActiveModel::EachValidator
     99999999999999
   ].freeze
 
-  def validate_each(record, attribute, value)
-    return fail_validation(record, attribute) if value.blank?
-    return fail_validation(record, attribute) if in_blacklist?(value)
+  def validate_each record, attribute, value
+    return fail_validation record, attribute if value.blank?
+    return fail_validation record, attribute if in_blacklist? value
 
-    raw_cnpj = parse_cnpj(value)
+    raw_cnpj = parse_cnpj value
 
-    fail_validation(record, attribute) unless valid_digits?(raw_cnpj)
+    fail_validation record, attribute unless valid_digits? raw_cnpj
   end
 
   private
 
-  def fail_validation(record, attribute)
-    record.errors[attribute] << (options[:message] || I18n.t('errors.messages.invalid'))
+  def fail_validation record, attribute
+    record.errors.add attribute, I18n.t('errors.messages.invalid')
   end
 
-  def in_blacklist?(value)
-    BLACKLIST.include?(value)
+  def in_blacklist? value
+    BLACKLIST.include? value
   end
 
-  def parse_cnpj(value)
+  def parse_cnpj value
     value.each_char.to_a.map(&:to_i)
   end
 
-  def valid_digits?(raw_cnpj)
+  def valid_digits? raw_cnpj
     digits = raw_cnpj[0...12]
     digits << generate_verification_digit(digits)
     digits << generate_verification_digit(digits)
@@ -48,10 +48,10 @@ class CnpjValidator < ActiveModel::EachValidator
     digits[-2, 2] == raw_cnpj[-2, 2]
   end
 
-  def generate_verification_digit(digits)
+  def generate_verification_digit digits
     index = 2
 
-    sum = digits.reverse.reduce(0) do |buffer, number|
+    sum = digits.reverse.reduce 0 do |buffer, number|
       (buffer + number * index).tap do
         index = index == 9 ? 2 : index + 1
       end

@@ -4,8 +4,8 @@ require 'rails_helper'
 
 feature 'Admin edits customer' do
   scenario 'successfully' do
-    customer_one = Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
-                                    email: 'johny@example.com')
+    customer_one = Customer.create! name: 'Johnny Smith', cpf: '84226580036',
+                                    email: 'johny@example.com'
 
     visit root_path
     click_on I18n.t('activerecord.models.customer.other')
@@ -20,8 +20,8 @@ feature 'Admin edits customer' do
   end
 
   scenario 'and name can not be blank' do
-    customer_one = Customer.create!(name: 'Johnny Smith', cpf: '84226580036',
-                                    email: 'johny@example.com')
+    customer_one = Customer.create! name: 'Johnny Smith', cpf: '84226580036',
+                                    email: 'johny@example.com'
 
     visit root_path
     click_on I18n.t('activerecord.models.customer.other')

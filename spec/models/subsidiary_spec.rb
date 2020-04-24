@@ -4,8 +4,8 @@ require 'rails_helper'
 
 describe Subsidiary, type: :model do
   subject do
-    described_class.new(name: 'Hertz', cnpj: '84105199000102',
-                        address: 'Paper Street 49, Grand Junction, CO')
+    described_class.new name: 'Hertz', cnpj: '84105199000102',
+                        address: 'Paper Street 49, Grand Junction, CO'
   end
 
   it 'is valid with valid attributes' do
@@ -23,7 +23,7 @@ describe Subsidiary, type: :model do
     it 'must be unique' do
       subject.save!
 
-      subsidiary = Subsidiary.new(name: 'Hertz')
+      subsidiary = Subsidiary.new name: 'Hertz'
 
       expect(subsidiary).to_not be_valid
       expect(subsidiary.errors[:name]).to include(I18n.t('errors.messages.taken'))
@@ -41,7 +41,7 @@ describe Subsidiary, type: :model do
     it 'must be unique' do
       subject.save!
 
-      subsidiary = Subsidiary.new(cnpj: '84105199000102')
+      subsidiary = Subsidiary.new cnpj: '84105199000102'
 
       expect(subsidiary).to_not be_valid
       expect(subsidiary.errors[:cnpj]).to include(I18n.t('errors.messages.taken'))

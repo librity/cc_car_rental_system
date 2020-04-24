@@ -6,7 +6,7 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customer = Customer.find(params[:id])
+    @customer = Customer.find params[:id]
   end
 
   def new
@@ -14,10 +14,10 @@ class CustomersController < ApplicationController
   end
 
   def create
-    @customer = Customer.new(customer_params)
+    @customer = Customer.new customer_params
     if @customer.save
-      flash[:success] = t('views.messages.successfully.created',
-                          resource: t('activerecord.models.customer.one'))
+      flash[:success] = t 'views.messages.successfully.created',
+                          resource: t('activerecord.models.customer.one')
       redirect_to @customer
     else
       render :new
@@ -25,14 +25,14 @@ class CustomersController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = Customer.find params[:id]
   end
 
   def update
-    @customer = Customer.find(params[:id])
-    if @customer.update(customer_params)
-      flash[:success] = t('views.messages.successfully.updated',
-                          resource: t('activerecord.models.customer.one'))
+    @customer = Customer.find params[:id]
+    if @customer.update customer_params
+      flash[:success] = t 'views.messages.successfully.updated',
+                          resource: t('activerecord.models.customer.one')
       redirect_to @customer
     else
       render :edit
@@ -41,14 +41,14 @@ class CustomersController < ApplicationController
 
   def destroy
     Customer.find(params[:id]).destroy
-    flash[:success] = t('views.messages.successfully.removed',
-                        resource: t('activerecord.models.customer.one'))
+    flash[:success] = t 'views.messages.successfully.removed',
+                        resource: t('activerecord.models.customer.one')
     redirect_to customers_url
   end
 
   private
 
   def customer_params
-    params.require(:customer).permit(:name, :cpf, :email)
+    params.require(:customer).permit :name, :cpf, :email
   end
 end
