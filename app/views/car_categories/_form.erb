@@ -1,17 +1,25 @@
 <%= form_with model: @car_category, local: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :name, t('activerecord.attributes.car_category.name') %>
-  <%= f.text_field :name, class: 'form-control' %>
+  <div class='form-group'>
+    <%= f.label :name, t('activerecord.attributes.car_category.name') %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
 
-  <%= f.label :daily_rate, t('activerecord.attributes.car_category.daily_rate') %>
-  <%= f.number_field :daily_rate, class: 'form-control' %>
+  <div class='form-group'>
+    <%= f.label :daily_rate, t('activerecord.attributes.car_category.daily_rate') %>
+    <%= f.number_field :daily_rate, class: 'form-control' %>
+  </div>
 
-  <%= f.label :insurance, t('activerecord.attributes.car_category.insurance') %>
-  <%= f.number_field :insurance, class: 'form-control' %>
+  <div class='form-group'>
+    <%= f.label :insurance, t('activerecord.attributes.car_category.insurance') %>
+    <%= f.number_field :insurance, class: 'form-control' %>
+  </div>
 
-  <%= f.label :third_party_insurance, t('activerecord.attributes.car_category.third_party_insurance') %>
-  <%= f.number_field :third_party_insurance, class: 'form-control' %>
+  <div class='form-group'>
+    <%= f.label :third_party_insurance, t('activerecord.attributes.car_category.third_party_insurance') %>
+    <%= f.number_field :third_party_insurance, class: 'form-control' %>
+  </div>
 
   <%= f.submit t('views.actions.send'), class: 'btn btn-primary' %>
 <% end %>

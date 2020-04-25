@@ -1,14 +1,20 @@
-<%= form_with model: @subsidiary, local: true do |f| %>
+<%= form_with model: @subsidiary, local: true, class: 'subsidiary_form' do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :name, t('activerecord.attributes.subsidiary.name') %>
-  <%= f.text_field :name, class: 'form-control' %>
+  <div class='form-group'>
+    <%= f.label :name, t('activerecord.attributes.subsidiary.name') %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
 
-  <%= f.label :cnpj, t('activerecord.attributes.subsidiary.cnpj') %>
-  <%= f.number_field :cnpj, class: 'form-control' %>
+  <div class='form-group'>
+    <%= f.label :cnpj, t('activerecord.attributes.subsidiary.cnpj') %>
+    <%= f.text_field :cnpj, class: ['form-control', 'cnpj_input'] %>
+  </div>
 
-  <%= f.label :address, t('activerecord.attributes.subsidiary.address') %>
-  <%= f.text_field :address, class: 'form-control' %>
+  <div class='form-group'>
+    <%= f.label :address, t('activerecord.attributes.subsidiary.address') %>
+    <%= f.text_field :address, class: 'form-control' %>
+  </div>
 
   <%= f.submit t('views.actions.send'), class: 'btn btn-primary' %>
 <% end %>

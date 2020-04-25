@@ -1,34 +1,52 @@
 <%= form_with model: @car_model, local: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :name, t('activerecord.attributes.car_model.name') %>
-  <%= f.text_field :name, class: 'form-control' %>
+  <div class='form-group'>
+    <%= f.label :name, t('activerecord.attributes.car_model.name') %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
 
-  <%= f.label :manufacturer_id, t('activerecord.models.manufacturer.one') %>
-  <%= f.collection_select :manufacturer_id, @manufacturers, :id, :name, {}, 
+  <div class='form-group'>
+    <%= f.label :manufacturer_id, t('activerecord.models.manufacturer.one') %>
+    <%= f.collection_select :manufacturer_id, @manufacturers, :id, :name, {}, 
                           { class: 'form-control' } %>
+  </div>
 
-  <%= f.label :car_category_id, t('activerecord.models.car_category.one') %>
-  <%= f.collection_select :car_category_id, @car_categories, :id, :name, {}, 
+  <div class='form-group'>
+    <%= f.label :car_category_id, t('activerecord.models.car_category.one') %>
+    <%= f.collection_select :car_category_id, @car_categories, :id, :name, {}, 
                           { class: 'form-control' } %>
+  </div>
 
-  <%= f.label :year, t('activerecord.attributes.car_model.year') %>
-  <%= f.number_field :year, class: 'form-control' %>
+  <div class='form-group'>
+    <%= f.label :year, t('activerecord.attributes.car_model.year') %>
+    <%= f.number_field :year, class: 'form-control' %>
+  </div>
 
-  <%= f.label :metric_horsepower, t('activerecord.attributes.car_model.power') %>
-  <%= f.text_field :metric_horsepower, class: 'form-control' %>
+  <div class='form-group'>
+    <%= f.label :metric_horsepower, t('activerecord.attributes.car_model.power') %>
+    <%= f.text_field :metric_horsepower, class: 'form-control' %>
+  </div>
 
-  <%= f.label :engine, t('activerecord.attributes.car_model.engine') %>
-  <%= f.text_field :engine, class: 'form-control' %>
+  <div class='form-group'>
+    <%= f.label :engine, t('activerecord.attributes.car_model.engine') %>
+    <%= f.text_field :engine, class: 'form-control' %>
+  </div>
 
-  <%= f.label :fuel_type, t('activerecord.attributes.car_model.fuel_type') %>
-  <%= f.text_field :fuel_type, class: 'form-control' %>
+  <div class='form-group'>
+    <%= f.label :fuel_type, t('activerecord.attributes.car_model.fuel_type') %>
+    <%= f.text_field :fuel_type, class: 'form-control' %>
+  </div>
 
-  <%= f.label :metric_city_milage, t('activerecord.attributes.car_model.metric_city_milage') %>
-  <%= f.number_field :metric_city_milage, class: 'form-control' %>
+  <div class='form-group'>
+    <%= f.label :metric_city_milage, t('activerecord.attributes.car_model.metric_city_milage') %>
+    <%= f.number_field :metric_city_milage, class: 'form-control' %>
+  </div>
 
-  <%= f.label :metric_highway_milage, t('activerecord.attributes.car_model.metric_highway_milage') %>
-  <%= f.number_field :metric_highway_milage, class: 'form-control' %>
+  <div class='form-group'>
+    <%= f.label :metric_highway_milage, t('activerecord.attributes.car_model.metric_highway_milage') %>
+    <%= f.number_field :metric_highway_milage, class: 'form-control' %>
+  </div>
 
   <%= f.submit t('views.actions.send'), class: 'btn btn-primary' %>
 <% end %>
