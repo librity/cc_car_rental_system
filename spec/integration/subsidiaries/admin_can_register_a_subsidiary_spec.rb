@@ -23,8 +23,8 @@ feature 'Admin can register a subsidiary' do
 
     expect(current_path).to eq subsidiary_path(Subsidiary.last.id)
     expect(page).to have_content('National')
-    expect(page).to have_content('35229090000171')
+    expect(page).to have_content('35.229.090/0001-71')
     expect(page).to have_content('Paper Street 123, Portland, OR')
-    expect(page).to have_link(I18n.t('views.actions.go_back'))
+    expect(page).to have_link I18n.t('views.actions.go_back'), href: subsidiaries_path
   end
 end

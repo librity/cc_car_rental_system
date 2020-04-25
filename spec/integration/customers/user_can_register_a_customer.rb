@@ -24,7 +24,7 @@ feature 'Users can register a customer' do
     expect(current_path).to eq customer_path(Customer.last.id)
     expect(page).to have_content('Andrew Dalton')
     expect(page).to have_content('andrew@example.com')
-    expect(page).to have_content('14831482030')
-    expect(page).to have_link(I18n.t('views.actions.go_back'))
+    expect(page).to have_content('148.314.820-30')
+    expect(page).to have_link I18n.t('views.actions.go_back'), href: customers_path
   end
 end

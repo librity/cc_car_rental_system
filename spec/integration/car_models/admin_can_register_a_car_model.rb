@@ -37,6 +37,6 @@ feature 'Admin can register a car model' do
     expect(page).to have_content('12')
     expect(page).to have_content('16')
     expect(page).to have_content('1.6 L R16A1 I4')
-    expect(page).to have_link(I18n.t('views.actions.go_back'))
+    expect(page).to have_link I18n.t('views.actions.go_back'), href: car_models_path
   end
 end

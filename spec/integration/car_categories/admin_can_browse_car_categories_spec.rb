@@ -12,8 +12,8 @@ feature 'Admins can browse car categories' do
     visit root_path
     click_on I18n.t('activerecord.models.car_category.other')
 
-    expect(page).to have_content('Sedan')
-    expect(page).to have_content('Camião')
+    expect(page).to have_content 'Sedan'
+    expect(page).to have_content 'Camião'
   end
 
   scenario 'and view details' do
@@ -28,21 +28,21 @@ feature 'Admins can browse car categories' do
       click_on I18n.t('views.actions.details')
     end
 
-    expect(page).to have_content('Sedan')
-    expect(page).to have_content('R$ 100')
-    expect(page).to have_content('R$ 10')
-    expect(page).to have_content('R$ 5')
-    expect(page).not_to have_content('Camião')
-    expect(page).not_to have_content('120')
-    expect(page).not_to have_content('20')
-    expect(page).not_to have_content('15')
+    expect(page).to have_content 'Sedan'
+    expect(page).to have_content 'R$ 100'
+    expect(page).to have_content 'R$ 10'
+    expect(page).to have_content 'R$ 5'
+    expect(page).not_to have_content 'Camião'
+    expect(page).not_to have_content '120'
+    expect(page).not_to have_content '20'
+    expect(page).not_to have_content '15'
   end
 
   scenario 'when no car categories were created' do
     visit root_path
     click_on I18n.t('activerecord.models.car_category.other')
 
-    expect(page).to have_content(I18n.t('views.resources.car_categories.empty_resource'))
+    expect(page).to have_content I18n.t('views.resources.car_categories.empty_resource')
   end
 
   scenario 'and return to home page' do

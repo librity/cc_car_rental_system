@@ -21,6 +21,6 @@ feature 'Admin register manufacturer' do
 
     expect(current_path).to eq manufacturer_path(Manufacturer.last.id)
     expect(page).to have_content('Fiat')
-    expect(page).to have_link(I18n.t('views.actions.go_back'))
+    expect(page).to have_link I18n.t('views.actions.go_back'), href: manufacturers_path
   end
 end

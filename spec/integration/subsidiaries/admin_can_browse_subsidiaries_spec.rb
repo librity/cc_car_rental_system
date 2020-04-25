@@ -29,7 +29,7 @@ feature 'Admins can browse subsidiaries' do
     end
 
     expect(page).to have_content('Hertz')
-    expect(page).to have_content('84105199000102')
+    expect(page).to have_content('84.105.199/0001-02')
     expect(page).to have_content('Paper Street 49, Grand Junction, CO')
     expect(page).not_to have_content('Alamo')
     expect(page).not_to have_content('35229090000171')

@@ -8,4 +8,8 @@ class Customer < ApplicationRecord
                     uniqueness: true, length: { maximum: 255 }
   validates :cpf, presence: true, uniqueness: true, cpf: true, length: { is: 11 },
                   numericality: { only_integer: true }
+
+  def formatted_cpf
+    "#{cpf[0..2]}.#{cpf[3..5]}.#{cpf[6..8]}-#{cpf[9..10]}"
+  end
 end

@@ -21,9 +21,6 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: true
 
-Layout/SpaceBeforeFirstArg:
-  Enabled: true
-
 Style/MethodDefParentheses:
   Enabled: true
   EnforcedStyle: require_no_parentheses
@@ -32,6 +29,5 @@ Style/MethodCallWithArgsParentheses:
   Enabled: true
   EnforcedStyle: omit_parentheses
 
-Style/MethodCallWithoutArgsParentheses:
-  Enabled: true
-
+Lint/RequireParentheses:
+  Enabled: false

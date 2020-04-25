@@ -102,4 +102,10 @@ describe Customer, type: :model do
       expect(subject.errors[:cpf]).to include(I18n.t('errors.messages.invalid'))
     end
   end
+
+  context 'method: formatted_cpf' do
+    it 'should format cpf' do
+      expect(subject.formatted_cpf).to eq '647.571.880-72'
+    end
+  end
 end

@@ -63,4 +63,10 @@ describe Subsidiary, type: :model do
       expect(subject.errors[:address]).to include(I18n.t('errors.messages.blank'))
     end
   end
+
+  context 'method: formatted_cnpj' do
+    it 'should format cnpj' do
+      expect(subject.formatted_cnpj).to eq '84.105.199/0001-02'
+    end
+  end
 end

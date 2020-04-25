@@ -19,8 +19,8 @@ feature 'Users can browse customers' do
   scenario 'and view details' do
     customer_one = Customer.create! name: 'Johnny Smith', cpf: '84226580036',
                                     email: 'johny@example.com'
-    Customer.create! name: 'Hannah Banana', cpf: '20080287042',
-                     email: 'hannah@example.com'
+    customer_two = Customer.create! name: 'Hannah Banana', cpf: '20080287042',
+                                    email: 'hannah@example.com'
 
     visit root_path
     click_on I18n.t('activerecord.models.customer.other')
@@ -29,11 +29,11 @@ feature 'Users can browse customers' do
     end
 
     expect(page).to have_content('Johnny Smith')
-    expect(page).to have_content('84226580036')
+    expect(page).to have_content(customer_one.formatted_cpf)
     expect(page).to have_content('johny@example.com')
 
     expect(page).not_to have_content('Hannah Banana')
-    expect(page).not_to have_content('20080287042')
+    expect(page).not_to have_content(customer_two.formatted_cpf)
     expect(page).not_to have_content('hannah@example.com')
   end
 

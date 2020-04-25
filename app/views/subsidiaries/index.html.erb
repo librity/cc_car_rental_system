@@ -28,7 +28,7 @@
           <% @subsidiaries.each do |subsidiary| %>
             <tr class="index_table_row" id="subsidiary-<%= subsidiary.id %>">
               <td><%= subsidiary.name %></td>
-              <td><%= subsidiary.cnpj %></td>
+              <td><%= subsidiary.formatted_cnpj %></td>
               <td><%= link_to t('views.actions.details'), subsidiary, id: "details-#{subsidiary.id}" %></td>
             </tr>
           <% end %>

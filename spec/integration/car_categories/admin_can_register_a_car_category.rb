@@ -7,8 +7,7 @@ feature 'Admin can register a car category' do
     visit root_path
     click_on I18n.t('activerecord.models.car_category.other')
 
-    expect(page).to have_link(I18n.t('views.actions.new'),
-                              href: new_car_category_path)
+    expect(page).to have_link I18n.t('views.actions.new'), href: new_car_category_path
   end
 
   scenario 'successfully' do
@@ -23,10 +22,10 @@ feature 'Admin can register a car category' do
     click_on I18n.t('views.actions.send')
 
     expect(current_path).to eq car_category_path(CarCategory.last.id)
-    expect(page).to have_content('Pickup')
-    expect(page).to have_content('R$ 120')
-    expect(page).to have_content('R$ 30')
-    expect(page).to have_content('R$ 40')
-    expect(page).to have_link(I18n.t('views.actions.go_back'))
+    expect(page).to have_content 'Pickup'
+    expect(page).to have_content 'R$ 120'
+    expect(page).to have_content 'R$ 30'
+    expect(page).to have_content 'R$ 40'
+    expect(page).to have_link I18n.t('views.actions.go_back'), href: car_categories_path
   end
 end
