@@ -1,6 +1,9 @@
 <header class='navbar navbar-expand-lg navbar-dark bg-dark'>
   <div class='container'>
-    <%= link_to t('views.application_name'), root_path, id: 'logo' %>
+    <div class="logo_container">
+      <%= link_to image_tag("logo.svg", alt: t('views.application_name'), width: "40"), root_path, class: 'logo_svg' %>
+      <%= link_to t('views.application_name'), root_path, class: 'logo_name' %>
+    </div>
 
     <nav class='nav navbar-right'>
       <li class='nav-item'><%= link_to t('views.navigation.home'), root_path, class: 'header_nav_link' %></li>

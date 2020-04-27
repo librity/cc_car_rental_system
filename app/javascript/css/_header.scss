@@ -2,9 +2,18 @@ header {
   margin-bottom: 30px;
 }
 
-#logo {
+.logo_container {
   float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo_svg {
   margin-right: 10px;
+}
+
+.logo_name {
   font-size: 1.7em;
   color: white;
   text-transform: uppercase;
