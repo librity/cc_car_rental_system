@@ -15,6 +15,7 @@ feature 'Admin deletes car category' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq car_categories_path
+    expect(CarCategory.count).to eq 0
     expect(page).to have_content(I18n.t('views.resources.car_categories.empty_resource'))
   end
 
@@ -33,6 +34,7 @@ feature 'Admin deletes car category' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq car_categories_path
+    expect(CarCategory.count).to eq 1
     expect(page).not_to have_content('Sedan')
     expect(page).to have_content('Camião')
   end

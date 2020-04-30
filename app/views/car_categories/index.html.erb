@@ -28,7 +28,7 @@
           <% @car_categories.each do |car_category| %>
             <tr class="index_table_row" id="car-category-<%= car_category.id %>">
               <td><%= car_category.name %></td>
-              <td><%= car_category.daily_rate %></td>
+              <td><%= number_to_currency(car_category.daily_rate) %></td>
               <td><%= link_to t('views.actions.details'), car_category, id: "details-#{car_category.id}" %></td>
             </tr>
           <% end %>
@@ -38,7 +38,7 @@
     </section>
 
     <div class='actions mt-4'>
-      <%= link_to  t('views.actions.new'), new_car_category_path, class: 'btn btn-primary' %>
+      <%= link_to t('views.actions.new'), new_car_category_path, class: 'btn btn-primary' %>
     </div>
   </div>
 </main>

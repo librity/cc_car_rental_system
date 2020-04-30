@@ -23,7 +23,7 @@
           <dd> <%= number_to_currency(@car_model.car_category.daily_rate) %> </dd>
           <dt><%= t('activerecord.attributes.car_category.insurance') %>:</dt>
           <dd> <%= number_to_currency(@car_model.car_category.insurance) %> </dd>
-          <dt><%= t('activerecord.attributes.car_category.third_party_insurance') %> de Terceiros:</dt>
+          <dt><%= t('activerecord.attributes.car_category.third_party_insurance') %>:</dt>
           <dd> <%= number_to_currency(@car_model.car_category.third_party_insurance) %> </dd>
         </dl>
       </aside>
@@ -32,7 +32,7 @@
         <dt><%= t('activerecord.attributes.car_model.year') %>:</dt>
         <dd><%= @car_model.year %> </dd>
 
-        <dt><%= t('activerecord.attributes.car_model.power') %>:</dt>
+        <dt><%= t('activerecord.attributes.car_model.metric_horsepower') %>:</dt>
         <dd><%= @car_model.metric_horsepower %> </dd>
         <dt><%= t('activerecord.attributes.car_model.engine') %>:</dt>
         <dd><%= @car_model.engine %> </dd>

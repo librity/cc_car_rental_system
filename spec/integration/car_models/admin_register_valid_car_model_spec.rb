@@ -15,7 +15,7 @@ feature 'Admin register valid car model' do
     fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: ''
     fill_in I18n.t('activerecord.attributes.car_model.year'), with: '2010'
     select 'Honda', from: I18n.t('activerecord.models.manufacturer.one')
-    fill_in I18n.t('activerecord.attributes.car_model.power'), with: '135 @ 6500 rpm'
+    fill_in I18n.t('activerecord.attributes.car_model.metric_horsepower'), with: '135 @ 6500 rpm'
     select 'Sedan', from: I18n.t('activerecord.models.car_category.one')
     fill_in I18n.t('activerecord.attributes.car_model.fuel_type'), with: 'gasolina'
     fill_in I18n.t('activerecord.attributes.car_model.metric_city_milage'), with: '12'

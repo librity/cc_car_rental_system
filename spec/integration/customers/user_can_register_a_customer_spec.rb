@@ -8,7 +8,7 @@ feature 'Users can register a customer' do
     click_on I18n.t('activerecord.models.customer.other')
 
     expect(page).to have_link(I18n.t('views.actions.new'),
-                              href: new_client_path)
+                              href: new_customer_path)
   end
 
   scenario 'successfully' do

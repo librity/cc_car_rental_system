@@ -20,11 +20,11 @@
 
   <div class='form-group'>
     <%= f.label :year, t('activerecord.attributes.car_model.year') %>
-    <%= f.number_field :year, class: 'form-control' %>
+    <%= f.number_field :year, value: DateTime.now.year, min: 1961, max: (DateTime.now.year + 1), class: 'form-control' %>
   </div>
 
   <div class='form-group'>
-    <%= f.label :metric_horsepower, t('activerecord.attributes.car_model.power') %>
+    <%= f.label :metric_horsepower, t('activerecord.attributes.car_model.metric_horsepower') %>
     <%= f.text_field :metric_horsepower, class: 'form-control' %>
   </div>
 

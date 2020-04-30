@@ -5,10 +5,19 @@
 <main class='row'>
   <div class='col-12'>
     <header class='header'>
-      <h1> <%= @car_category.name %> </h1>
+      <h1> <%= t('activerecord.models.car_category.one') %> <%= @car_category.name %> </h1>
     </header>
 
-    <section class='contents'>
+    <section class='contents row'>
+      <aside class="col-3">
+        <dl class="side_info_box">
+          <dt><%= t('activerecord.models.car_model.other') %>:</dt>
+          <% @car_category.car_models.each do |car_model| %>
+            <dd><%= link_to car_model.name, car_model %> </dd>
+          <% end %>
+        </dl>
+      </aside>
+
       <dl>
         <dt><%= t('activerecord.attributes.car_category.daily_rate') %>:</dt>
         <dd> <%= number_to_currency(@car_category.daily_rate) %> </dd>

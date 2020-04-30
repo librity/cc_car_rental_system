@@ -46,7 +46,7 @@ pt-BR:
         <<: *attr_defaults
         year: "Ano"
         engine: "Motor"
-        power: "Potência"
+        metric_horsepower: "Potência"
         fuel_type: "Tipo de combustível"
         metric_city_milage: "Quilometragem na cidade"
         metric_highway_milage: "Quilometragem na estrada"

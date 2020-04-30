@@ -15,6 +15,7 @@ feature 'Admin deletes customer' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq customers_path
+    expect(Customer.count).to eq 0
     expect(page).to have_content(I18n.t('views.resources.customers.empty_resource'))
   end
 
@@ -32,6 +33,7 @@ feature 'Admin deletes customer' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq customers_path
+    expect(Customer.count).to eq 1
     expect(page).not_to have_content('Johnny Smith')
     expect(page).to have_content('Hannah Banana')
   end

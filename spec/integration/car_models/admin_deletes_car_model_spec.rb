@@ -21,6 +21,7 @@ feature 'Admin deletes car model' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq car_models_path
+    expect(CarModel.count).to eq 0
     expect(page).to have_content(I18n.t('views.resources.car_models.empty_resource'))
   end
 
@@ -46,6 +47,7 @@ feature 'Admin deletes car model' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq car_models_path
+    expect(CarModel.count).to eq 1
     expect(page).not_to have_content('Civic')
     expect(page).to have_content('Fit')
   end
