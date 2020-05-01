@@ -23,10 +23,6 @@ body {
   min-height: 90vh;
 }
 
-section {
-  overflow: auto;
-}
-
 textarea {
   resize: vertical;
 }
@@ -41,6 +37,10 @@ textarea {
 
 ul {
   list-style: none;
+}
+
+dd:last-child {
+  margin-bottom: 0;
 }
 
 /* typography */

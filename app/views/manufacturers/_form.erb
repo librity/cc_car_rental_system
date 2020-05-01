@@ -3,9 +3,8 @@
 
   <div class='form-group'>
     <%= f.label :name, t('activerecord.attributes.manufacturer.name') %>
-    <%= f.text_field :name, class: 'form-control' %>
+    <%= f.text_field :name, required: true, class: 'form-control' %>
   </div>
-
 
   <%= f.submit t('views.actions.send'), class: 'btn btn-primary' %>
 <% end %>

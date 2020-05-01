@@ -4,10 +4,10 @@ require 'rails_helper'
 
 feature 'Admins can browse car categories' do
   scenario 'successfully' do
-    car_category_one = CarCategory.create! name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
-                                           third_party_insurance: 5.0
-    car_category_two = CarCategory.create! name: 'Camião', daily_rate: 140.0, insurance: 20.0,
-                                           third_party_insurance: 15.0
+    CarCategory.create! name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
+                        third_party_insurance: 5.0
+    CarCategory.create! name: 'Camião', daily_rate: 140.0, insurance: 20.0,
+                        third_party_insurance: 15.0
 
     visit root_path
     click_on I18n.t('activerecord.models.car_category.other')
@@ -58,9 +58,9 @@ feature 'Admins can browse car categories' do
     expect(page).to have_link(I18n.t('views.actions.go_back'), href: car_categories_path)
 
     expect(page).not_to have_content 'Camião'
-    expect(page).not_to have_content '120'
-    expect(page).not_to have_content '20'
-    expect(page).not_to have_content '15'
+    expect(page).not_to have_content 'R$ 120,00'
+    expect(page).not_to have_content 'R$ 20,00'
+    expect(page).not_to have_content 'R$ 15,00'
   end
 
   scenario 'when no car categories were created' do
@@ -101,28 +101,35 @@ feature 'Admins can browse car categories' do
 
   scenario 'and view filtered car models' do
     honda = Manufacturer.create! name: 'Honda'
+    fiat = Manufacturer.create! name: 'Fiat'
 
-    car_category_one = CarCategory.create! name: 'Sedan', daily_rate: 100.0,
+    sedan = CarCategory.create! name: 'Sedan', daily_rate: 100.0,
                                            insurance: 10.0, third_party_insurance: 5.0
-    car_category_two = CarCategory.create! name: 'Camião', daily_rate: 140.0, insurance: 20.0,
+    truck = CarCategory.create! name: 'Camião', daily_rate: 140.0, insurance: 20.0,
                                            third_party_insurance: 15.0
 
-    car_model_one = CarModel.create! name: 'Civic', year: '2010', manufacturer: honda,
-                                     metric_horsepower: '135 @ 6500 rpm', car_category: car_category_one,
+    civic = CarModel.create! name: 'Civic', year: '2010', manufacturer: honda,
+                                     metric_horsepower: '135 @ 6500 rpm', car_category: sedan,
                                      fuel_type: 'gasolina', metric_city_milage: 12,
                                      metric_highway_milage: 16, engine: '1.6 L R16A1 I4'
-    car_model_two = CarModel.create! name: 'Ridgeline', year: '2005', manufacturer: honda,
-                                     metric_horsepower: '120 @ 6500 rpm', car_category: car_category_two,
+                                     uno = CarModel.create! name: 'Uno', year: '2019', manufacturer: fiat,
+                                     metric_horsepower: '120 @ 6500 rpm', car_category: sedan,
+                                     fuel_type: 'gasolina', metric_city_milage: 14,
+                                     metric_highway_milage: 18, engine: '1.3 L L13A I4'
+
+                                     ridgeline = CarModel.create! name: 'Ridgeline', year: '2005', manufacturer: honda,
+                                     metric_horsepower: '120 @ 6500 rpm', car_category: truck,
                                      fuel_type: 'gasolina', metric_city_milage: 14,
                                      metric_highway_milage: 18, engine: '1.3 L L13A I4'
 
     visit root_path
     click_on I18n.t('activerecord.models.car_category.other')
-    within "tr#car-category-#{car_category_one.id}" do
+    within "tr#car-category-#{sedan.id}" do
       click_on I18n.t('views.actions.details')
     end
 
-    expect(page).to have_link(car_model_one.name, href: car_model_path(car_model_one))
-    expect(page).not_to have_link(car_model_two.name)
+    expect(page).to have_link("Honda Civic 2010", href: car_model_path(civic))
+    expect(page).to have_link("Fiat Uno 2019", href: car_model_path(uno))
+    expect(page).not_to have_link('Honda Ridgeline 2005', href: car_model_path(ridgeline))
   end
 end

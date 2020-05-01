@@ -13,7 +13,7 @@
         <dl class="side_info_box">
           <dt><%= t('activerecord.models.car_model.other') %>:</dt>
           <% @car_category.car_models.each do |car_model| %>
-            <dd><%= link_to car_model.name, car_model %> </dd>
+            <dd><%= link_to "#{car_model.manufacturer.name} #{car_model.name} #{car_model.year}", car_model %> </dd>
           <% end %>
         </dl>
       </aside>

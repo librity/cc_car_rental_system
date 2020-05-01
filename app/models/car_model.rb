@@ -12,8 +12,8 @@ class CarModel < ApplicationRecord
   validates :car_category, presence: true
   validates :fuel_type, presence: true
   validates :engine, presence: true
-  validates :metric_city_milage, numericality: { only_integer: true },
+  validates :metric_city_milage, numericality: { only_integer: true, greater_than: 0 },
                                  presence: true
-  validates :metric_highway_milage, numericality: { only_integer: true },
+  validates :metric_highway_milage, numericality: { only_integer: true, greater_than: 0 },
                                     presence: true
 end

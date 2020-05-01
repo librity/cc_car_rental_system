@@ -26,6 +26,7 @@ pt-BR:
       edit: Editar
       update: Atualizar
       delete: Apagar
+      expand: Expandir
 
     resources:
       manufacturers:

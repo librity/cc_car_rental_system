@@ -3,49 +3,50 @@
 
   <div class='form-group'>
     <%= f.label :name, t('activerecord.attributes.car_model.name') %>
-    <%= f.text_field :name, class: 'form-control' %>
+    <%= f.text_field :name, required: true, class: 'form-control' %>
   </div>
 
   <div class='form-group'>
     <%= f.label :manufacturer_id, t('activerecord.models.manufacturer.one') %>
     <%= f.collection_select :manufacturer_id, @manufacturers, :id, :name, {}, 
-                          { class: 'form-control' } %>
+                          { required: true, class: 'form-control' } %>
   </div>
 
   <div class='form-group'>
     <%= f.label :car_category_id, t('activerecord.models.car_category.one') %>
     <%= f.collection_select :car_category_id, @car_categories, :id, :name, {}, 
-                          { class: 'form-control' } %>
+                            { required: true, class: 'form-control' } %>
   </div>
 
   <div class='form-group'>
     <%= f.label :year, t('activerecord.attributes.car_model.year') %>
-    <%= f.number_field :year, value: DateTime.now.year, min: 1961, max: (DateTime.now.year + 1), class: 'form-control' %>
+    <%= f.number_field :year, value: DateTime.now.year, min: 1961, 
+                        max: (DateTime.now.year + 1), required: true, class: 'form-control' %>
   </div>
 
   <div class='form-group'>
     <%= f.label :metric_horsepower, t('activerecord.attributes.car_model.metric_horsepower') %>
-    <%= f.text_field :metric_horsepower, class: 'form-control' %>
+    <%= f.text_field :metric_horsepower, required: true, class: 'form-control' %>
   </div>
 
   <div class='form-group'>
     <%= f.label :engine, t('activerecord.attributes.car_model.engine') %>
-    <%= f.text_field :engine, class: 'form-control' %>
+    <%= f.text_field :engine, required: true, class: 'form-control' %>
   </div>
 
   <div class='form-group'>
     <%= f.label :fuel_type, t('activerecord.attributes.car_model.fuel_type') %>
-    <%= f.text_field :fuel_type, class: 'form-control' %>
+    <%= f.text_field :fuel_type, required: true, class: 'form-control' %>
   </div>
 
   <div class='form-group'>
     <%= f.label :metric_city_milage, t('activerecord.attributes.car_model.metric_city_milage') %>
-    <%= f.number_field :metric_city_milage, class: 'form-control' %>
+    <%= f.number_field :metric_city_milage, required: true, min: 1, class: 'form-control' %>
   </div>
 
   <div class='form-group'>
     <%= f.label :metric_highway_milage, t('activerecord.attributes.car_model.metric_highway_milage') %>
-    <%= f.number_field :metric_highway_milage, class: 'form-control' %>
+    <%= f.number_field :metric_highway_milage, required: true, min: 1, class: 'form-control' %>
   </div>
 
   <%= f.submit t('views.actions.send'), class: 'btn btn-primary' %>

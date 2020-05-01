@@ -20,6 +20,7 @@
           <tr class="index_table_row">
             <th><%= t('activerecord.attributes.car_category.name') %></th>
             <th><%= t('activerecord.attributes.car_category.daily_rate') %></th>
+            <th><%= t('activerecord.models.car_model.other') %></th>
             <th></th>
           </tr>
         </thead>
@@ -29,6 +30,19 @@
             <tr class="index_table_row" id="car-category-<%= car_category.id %>">
               <td><%= car_category.name %></td>
               <td><%= number_to_currency(car_category.daily_rate) %></td>
+
+              <td class='dropdown'>
+                <a class='dropdown-toggle' role='button' id='resourcesDropdown' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+                  <%= t('views.actions.expand') %>
+                </a>
+
+                <div class='dropdown-menu' aria-labelledby='resourcesDropdown'>
+                  <% car_category.car_models.each do |car_model| %>
+                    <%= link_to "#{car_model.manufacturer.name} #{car_model.name} #{car_model.year}", car_model, class: 'dropdown-item' %>
+                  <% end %>
+                </div>
+              </td>
+
               <td><%= link_to t('views.actions.details'), car_category, id: "details-#{car_category.id}" %></td>
             </tr>
           <% end %>

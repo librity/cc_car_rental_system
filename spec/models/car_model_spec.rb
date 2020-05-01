@@ -136,6 +136,14 @@ describe CarModel, type: :model do
       expect(subject.errors[:metric_city_milage])
         .to include(I18n.t('errors.messages.not_an_integer'))
     end
+
+    it 'should be greater than zero' do
+      subject.metric_city_milage = -12
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:metric_city_milage])
+        .to include(I18n.t('errors.messages.greater_than', count: 0))
+    end
   end
 
   context 'validation: metric highway milage' do
@@ -161,6 +169,14 @@ describe CarModel, type: :model do
       expect(subject).to_not be_valid
       expect(subject.errors[:metric_highway_milage])
         .to include(I18n.t('errors.messages.not_an_integer'))
+    end
+
+    it 'should be greater than zero' do
+      subject.metric_highway_milage = -12
+
+      expect(subject).to_not be_valid
+      expect(subject.errors[:metric_highway_milage])
+        .to include(I18n.t('errors.messages.greater_than', count: 0))
     end
   end
 
