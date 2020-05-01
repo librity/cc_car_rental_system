@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CarModelsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @car_models = CarModel.all
   end

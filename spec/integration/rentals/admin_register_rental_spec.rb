@@ -3,7 +3,12 @@
 require 'rails_helper'
 
 feature 'Admin register rental' do
-  scenario 'successfully' do
+  before :each do
+    user = User.create! email: 'test@test.com.br', password: '12345678'
+    login_as user, scope: :user
+  end
+
+  xscenario 'successfully' do
     customer = Customer.create! name: 'Fulano Sicrano',
                                 cpf: '18597244003',
                                 email: 'teste@teste.com.br'
@@ -12,9 +17,6 @@ feature 'Admin register rental' do
                                        insurance: 100,
                                        third_party_insurance: 100
 
-    user = User.create! email: 'test@test.com.br', password: '12345678'
-
-    login_as user, scope: :user
     visit root_path
     click_on I18n.t('activerecord.models.rental.other')
     click_on I18n.t('views.navigation.new')
@@ -34,7 +36,7 @@ feature 'Admin register rental' do
   xscenario 'and must fill in all fields' do
   end
 
-  scenario 'and must be authenticated' do
+  xscenario 'and must be authenticated' do
     visit new_rental_path
 
     expect(current_path).to eq(new_user_session_path)

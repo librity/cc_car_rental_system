@@ -3,6 +3,11 @@
 require 'rails_helper'
 
 feature 'Admins can browse subsidiaries' do
+  before :each do
+    user = User.create! email: 'test@test.com.br', password: '12345678'
+    login_as user, scope: :user
+  end
+
   scenario 'successfully' do
     Subsidiary.create! name: 'Hertz', cnpj: '84105199000102',
                        address: 'Paper Street 49, Grand Junction, CO'

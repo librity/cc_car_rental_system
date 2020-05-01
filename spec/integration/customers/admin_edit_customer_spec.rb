@@ -3,6 +3,11 @@
 require 'rails_helper'
 
 feature 'Admin edits customer' do
+  before :each do
+    user = User.create! email: 'test@test.com.br', password: '12345678'
+    login_as user, scope: :user
+  end
+
   scenario 'successfully' do
     customer_one = Customer.create! name: 'Johnny Smith', cpf: '84226580036',
                                     email: 'johny@example.com'

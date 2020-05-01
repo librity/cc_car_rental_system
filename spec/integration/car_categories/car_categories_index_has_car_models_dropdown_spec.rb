@@ -3,6 +3,11 @@
 require 'rails_helper'
 
 feature 'Admins can browse car categories' do
+  before :each do
+    user = User.create! email: 'test@test.com.br', password: '12345678'
+    login_as user, scope: :user
+  end
+
   scenario 'and view car models links inside a dropdown' do
     honda = Manufacturer.create! name: 'Honda'
     fiat = Manufacturer.create! name: 'Fiat'

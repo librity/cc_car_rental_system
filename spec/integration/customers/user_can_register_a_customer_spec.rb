@@ -3,6 +3,11 @@
 require 'rails_helper'
 
 feature 'Users can register a customer' do
+  before :each do
+    user = User.create! email: 'test@test.com.br', password: '12345678'
+    login_as user, scope: :user
+  end
+
   scenario 'from index page' do
     visit root_path
     click_on I18n.t('activerecord.models.customer.other')

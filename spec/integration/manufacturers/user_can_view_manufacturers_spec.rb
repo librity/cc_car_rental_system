@@ -3,6 +3,11 @@
 require 'rails_helper'
 
 feature 'Visitor view manufacturers' do
+  before :each do
+    user = User.create! email: 'test@test.com.br', password: '12345678'
+    login_as user, scope: :user
+  end
+
   scenario 'successfully' do
     Manufacturer.create! name: 'Fiat'
     Manufacturer.create! name: 'Volkswagen'

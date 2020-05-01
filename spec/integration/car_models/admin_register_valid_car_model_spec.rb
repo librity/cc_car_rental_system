@@ -3,6 +3,11 @@
 require 'rails_helper'
 
 feature 'Admin register valid car model' do
+  before :each do
+    user = User.create! email: 'test@test.com.br', password: '12345678'
+    login_as user, scope: :user
+  end
+
   scenario 'and name can not be blank' do
     Manufacturer.create! name: 'Honda'
     CarCategory.create! name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
