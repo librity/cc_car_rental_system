@@ -1,5 +1,5 @@
 <nav clas='col'>
-  <%= link_to t('views.actions.go_back'), subsidiaries_path, class: 'btn btn-secondary' %>
+  <%= link_to t('views.navigation.go_back'), subsidiaries_path, class: 'btn btn-secondary' %>
 </nav>
 
 <main class='row'>
@@ -18,7 +18,7 @@
     </section>
 
     <div class='actions mt-4'>
-      <%= link_to t('views.actions.edit'), edit_subsidiary_path(@subsidiary), class: 'btn btn-primary' %>
+      <%= link_to t('views.navigation.edit'), edit_subsidiary_path(@subsidiary), class: 'btn btn-primary' %>
       <%= link_to t('views.actions.delete'), @subsidiary, method: :delete,
                   data: { confirm: t('messages.delete_resource', resource: @subsidiary.name) },
                   class: 'btn btn-danger' %>

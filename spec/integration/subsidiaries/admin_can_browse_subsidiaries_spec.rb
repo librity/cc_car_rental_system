@@ -25,7 +25,7 @@ feature 'Admins can browse subsidiaries' do
     visit root_path
     click_on I18n.t('activerecord.models.subsidiary.other')
     within "tr#subsidiary-#{subsidiary_one.id}" do
-      click_on I18n.t('views.actions.details')
+      click_on I18n.t('views.navigation.details')
     end
 
     expect(page).to have_content('Hertz')
@@ -51,7 +51,7 @@ feature 'Admins can browse subsidiaries' do
 
     visit root_path
     click_on I18n.t('activerecord.models.subsidiary.other')
-    click_on I18n.t('views.actions.go_back')
+    click_on I18n.t('views.navigation.go_back')
 
     expect(current_path).to eq root_path
   end
@@ -65,9 +65,9 @@ feature 'Admins can browse subsidiaries' do
     visit root_path
     click_on I18n.t('activerecord.models.subsidiary.other')
     within "tr#subsidiary-#{subsidiary_one.id}" do
-      click_on I18n.t('views.actions.details')
+      click_on I18n.t('views.navigation.details')
     end
-    click_on I18n.t('views.actions.go_back')
+    click_on I18n.t('views.navigation.go_back')
 
     expect(current_path).to eq subsidiaries_path
   end

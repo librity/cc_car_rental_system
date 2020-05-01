@@ -5,6 +5,10 @@ pt-BR:
 
   activerecord:
     models:
+      user:
+        one: Usuário
+        other: Usuários
+
       manufacturer:
         one: Fabricante
         other: Fabricantes
@@ -17,6 +21,10 @@ pt-BR:
         one: Modelo de Veículo
         other: Modelos de Veículo
 
+      car:
+        one: Carro
+        other: Carros
+
       subsidiary:
         one: Filial
         other: Filiais
@@ -25,6 +33,10 @@ pt-BR:
         one: Cliente
         other: Clientes
 
+      rental:
+        one: Locação
+        other: Locações
+
     attributes:
       attr_defaults: &attr_defaults
         id: ID
@@ -32,6 +44,12 @@ pt-BR:
         created_at: Criado
         updated_at: Alterado
         deleted_at: Excluído
+
+      user:
+        <<: *attr_defaults
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação de senha
 
       manufacturer:
         <<: *attr_defaults
@@ -51,6 +69,12 @@ pt-BR:
         metric_city_milage: "Quilometragem na cidade"
         metric_highway_milage: "Quilometragem na estrada"
 
+      car:
+        <<: *attr_defaults
+        license_plate: Placa
+        color: Cor
+        metric_milage: Quilometragem
+  
       subsidiary:
         <<: *attr_defaults
         cnpj: "CNPJ"
@@ -60,3 +84,8 @@ pt-BR:
         <<: *attr_defaults
         email: "Email"
         cpf: "CPF"
+
+      rental:
+        <<: *attr_defaults
+        start_date: Data de início
+        end_date: Data de término

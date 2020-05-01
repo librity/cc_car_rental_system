@@ -1,5 +1,5 @@
 <nav clas='col'>
-  <%= link_to t('views.actions.go_back'), car_categories_path, class: 'btn btn-secondary' %>
+  <%= link_to t('views.navigation.go_back'), car_categories_path, class: 'btn btn-secondary' %>
 </nav>
 
 <main class='row'>
@@ -29,7 +29,7 @@
     </section>
 
     <div class='actions mt-4'>
-      <%= link_to t('views.actions.edit'), edit_car_category_path(@car_category), class: 'btn btn-primary' %>
+      <%= link_to t('views.navigation.edit'), edit_car_category_path(@car_category), class: 'btn btn-primary' %>
       <%= link_to t('views.actions.delete'), @car_category, method: :delete, 
                   data: { confirm: t('messages.delete_resource', resource: @car_category.name) },
                   class: 'btn btn-danger' %>

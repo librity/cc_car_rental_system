@@ -25,7 +25,7 @@ feature 'Users can browse customers' do
     visit root_path
     click_on I18n.t('activerecord.models.customer.other')
     within "tr#customer-#{customer_one.id}" do
-      click_on I18n.t('views.actions.details')
+      click_on I18n.t('views.navigation.details')
     end
 
     expect(page).to have_content('Johnny Smith')
@@ -52,7 +52,7 @@ feature 'Users can browse customers' do
 
     visit root_path
     click_on I18n.t('activerecord.models.customer.other')
-    click_on I18n.t('views.actions.go_back')
+    click_on I18n.t('views.navigation.go_back')
 
     expect(current_path).to eq root_path
   end
@@ -66,9 +66,9 @@ feature 'Users can browse customers' do
     visit root_path
     click_on I18n.t('activerecord.models.customer.other')
     within "tr#customer-#{customer_one.id}" do
-      click_on I18n.t('views.actions.details')
+      click_on I18n.t('views.navigation.details')
     end
-    click_on I18n.t('views.actions.go_back')
+    click_on I18n.t('views.navigation.go_back')
 
     expect(current_path).to eq customers_path
   end

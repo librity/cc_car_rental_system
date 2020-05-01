@@ -7,7 +7,7 @@ feature 'Admin can register a car model' do
     visit root_path
     click_on I18n.t('activerecord.models.car_model.other')
 
-    expect(page).to have_link(I18n.t('views.actions.new'),
+    expect(page).to have_link(I18n.t('views.navigation.new'),
                               href: new_car_model_path)
   end
 
@@ -18,7 +18,7 @@ feature 'Admin can register a car model' do
 
     visit root_path
     click_on I18n.t('activerecord.models.car_model.other')
-    click_on I18n.t('views.actions.new')
+    click_on I18n.t('views.navigation.new')
 
     fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: 'Civic'
     fill_in I18n.t('activerecord.attributes.car_model.year'), with: '2010'
@@ -41,7 +41,7 @@ feature 'Admin can register a car model' do
     expect(page).to have_content('12')
     expect(page).to have_content('16')
     expect(page).to have_content('1.6 L R16A1 I4')
-    expect(page).to have_link I18n.t('views.actions.go_back'), href: car_models_path
+    expect(page).to have_link I18n.t('views.navigation.go_back'), href: car_models_path
   end
 
   scenario "and fails when he doesn't fill in all fields" do

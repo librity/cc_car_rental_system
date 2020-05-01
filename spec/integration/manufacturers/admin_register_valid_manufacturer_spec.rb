@@ -7,7 +7,7 @@ feature 'Admin register valid manufacturer' do
     Manufacturer.create name: 'Fiat'
     visit root_path
     click_on I18n.t('activerecord.models.manufacturer.other')
-    click_on I18n.t('views.actions.new')
+    click_on I18n.t('views.navigation.new')
 
     fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: 'Fiat'
     click_on I18n.t('views.actions.send')
@@ -18,7 +18,7 @@ feature 'Admin register valid manufacturer' do
   scenario 'and name can not be blank' do
     visit root_path
     click_on I18n.t('activerecord.models.manufacturer.other')
-    click_on I18n.t('views.actions.new')
+    click_on I18n.t('views.navigation.new')
 
     fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: ''
     click_on I18n.t('views.actions.send')

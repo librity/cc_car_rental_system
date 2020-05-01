@@ -10,7 +10,7 @@ feature 'Admin deletes subsidiary' do
     visit root_path
     click_on I18n.t('activerecord.models.subsidiary.other')
     within "tr#subsidiary-#{subsidiary_one.id}" do
-      click_on I18n.t('views.actions.details')
+      click_on I18n.t('views.navigation.details')
     end
     click_on I18n.t('views.actions.delete')
 
@@ -28,7 +28,7 @@ feature 'Admin deletes subsidiary' do
     visit root_path
     click_on I18n.t('activerecord.models.subsidiary.other')
     within "tr#subsidiary-#{subsidiary_one.id}" do
-      click_on I18n.t('views.actions.details')
+      click_on I18n.t('views.navigation.details')
     end
     click_on I18n.t('views.actions.delete')
 

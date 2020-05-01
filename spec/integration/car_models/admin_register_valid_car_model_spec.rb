@@ -10,7 +10,7 @@ feature 'Admin register valid car model' do
 
     visit root_path
     click_on I18n.t('activerecord.models.car_model.other')
-    click_on I18n.t('views.actions.new')
+    click_on I18n.t('views.navigation.new')
 
     fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: ''
     fill_in I18n.t('activerecord.attributes.car_model.year'), with: '2010'

@@ -1,5 +1,5 @@
 <nav>
-  <%= link_to t('views.actions.go_back'), root_path, class: 'btn btn-secondary' %>
+  <%= link_to t('views.navigation.go_back'), root_path, class: 'btn btn-secondary' %>
 </nav>
 
 <main class='row'>
@@ -29,7 +29,7 @@
             <tr class="index_table_row" id="subsidiary-<%= subsidiary.id %>">
               <td><%= subsidiary.name %></td>
               <td><%= subsidiary.formatted_cnpj %></td>
-              <td><%= link_to t('views.actions.details'), subsidiary, id: "details-#{subsidiary.id}" %></td>
+              <td><%= link_to t('views.navigation.details'), subsidiary, id: "details-#{subsidiary.id}" %></td>
             </tr>
           <% end %>
         </tbody>
@@ -38,7 +38,7 @@
     </section>
 
     <div class='actions mt-4'>
-      <%= link_to  t('views.actions.new'), new_subsidiary_path, class: 'btn btn-primary' %>
+      <%= link_to  t('views.navigation.new'), new_subsidiary_path, class: 'btn btn-primary' %>
     </div>
   </div>
 </main>

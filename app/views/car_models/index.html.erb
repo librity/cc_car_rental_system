@@ -1,5 +1,5 @@
 <nav>
-  <%= link_to t('views.actions.go_back'), root_path, class: 'btn btn-secondary' %>
+  <%= link_to t('views.navigation.go_back'), root_path, class: 'btn btn-secondary' %>
 </nav>
 
 <main class='row'>
@@ -31,7 +31,7 @@
               <td><%= car_model.manufacturer.name %></td>
               <td><%= car_model.name %></td>
               <td><%= car_model.year %></td>
-              <td><%= link_to t('views.actions.details'), car_model, id: "details-#{car_model.id}" %></td>
+              <td><%= link_to t('views.navigation.details'), car_model, id: "details-#{car_model.id}" %></td>
             </tr>
           <% end %>
         </tbody>
@@ -40,7 +40,7 @@
     </section>
 
     <div class='actions mt-4'>
-      <%= link_to  t('views.actions.new'), new_car_model_path, class: 'btn btn-primary' %>
+      <%= link_to  t('views.navigation.new'), new_car_model_path, class: 'btn btn-primary' %>
     </div>
   </div>
 </main>

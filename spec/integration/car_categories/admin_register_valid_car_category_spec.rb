@@ -9,7 +9,7 @@ feature 'Admin register valid car category' do
 
     visit root_path
     click_on  I18n.t('activerecord.models.car_category.other')
-    click_on  I18n.t('views.actions.new')
+    click_on  I18n.t('views.navigation.new')
 
     fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: 'Sedan'
     click_on I18n.t('views.actions.send')
@@ -20,7 +20,7 @@ feature 'Admin register valid car category' do
   scenario 'and name can not be blank' do
     visit root_path
     click_on  I18n.t('activerecord.models.car_category.other')
-    click_on  I18n.t('views.actions.new')
+    click_on  I18n.t('views.navigation.new')
 
     fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: ''
     click_on I18n.t('views.actions.send')
@@ -31,7 +31,7 @@ feature 'Admin register valid car category' do
   scenario 'and daily rate should be greater than zero' do
     visit root_path
     click_on  I18n.t('activerecord.models.car_category.other')
-    click_on  I18n.t('views.actions.new')
+    click_on  I18n.t('views.navigation.new')
 
     fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: 'Sedan'
     fill_in I18n.t('activerecord.attributes.car_category.daily_rate'), with: -2.4
@@ -45,7 +45,7 @@ feature 'Admin register valid car category' do
   scenario 'and insurance should be greater than zero' do
     visit root_path
     click_on  I18n.t('activerecord.models.car_category.other')
-    click_on  I18n.t('views.actions.new')
+    click_on  I18n.t('views.navigation.new')
 
     fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: 'Sedan'
     fill_in I18n.t('activerecord.attributes.car_category.daily_rate'), with: 123.5
@@ -59,7 +59,7 @@ feature 'Admin register valid car category' do
   scenario 'and third party insurance should be greater than zero' do
     visit root_path
     click_on  I18n.t('activerecord.models.car_category.other')
-    click_on  I18n.t('views.actions.new')
+    click_on  I18n.t('views.navigation.new')
 
     fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: 'Sedan'
     fill_in I18n.t('activerecord.attributes.car_category.daily_rate'), with: 28.5

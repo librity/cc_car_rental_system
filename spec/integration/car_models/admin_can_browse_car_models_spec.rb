@@ -48,7 +48,7 @@ feature 'Admins can browse car models' do
     visit root_path
     click_on I18n.t('activerecord.models.car_model.other')
     within "tr#car-model-#{car_model_one.id}" do
-      click_on I18n.t('views.actions.details')
+      click_on I18n.t('views.navigation.details')
     end
 
     expect(page).to have_content('Civic')
@@ -100,7 +100,7 @@ feature 'Admins can browse car models' do
 
     visit root_path
     click_on I18n.t('activerecord.models.car_model.other')
-    click_on I18n.t('views.actions.go_back')
+    click_on I18n.t('views.navigation.go_back')
 
     expect(current_path).to eq root_path
   end
@@ -122,9 +122,9 @@ feature 'Admins can browse car models' do
     visit root_path
     click_on I18n.t('activerecord.models.car_model.other')
     within "tr#car-model-#{car_model_one.id}" do
-      click_on I18n.t('views.actions.details')
+      click_on I18n.t('views.navigation.details')
     end
-    click_on I18n.t('views.actions.go_back')
+    click_on I18n.t('views.navigation.go_back')
 
     expect(current_path).to eq car_models_path
   end

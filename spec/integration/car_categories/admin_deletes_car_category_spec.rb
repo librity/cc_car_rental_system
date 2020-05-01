@@ -10,7 +10,7 @@ feature 'Admin deletes car category' do
     visit root_path
     click_on I18n.t('activerecord.models.car_category.other')
     within "tr#car-category-#{car_category_one.id}" do
-      click_on I18n.t('views.actions.details')
+      click_on I18n.t('views.navigation.details')
     end
     click_on I18n.t('views.actions.delete')
 
@@ -29,7 +29,7 @@ feature 'Admin deletes car category' do
     visit root_path
     click_on I18n.t('activerecord.models.car_category.other')
     within "tr#car-category-#{car_category_one.id}" do
-      click_on I18n.t('views.actions.details')
+      click_on I18n.t('views.navigation.details')
     end
     click_on I18n.t('views.actions.delete')
 

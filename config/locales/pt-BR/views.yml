@@ -6,29 +6,39 @@ pt-BR:
     application_name: "Car Rental System"
     greeting: "Bem vindo ao sistema de gestão de locação de carros"
 
-    navigation:
-      home: "Home"
-      resources: "Recursos"
-
     messages:
-      arbitrary_error: "Algo deu errado! Por favor verifique os dados e tente novamente."
+      arbitrary_error: Algo deu errado! Por favor verifique os dados e tente novamente.
       delete_resource: "Tem certeza que deseja remover o(a) %{resource}?"
       successfully:
         created: "%{resource} criado(a) com sucesso!"
         updated: "%{resource} atualizado(a) com sucesso!"
         destroyed: "%{resource} removido(a) com sucesso!"
 
-    actions:
+    navigation:
+      home: Home
+      resources: Recursos
+      create_account: Criar conta
+      log_in: Entrar
       go_back: Voltar
       details: Detalhes
       new: Novo
-      send: Enviar
       edit: Editar
+
+    actions:
+      log_out: Sair
+      log_in: Entrar
+      sign_up: Cadastrar-me
+      send: Enviar
       update: Atualizar
       delete: Apagar
       expand: Expandir
 
     resources:
+      users:
+        description: "Todos os usuários cadastrados na plataforma."
+        empty_resource: "Nenhum usuário cadastrado"
+        create: "Criar um novo Usuário"
+
       manufacturers:
         description: "Todos os fabricantes de carros cadastrados na plataforma."
         empty_resource: "Nenhum fabricante cadastrado"
@@ -44,6 +54,11 @@ pt-BR:
         empty_resource: "Nenhum modelo de veículo cadastrado"
         create: "Criar um novo Modelo de Veículo"
 
+      cars:
+        description: "Todos os carros que oferecemos."
+        empty_resource: "Nenhum carro cadastrado"
+        create: "Criar um novo Carro"
+
       subsidiaries:
         description: "Todas as nossas filiais."
         empty_resource: "Nenhuma filial cadastrada"
@@ -53,6 +68,11 @@ pt-BR:
         description: "Todos os nossos clientes."
         empty_resource: "Nenhum cliente cadastrado"
         create: "Cadastrar um novo Cliente"
+
+      rentals:
+        description: "Todos as locações de carro efetuadas."
+        empty_resource: "Nenhuma locação efetuada"
+        create: "Cadastrar uma nova Locação"
 
     footer:
       message_1: "Aplicação Rails desenvolvida por"

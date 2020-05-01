@@ -21,7 +21,7 @@ feature 'Visitor view manufacturers' do
     visit root_path
     click_on I18n.t('activerecord.models.manufacturer.other')
     within "tr#manufacturer-#{manufacturer_one.id}" do
-      click_on I18n.t('views.actions.details')
+      click_on I18n.t('views.navigation.details')
     end
 
     expect(page).to have_content('Fiat')
@@ -41,7 +41,7 @@ feature 'Visitor view manufacturers' do
 
     visit root_path
     click_on I18n.t('activerecord.models.manufacturer.other')
-    click_on I18n.t('views.actions.go_back')
+    click_on I18n.t('views.navigation.go_back')
 
     expect(current_path).to eq root_path
   end
@@ -53,9 +53,9 @@ feature 'Visitor view manufacturers' do
     visit root_path
     click_on I18n.t('activerecord.models.manufacturer.other')
     within "tr#manufacturer-#{manufacturer_one.id}" do
-      click_on I18n.t('views.actions.details')
+      click_on I18n.t('views.navigation.details')
     end
-    click_on I18n.t('views.actions.go_back')
+    click_on I18n.t('views.navigation.go_back')
 
     expect(current_path).to eq manufacturers_path
   end

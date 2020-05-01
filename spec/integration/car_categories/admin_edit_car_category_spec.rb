@@ -10,9 +10,9 @@ feature 'Admin edits car category' do
     visit root_path
     click_on I18n.t('activerecord.models.car_category.other')
     within "tr#car-category-#{car_category_one.id}" do
-      click_on I18n.t('views.actions.details')
+      click_on I18n.t('views.navigation.details')
     end
-    click_on I18n.t('views.actions.edit')
+    click_on I18n.t('views.navigation.edit')
     fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: 'Camião'
     click_on I18n.t('views.actions.send')
 
@@ -26,9 +26,9 @@ feature 'Admin edits car category' do
     visit root_path
     click_on I18n.t('activerecord.models.car_category.other')
     within "tr#car-category-#{car_category_one.id}" do
-      click_on I18n.t('views.actions.details')
+      click_on I18n.t('views.navigation.details')
     end
-    click_on I18n.t('views.actions.edit')
+    click_on I18n.t('views.navigation.edit')
     fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: ''
     click_on I18n.t('views.actions.send')
 
@@ -44,9 +44,9 @@ feature 'Admin edits car category' do
     visit root_path
     click_on I18n.t('activerecord.models.car_category.other')
     within "tr#car-category-#{car_category_one.id}" do
-      click_on I18n.t('views.actions.details')
+      click_on I18n.t('views.navigation.details')
     end
-    click_on I18n.t('views.actions.edit')
+    click_on I18n.t('views.navigation.edit')
     fill_in I18n.t('activerecord.attributes.attr_defaults.name'), with: 'Camião'
     click_on I18n.t('views.actions.send')
 
