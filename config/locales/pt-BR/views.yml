@@ -79,3 +79,18 @@ pt-BR:
       message_2: "como parte do"
       message_3: "um programa de bolsa para desenvolvimento web."
       original_repo: "Repositório Original"
+
+    devise:
+      shared:
+        log_in: "Faça login"
+        sign_up: "Cadastre-se"
+        forgot_password: "Esqueceu sua senha?"
+        confirmation_instructions: "Não recebeu as instruções da verificação?"
+        unlock_instructions: "Não recebeu as instruções do desbloquieo?"
+        provider_sign_in: "Autentique-se com %{provider_name}"
+      sessions:
+        create: "Faça login na applicação."
+        remember_me: "Mantenha-me logado"
+      passwords:
+        create: "Recupere sua senha."
+        send_email: "Enviar instruções de recuperação de senha"

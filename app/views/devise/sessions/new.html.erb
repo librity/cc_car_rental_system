@@ -1,26 +1,13 @@
-<h2>Log in</h2>
+<main class='row'>
+  <div class='col-md-12'>
+    <header class='header'>
+      <h1><%= t('views.devise.sessions.create') %></h1>
+    </header>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, required: true, autofocus: true, autocomplete: "email" %>
+    <section class='contents'>
+      <%= render 'form' %>
+    </section>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, required: true, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit t('views.actions.log_in') %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</main>

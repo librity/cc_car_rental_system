@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-feature 'User browses application' do
-  scenario "and links to resources don't appear unless logged-in" do
+feature 'User browses' do
+  scenario "application and links to resources don't appear unless logged-in" do
     visit root_path
 
     expect(page).to have_link I18n.t('views.navigation.log_in')
@@ -17,7 +17,7 @@ feature 'User browses application' do
     # expect(page).not_to have_link I18n.t('activerecord.models.rental.other')
   end
 
-  scenario 'and links to resources appear when logged-in' do
+  scenario 'application and links to resources appear when logged-in' do
     user = User.create! email: 'test@test.com.br', password: '12345678'
     login_as user, scope: :user
 
@@ -58,7 +58,7 @@ feature 'User browses application' do
     end
   end
 
-  context 'car_categories' do
+  context 'car categories' do
     scenario 'successfully' do
       user = User.create! email: 'test@test.com.br', password: '12345678'
       login_as user, scope: :user
@@ -82,7 +82,7 @@ feature 'User browses application' do
     end
   end
 
-  context 'car_models' do
+  context 'car models' do
     scenario 'successfully' do
       user = User.create! email: 'test@test.com.br', password: '12345678'
       login_as user, scope: :user

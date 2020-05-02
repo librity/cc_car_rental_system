@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class ManufacturersController < ApplicationController
-  before_action :authenticate_user!
-
   def index
     @manufacturers = Manufacturer.all
   end

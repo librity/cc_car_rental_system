@@ -35,10 +35,4 @@ feature 'Admin register rental' do
 
   xscenario 'and must fill in all fields' do
   end
-
-  xscenario 'and must be authenticated' do
-    visit new_rental_path
-
-    expect(current_path).to eq(new_user_session_path)
-  end
 end

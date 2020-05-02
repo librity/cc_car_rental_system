@@ -23,7 +23,7 @@ describe CarCategory, type: :model do
     it 'must be unique' do
       subject.save!
 
-      car_category = CarCategory.new name: 'SUV'
+      car_category = described_class.new name: 'SUV'
 
       expect(car_category).to_not be_valid
       expect(car_category.errors[:name]).to include(I18n.t('errors.messages.taken'))
