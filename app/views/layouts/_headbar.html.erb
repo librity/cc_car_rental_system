@@ -1,12 +1,8 @@
-<header class='navbar navbar-expand-lg navbar-dark bg-dark'>
-  <div class='container'>
-    <div class="logo_container mb-2">
-      <%= link_to image_tag("logo.svg", alt: t('views.application_name'), width: "40"), root_path, class: 'logo_svg' %>
-      <%= link_to t('views.application_name'), root_path, class: 'logo_name' %>
-    </div>
-
+<header class='main_headbar navbar navbar-expand-lg navbar-dark bg-dark'>
+  <div class='container main_headbar_container'>
     <% if user_signed_in? %>
-      <%= form_with url: search_by_token_rentals_path, local: true, method: "get" do |f| %>
+      <%= form_with url: search_by_token_rentals_path, local: true, method: "get", 
+                    class: 'search_rentals_by_token_form' do |f| %>
         <div class="form-row align-items-center my-1">
           <div class="col-auto">
             <%= f.label :token, t('views.navigation.search_rentals_by_token'), class: 'sr-only' %>
@@ -20,11 +16,17 @@
       <%- end %>
     <% end %>
 
+    <div class="logo_container mb-2">
+      <%= link_to image_tag("logo.svg", alt: t('views.application_name'), width: "40"), root_path, class: 'logo_svg' %>
+      <%= link_to t('views.application_name'), root_path, class: 'logo_name' %>
+    </div>
+
     <nav class='nav navbar-right'>
       <li class='nav-item'><%= link_to t('views.navigation.home'), root_path, class: 'header_nav_link' %></li>
 
       <% if user_signed_in? %>
-        <li class='nav-item'><%= link_to t('views.actions.log_out'), destroy_user_session_path, method: :delete, class: 'header_nav_link' %></li>
+        <li class='nav-item'><%= link_to t('views.actions.log_out'), destroy_user_session_path, method: :delete, 
+                                         class: 'header_nav_link' %></li>
 
         <li class='nav-item header_nav_link'>
           <div class='dropdown'>

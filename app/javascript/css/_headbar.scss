@@ -1,12 +1,18 @@
-header {
+.main_headbar {
   margin-bottom: 30px;
 }
 
+.main_headbar_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .logo_container {
-  float: left;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 5vw;
 }
 
 .logo_svg {
