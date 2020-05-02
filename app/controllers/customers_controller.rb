@@ -41,7 +41,7 @@ class CustomersController < ApplicationController
 
   def destroy
     Customer.find(params[:id]).destroy
-    flash[:success] = t 'views.messages.successfully.removed',
+    flash[:success] = t 'views.messages.successfully.destroyed',
                         resource: t('activerecord.models.customer.one')
     redirect_to customers_url
   end

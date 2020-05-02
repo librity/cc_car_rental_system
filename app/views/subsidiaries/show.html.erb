@@ -20,7 +20,7 @@
     <div class='actions mt-4'>
       <%= link_to t('views.navigation.edit'), edit_subsidiary_path(@subsidiary), class: 'btn btn-primary' %>
       <%= link_to t('views.actions.delete'), @subsidiary, method: :delete,
-                  data: { confirm: t('messages.delete_resource', resource: @subsidiary.name) },
+                  data: { confirm: t('views.messages.delete_resource', resource: @subsidiary.name) },
                   class: 'btn btn-danger' %>
     </div>
   </div>

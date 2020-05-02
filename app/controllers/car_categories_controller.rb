@@ -41,7 +41,7 @@ class CarCategoriesController < ApplicationController
 
   def destroy
     CarCategory.find(params[:id]).destroy
-    flash[:success] = t 'views.messages.successfully.removed',
+    flash[:success] = t 'views.messages.successfully.destroyed',
                         resource: t('activerecord.models.car_category.one')
     redirect_to car_categories_url
   end

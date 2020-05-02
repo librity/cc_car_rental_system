@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Admin edits car category' do
+feature 'Admin can edit a car category' do
   before :each do
     user = User.create! email: 'test@test.com.br', password: '12345678'
     login_as user, scope: :user
@@ -22,6 +22,8 @@ feature 'Admin edits car category' do
     click_on I18n.t('views.actions.send')
 
     expect(page).to have_content('Camião')
+    expect(page).to have_content I18n.t('views.messages.successfully.updated',
+                                        resource: I18n.t('activerecord.models.car_category.one'))
   end
 
   scenario 'and name can not be blank' do

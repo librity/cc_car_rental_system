@@ -27,6 +27,8 @@ feature 'Admin can register a car category' do
     click_on I18n.t('views.actions.send')
 
     expect(current_path).to eq car_category_path(CarCategory.last.id)
+    expect(page).to have_content I18n.t('views.messages.successfully.created',
+                                        resource: I18n.t('activerecord.models.car_category.one'))
     expect(page).to have_content 'Pickup'
     expect(page).to have_content 'R$ 120'
     expect(page).to have_content 'R$ 30'

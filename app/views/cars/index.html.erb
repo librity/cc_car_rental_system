@@ -1,0 +1,46 @@
+<nav>
+  <%= link_to t('views.navigation.go_back'), root_path, class: 'btn btn-secondary' %>
+</nav>
+
+<main class='row'>
+  <div class='col-md-12'>
+    <header class='header'>
+      <h1><%= t('activerecord.models.car.other') %></h1>
+
+      <p><%= t('views.resources.cars.description') %></p>
+    </header>
+
+    <section class='contents'>
+      <% if @cars.empty? %>
+        <p><%= t('views.resources.cars.empty_resource') %></p>
+      <% end %>
+
+      <table class="col index_table">
+        <thead class="index_table_head">
+          <tr class="index_table_row">
+            <th><%= t('activerecord.attributes.car.license_plate') %></th>
+            <th><%= t('activerecord.models.car_model.one') %></th>
+            <th><%= t('activerecord.attributes.car.color') %></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody class="index_table_body">
+          <% @cars.each do |car| %>
+            <tr class="index_table_row" id="car-<%= car.id %>">
+              <td><%= car.license_plate %></td>
+              <td><%= car.car_model.manufacturer.name %> <%= car.car_model.name %> <%= car.car_model.year %></td>
+              <td><%= car.color %></td>
+              <td><%= link_to t('views.navigation.details'), car, id: "details-#{car.id}" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </section>
+
+    <div class='actions mt-4'>
+      <%= link_to  t('views.navigation.new'), new_car_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</main>

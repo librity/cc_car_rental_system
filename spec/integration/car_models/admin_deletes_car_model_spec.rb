@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Admin deletes car model' do
+feature 'Admin can delete a car model' do
   before :each do
     user = User.create! email: 'test@test.com.br', password: '12345678'
     login_as user, scope: :user
@@ -28,6 +28,8 @@ feature 'Admin deletes car model' do
     expect(current_path).to eq car_models_path
     expect(CarModel.count).to eq 0
     expect(page).to have_content(I18n.t('views.resources.car_models.empty_resource'))
+    expect(page).to have_content(I18n.t('views.messages.successfully.destroyed',
+                                        resource: I18n.t('activerecord.models.car_model.one')))
   end
 
   scenario "and doesn't delete all of them" do
@@ -52,6 +54,8 @@ feature 'Admin deletes car model' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq car_models_path
+    expect(page).to have_content(I18n.t('views.messages.successfully.destroyed',
+                                        resource: I18n.t('activerecord.models.car_model.one')))
     expect(CarModel.count).to eq 1
     expect(page).not_to have_content('Civic')
     expect(page).to have_content('Fit')

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Admin register valid manufacturer' do
+feature 'Admin can register a valid manufacturer' do
   before :each do
     user = User.create! email: 'test@test.com.br', password: '12345678'
     login_as user, scope: :user

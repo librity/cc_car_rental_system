@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :car_categories
   resources :customers
   resources :car_models
+  resources :cars
 end

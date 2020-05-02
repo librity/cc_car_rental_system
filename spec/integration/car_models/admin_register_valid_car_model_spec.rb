@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Admin register valid car model' do
+feature 'Admin can register a valid car model' do
   before :each do
     user = User.create! email: 'test@test.com.br', password: '12345678'
     login_as user, scope: :user

@@ -1,0 +1,32 @@
+<%= form_with model: @car, local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class='form-group'>
+    <%= f.label :car_model_id, t('activerecord.models.car_model.one') %>
+    <%= f.collection_select :car_model_id, @car_models, :id, :name, {}, 
+                          { required: true, class: 'form-control' } %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :subsidiary_id, t('activerecord.models.subsidiary.one') %>
+    <%= f.collection_select :subsidiary_id, @subsidiaries, :id, :name, {}, 
+                            { required: true, class: 'form-control' } %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :license_plate, t('activerecord.attributes.car.license_plate') %>
+    <%= f.text_field :license_plate, required: true, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :color, t('activerecord.attributes.car.color') %>
+    <%= f.text_field :color, required: true, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :metric_milage, t('activerecord.attributes.car.metric_milage') %>
+    <%= f.number_field :metric_milage, required: true, min: 0, class: 'form-control' %>
+  </div>
+
+  <%= f.submit t('views.actions.send'), class: 'btn btn-primary' %>
+<% end %>

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Admin deletes customer' do
+feature 'Admin can delete a customer' do
   before :each do
     user = User.create! email: 'test@test.com.br', password: '12345678'
     login_as user, scope: :user
@@ -20,6 +20,8 @@ feature 'Admin deletes customer' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq customers_path
+    expect(page).to have_content(I18n.t('views.messages.successfully.destroyed',
+                                        resource: I18n.t('activerecord.models.customer.one')))
     expect(Customer.count).to eq 0
     expect(page).to have_content(I18n.t('views.resources.customers.empty_resource'))
   end
@@ -38,6 +40,8 @@ feature 'Admin deletes customer' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq customers_path
+    expect(page).to have_content(I18n.t('views.messages.successfully.destroyed',
+                                        resource: I18n.t('activerecord.models.customer.one')))
     expect(Customer.count).to eq 1
     expect(page).not_to have_content('Johnny Smith')
     expect(page).to have_content('Hannah Banana')

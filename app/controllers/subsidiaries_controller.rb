@@ -41,7 +41,7 @@ class SubsidiariesController < ApplicationController
 
   def destroy
     Subsidiary.find(params[:id]).destroy
-    flash[:success] = t 'views.messages.successfully.removed',
+    flash[:success] = t 'views.messages.successfully.destroyed',
                         resource: t('activerecord.models.subsidiary.one')
     redirect_to subsidiaries_url
   end

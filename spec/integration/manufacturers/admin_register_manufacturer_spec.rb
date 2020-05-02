@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Admin register manufacturer' do
+feature 'Admin can register a manufacturer' do
   before :each do
     user = User.create! email: 'test@test.com.br', password: '12345678'
     login_as user, scope: :user
@@ -25,6 +25,8 @@ feature 'Admin register manufacturer' do
     click_on I18n.t('views.actions.send')
 
     expect(current_path).to eq manufacturer_path(Manufacturer.last.id)
+    expect(page).to have_content I18n.t('views.messages.successfully.created',
+                                        resource: I18n.t('activerecord.models.manufacturer.one'))
     expect(page).to have_content('Fiat')
     expect(page).to have_link I18n.t('views.navigation.go_back'), href: manufacturers_path
   end

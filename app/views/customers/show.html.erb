@@ -20,7 +20,7 @@
     <div class='actions mt-4'>
       <%= link_to t('views.navigation.edit'), edit_customer_path(@customer), class: 'btn btn-primary' %>
       <%= link_to t('views.actions.delete'), @customer, method: :delete,
-                  data: { confirm: t('messages.delete_resource', resource: @customer.name) },
+                  data: { confirm: t('views.messages.delete_resource', resource: @customer.name) },
                   class: 'btn btn-danger' %>
     </div>
   </div>

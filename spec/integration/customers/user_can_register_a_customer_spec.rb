@@ -27,6 +27,8 @@ feature 'Users can register a customer' do
     click_on I18n.t('views.actions.send')
 
     expect(current_path).to eq customer_path(Customer.last.id)
+    expect(page).to have_content I18n.t('views.messages.successfully.created',
+                                        resource: I18n.t('activerecord.models.customer.one'))
     expect(page).to have_content('Andrew Dalton')
     expect(page).to have_content('andrew@example.com')
     expect(page).to have_content('148.314.820-30')

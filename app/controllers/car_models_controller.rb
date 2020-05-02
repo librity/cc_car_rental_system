@@ -45,7 +45,7 @@ class CarModelsController < ApplicationController
 
   def destroy
     CarModel.find(params[:id]).destroy
-    flash[:success] = t 'views.messages.successfully.removed',
+    flash[:success] = t 'views.messages.successfully.destroyed',
                         resource: t('activerecord.models.car_model.one')
     redirect_to car_models_url
   end

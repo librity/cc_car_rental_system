@@ -49,7 +49,7 @@
     <div class='actions mt-4'>
       <%= link_to t('views.navigation.edit'), edit_car_model_path(@car_model), class: 'btn btn-primary' %>
       <%= link_to t('views.actions.delete'), @car_model, method: :delete,
-                  data: { confirm: t('messages.delete_resource', resource: @car_model.name) },
+                  data: { confirm: t('views.messages.delete_resource', resource: @car_model.name) },
                   class: 'btn btn-danger' %>
     </div>
   </div>

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Admin register valid subsidiary' do
+feature 'Admin can register a valid subsidiary' do
   before :each do
     user = User.create! email: 'test@test.com.br', password: '12345678'
     login_as user, scope: :user

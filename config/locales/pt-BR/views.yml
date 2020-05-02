@@ -58,6 +58,7 @@ pt-BR:
         description: "Todos os carros que oferecemos."
         empty_resource: "Nenhum carro cadastrado"
         create: "Criar um novo Carro"
+        show_header: "Carro com placa"
 
       subsidiaries:
         description: "Todas as nossas filiais."

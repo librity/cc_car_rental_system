@@ -30,7 +30,8 @@ feature 'User authentication' do
         click_on I18n.t('views.actions.log_in')
       end
 
-      expect(page).to have_content I18n.t('devise.failure.invalid', authentication_keys: I18n.t('activerecord.attributes.user.email'))
+      expect(page).to have_content I18n.t('devise.failure.invalid',
+                                          authentication_keys: I18n.t('activerecord.attributes.user.email'))
       expect(page).to have_link I18n.t('views.navigation.log_in'), href: new_user_session_path
       expect(page).not_to have_link I18n.t('views.actions.log_out')
     end

@@ -1,0 +1,41 @@
+<nav clas='col'>
+  <%= link_to t('views.navigation.go_back'), cars_path, class: 'btn btn-secondary' %>
+</nav>
+
+<main class='row'>
+  <div class='col-12'>
+    <header class='header'>
+      <h1><%= I18n.t 'views.resources.cars.show_header' %> <%= @car.license_plate %> </h1>
+    </header>
+
+
+    <section class='contents row'>
+      <aside class="col-3">
+        <dl class="side_info_box">
+          <dt><%= t('activerecord.models.car_model.one') %>:</dt>
+          <dd><%= link_to "#{@car.car_model.manufacturer.name} #{@car.car_model.name} #{@car.car_model.year}",
+                  @car.car_model %> </dd>
+        </dl>
+        
+        <dl class="side_info_box">
+          <dt><%= t('activerecord.models.subsidiary.one') %>:</dt>
+          <dd><%= link_to @car.subsidiary.name, @car.subsidiary %> </dd>
+        </dl>
+      </aside>
+
+      <dl>
+        <dt><%= t('activerecord.attributes.car.color') %>:</dt>
+        <dd><%= @car.color %> </dd>
+        <dt><%= t('activerecord.attributes.car.metric_milage') %>:</dt>
+        <dd><%= @car.metric_milage %> </dd>
+      </dl>
+    </section>
+
+    <div class='actions mt-4'>
+      <%= link_to t('views.navigation.edit'), edit_car_path(@car), class: 'btn btn-primary' %>
+      <%= link_to t('views.actions.delete'), @car, method: :delete,
+                  data: { confirm: t('views.messages.delete_resource', resource: @car.license_plate) },
+                  class: 'btn btn-danger' %>
+    </div>
+  </div>
+</main>

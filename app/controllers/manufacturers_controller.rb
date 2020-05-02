@@ -41,7 +41,7 @@ class ManufacturersController < ApplicationController
 
   def destroy
     Manufacturer.find(params[:id]).destroy
-    flash[:success] = t 'views.messages.successfully.removed',
+    flash[:success] = t 'views.messages.successfully.destroyed',
                         resource: t('activerecord.models.manufacturer.one')
     redirect_to manufacturers_url
   end

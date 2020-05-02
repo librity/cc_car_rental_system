@@ -37,6 +37,8 @@ feature 'Admin can register a car model' do
     click_on I18n.t('views.actions.send')
 
     expect(current_path).to eq car_model_path(CarModel.last.id)
+    expect(page).to have_content I18n.t('views.messages.successfully.created',
+                                        resource: I18n.t('activerecord.models.car_model.one'))
     expect(page).to have_content('Civic')
     expect(page).to have_content('2010')
     expect(page).to have_content('Honda')

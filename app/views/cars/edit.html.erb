@@ -1,0 +1,16 @@
+<nav>
+  <%= link_to t('views.navigation.go_back'), cars_path, class: 'btn btn-secondary' %>
+</nav>
+
+<main class='row'>
+  <div class='col-md-12'>
+    <header class='header'>
+      <h1><%= t('views.actions.update') %> <%= t('activerecord.models.car.one') %></h1>
+    </header>
+
+    <section class='contents'>
+      <%= render 'form' %>
+    </section>
+
+  </div>
+</main>

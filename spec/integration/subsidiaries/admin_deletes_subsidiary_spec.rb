@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-feature 'Admin deletes subsidiary' do
+feature 'Admin can delete a subsidiary' do
   before :each do
     user = User.create! email: 'test@test.com.br', password: '12345678'
     login_as user, scope: :user
@@ -20,6 +20,8 @@ feature 'Admin deletes subsidiary' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq subsidiaries_path
+    expect(page).to have_content(I18n.t('views.messages.successfully.destroyed',
+                                        resource: I18n.t('activerecord.models.subsidiary.one')))
     expect(Subsidiary.count).to eq 0
     expect(page).to have_content(I18n.t('views.resources.subsidiaries.empty_resource'))
   end
@@ -38,6 +40,8 @@ feature 'Admin deletes subsidiary' do
     click_on I18n.t('views.actions.delete')
 
     expect(current_path).to eq subsidiaries_path
+    expect(page).to have_content(I18n.t('views.messages.successfully.destroyed',
+                                        resource: I18n.t('activerecord.models.subsidiary.one')))
     expect(Subsidiary.count).to eq 1
     expect(page).not_to have_content('Hertz')
     expect(page).to have_content('Alamo')
