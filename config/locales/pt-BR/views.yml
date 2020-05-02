@@ -23,6 +23,7 @@ pt-BR:
       details: Detalhes
       new: Novo
       edit: Editar
+      search_rentals_by_token: Procurar locação pelo token
 
     actions:
       log_out: Sair
@@ -32,6 +33,10 @@ pt-BR:
       update: Atualizar
       delete: Apagar
       expand: Expandir
+      search: Procurar
+
+    placeholders:
+      search_rentals_by_token: Insira um token aqui
 
     resources:
       users:
@@ -77,6 +82,7 @@ pt-BR:
         show_header: "Locação com token"
         cant_edit_past_rental: "Não é permitida a edição de uma locação passada."
         cant_delete_past_rental: "Não é permitida a remoção de uma locação passada."
+        rental_not_found: "Locação não encontrada, verifique seu token."
 
     footer:
       message_1: "Aplicação Rails desenvolvida por"

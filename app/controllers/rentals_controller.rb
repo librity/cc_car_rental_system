@@ -5,6 +5,17 @@ class RentalsController < ApplicationController
     @rentals = Rental.all
   end
 
+  def search
+    @rental = Rental.find_by token: params[:token].upcase
+
+    if @rental
+      redirect_to @rental
+    else
+      flash[:info] = t 'views.resources.rentals.rental_not_found'
+      redirect_to rentals_path
+    end
+  end
+
   def show
     @rental = Rental.find params[:id]
   end
@@ -29,10 +40,7 @@ class RentalsController < ApplicationController
   def edit
     @rental = Rental.find params[:id]
 
-    if @rental.start_date < Date.today
-      flash[:danger] = t 'views.resources.rentals.cant_edit_past_rental'
-      return redirect_to @rental
-    end
+    return handle_unalterable_rental 'edit' if @rental.start_date < Date.today
 
     load_dependent_models
   end
@@ -40,10 +48,7 @@ class RentalsController < ApplicationController
   def update
     @rental = Rental.find params[:id]
 
-    if @rental.start_date < Date.today
-      flash[:danger] = t 'views.resources.rentals.cant_edit_past_rental'
-      return redirect_to @rental
-    end
+    return handle_unalterable_rental 'edit' if @rental.start_date < Date.today
 
     if @rental.update rental_params
       flash[:success] = t 'views.messages.successfully.updated',
@@ -58,10 +63,7 @@ class RentalsController < ApplicationController
   def destroy
     @rental = Rental.find params[:id]
 
-    if @rental.start_date < Date.today
-      flash[:danger] = t 'views.resources.rentals.cant_delete_past_rental'
-      return redirect_to @rental
-    end
+    return handle_unalterable_rental 'delete' if @rental.start_date < Date.today
 
     @rental.destroy
     flash[:success] = t 'views.messages.successfully.destroyed',
@@ -79,5 +81,10 @@ class RentalsController < ApplicationController
   def load_dependent_models
     @customers = Customer.all
     @car_categories = CarCategory.all
+  end
+
+  def handle_unalterable_rental action
+    flash[:danger] = t "views.resources.rentals.cant_#{action}_past_rental"
+    redirect_to @rental
   end
 end
