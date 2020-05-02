@@ -4,23 +4,22 @@ class Rental < ApplicationRecord
   belongs_to :customer
   belongs_to :car_category
 
-  before_create :create_token
+  default_scope -> { order start_date: :desc }
+
+  before_create :generate_token
 
   VALID_DATE_REGEX = /\d{4}-\d{2}-\d{2}/.freeze
   validates :start_date, presence: true, format: { with: VALID_DATE_REGEX }
   validate :whether_start_date_is_either_today_or_in_the_future
   validates :end_date, presence: true, format: { with: VALID_DATE_REGEX }
   validate :whether_end_date_greater_than_start_date
-  VALID_TOKEN_REGEX = /[0-9,A-Z]{5}/.freeze
-  validates :token, presence: true, format: { with: VALID_TOKEN_REGEX },
-                    length: { is: 5 }, uniqueness: true
 
   validates :customer, presence: true
   validates :car_category, presence: true
 
   private
 
-  def create_token
+  def generate_token
     self.token = SecureRandom.alphanumeric(5).upcase
   end
 

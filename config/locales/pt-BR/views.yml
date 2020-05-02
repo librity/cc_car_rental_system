@@ -74,6 +74,9 @@ pt-BR:
         description: "Todos as locações de carro efetuadas."
         empty_resource: "Nenhuma locação efetuada"
         create: "Cadastrar uma nova Locação"
+        show_header: "Locação com token"
+        cant_edit_past_rental: "Não é permitida a edição de uma locação passada."
+        cant_delete_past_rental: "Não é permitida a remoção de uma locação passada."
 
     footer:
       message_1: "Aplicação Rails desenvolvida por"

@@ -12,15 +12,6 @@ Layout/LineLength:
   Enabled: true
   Max: 120
 
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
-
 Style/MethodDefParentheses:
   Enabled: true
   EnforcedStyle: require_no_parentheses
@@ -31,3 +22,25 @@ Style/MethodCallWithArgsParentheses:
 
 Lint/RequireParentheses:
   Enabled: false
+
+# New cops:
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Style/ExponentialNotation:
+  Enabled: true

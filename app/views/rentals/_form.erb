@@ -1,0 +1,29 @@
+<%= form_with model: @rental, local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class='form-group'>
+    <%= f.label :customer_id, t('activerecord.models.customer.one') %>
+    <%= f.collection_select :customer_id, @customers, :id, :name, {}, 
+                          { required: true, class: 'form-control' } %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :car_category_id, t('activerecord.models.car_category.one') %>
+    <%= f.collection_select :car_category_id, @car_categories, :id, :name, {}, 
+                            { required: true, class: 'form-control' } %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :start_date, t('activerecord.attributes.rental.start_date') %>
+    <%= f.date_field :start_date, value: Date.today, min: Date.today, 
+                     required: true, class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :end_date, t('activerecord.attributes.rental.end_date') %>
+    <%= f.date_field :end_date, value: Date.tomorrow, min: Date.tomorrow, 
+                     required: true, class: 'form-control' %>
+  </div>
+
+  <%= f.submit t('views.actions.send'), class: 'btn btn-primary' %>
+<% end %>

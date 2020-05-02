@@ -2,16 +2,17 @@
 
 require 'rails_helper'
 
+VALID_TOKEN_REGEX = /[0-9A-Z]{5}/.freeze
+
 describe Rental, type: :model do
   subject do
-    john_smith = Customer.new name: 'John Smith', email: 'valid@example.com',
-                              cpf: '64757188072'
+    john_smith = Customer.create name: 'John Smith', email: 'valid@example.com',
+                                 cpf: '64757188072'
 
     sedan = CarCategory.create name: 'Sedan', daily_rate: 100.0, insurance: 10.0,
                                third_party_insurance: 5.0
 
     described_class.new start_date: Date.today, end_date: Date.tomorrow,
-                        token: SecureRandom.alphanumeric(5).upcase,
                         customer: john_smith, car_category: sedan
   end
 
@@ -67,45 +68,6 @@ describe Rental, type: :model do
     end
   end
 
-  context 'validation: token' do
-    it 'cannot be blank' do
-      subject.token = ' '
-
-      expect(subject).to_not be_valid
-      expect(subject.errors[:token]).to include(I18n.t('errors.messages.blank'))
-    end
-
-    it 'must be unique' do
-      subject.save!
-
-      rental = described_class.new token: subject.token
-
-      expect(rental).to_not be_valid
-      expect(rental.errors[:token]).to include(I18n.t('errors.messages.taken'))
-    end
-
-    it 'must be 5 characters long' do
-      subject.token = 'A4Q234'
-
-      expect(subject).to_not be_valid
-      expect(subject.errors[:token]).to include(I18n.t('errors.messages.wrong_length.other', count: 5))
-    end
-
-    it 'must be alphanumeric' do
-      subject.token = 'A4%2='
-
-      expect(subject).to_not be_valid
-      expect(subject.errors[:token]).to include(I18n.t('errors.messages.invalid'))
-    end
-
-    it 'must must be uppercase' do
-      subject.token = 'a4Q23'
-
-      expect(subject).to_not be_valid
-      expect(subject.errors[:token]).to include(I18n.t('errors.messages.invalid'))
-    end
-  end
-
   context 'validation: customer' do
     it 'cannot be blank' do
       subject.customer = nil
@@ -123,6 +85,42 @@ describe Rental, type: :model do
       expect(subject).to_not be_valid
       expect(subject.errors[:car_category])
         .to include(I18n.t('errors.messages.blank'))
+    end
+  end
+
+  context 'before create callback: token' do
+    it 'cannot be blank' do
+      subject.save!
+
+      expect(subject.token.blank?).to be_falsey
+    end
+
+    it 'must be unique' do
+      subject.save!
+
+      rental = described_class.new token: subject.token
+
+      expect(rental).to_not be_valid
+    end
+
+    it 'must be 5 characters long' do
+      subject.save!
+
+      expect(subject.token.length).to eq 5
+    end
+
+    it 'must be alphanumeric and uppercase' do
+      subject.save!
+
+      expect(subject.token).to match VALID_TOKEN_REGEX
+    end
+  end
+
+  context 'private method: generate_token' do
+    it 'should return a valid token' do
+      test_token = subject.send :generate_token
+      expect(test_token.length).to eq 5
+      expect(test_token).to match VALID_TOKEN_REGEX
     end
   end
 end

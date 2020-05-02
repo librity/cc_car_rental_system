@@ -1,0 +1,48 @@
+<nav>
+  <%= link_to t('views.navigation.go_back'), root_path, class: 'btn btn-secondary' %>
+</nav>
+
+<main class='row'>
+  <div class='col-md-12'>
+    <header class='header'>
+      <h1><%= t('activerecord.models.rental.other') %></h1>
+
+      <p><%= t('views.resources.rentals.description') %></p>
+    </header>
+
+    <section class='contents'>
+      <% if @rentals.empty? %>
+        <p><%= t('views.resources.rentals.empty_resource') %></p>
+      <% end %>
+
+      <table class="col index_table">
+        <thead class="index_table_head">
+          <tr class="index_table_row">
+            <th><%= t('activerecord.attributes.rental.token') %></th>
+            <th><%= t('activerecord.models.customer.one') %></th>
+            <th><%= t('activerecord.attributes.rental.start_date') %></th>
+            <th><%= t('activerecord.attributes.rental.end_date') %></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody class="index_table_body">
+          <% @rentals.each do |rental| %>
+            <tr class="index_table_row" id="rental-<%= rental.id %>">
+              <td><%= rental.token %></td>
+              <td><%= rental.customer.name %></td>
+              <td><%= l(rental.start_date) %></td>
+              <td><%= l(rental.end_date) %></td>
+              <td><%= link_to t('views.navigation.details'), rental, id: "details-#{rental.id}" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </section>
+
+    <div class='actions mt-4'>
+      <%= link_to  t('views.navigation.new'), new_rental_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</main>

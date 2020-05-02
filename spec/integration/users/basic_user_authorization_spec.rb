@@ -154,19 +154,50 @@ feature 'User browses' do
     end
   end
 
+  context 'cars' do
+    scenario 'successfully' do
+      user = User.create! email: 'test@test.com.br', password: '12345678'
+      login_as user, scope: :user
+
+      visit cars_path
+      expect(current_path).to eq cars_path
+    end
+
+    scenario 'and gets redirected to log in view if not logged-in' do
+      visit cars_path
+      expect(current_path).to eq new_user_session_path
+
+      visit new_car_path
+      expect(current_path).to eq new_user_session_path
+
+      visit car_path(1)
+      expect(current_path).to eq new_user_session_path
+
+      visit edit_car_path(1)
+      expect(current_path).to eq new_user_session_path
+    end
+  end
+
   context 'rentals' do
-    xscenario 'successfully' do
+    scenario 'successfully' do
       user = User.create! email: 'test@test.com.br', password: '12345678'
       login_as user, scope: :user
 
       visit rentals_path
-
       expect(current_path).to eq rentals_path
     end
 
-    xscenario 'and gets redirected to log in view if not logged-in' do
+    scenario 'and gets redirected to log in view if not logged-in' do
       visit rentals_path
+      expect(current_path).to eq new_user_session_path
 
+      visit new_rental_path
+      expect(current_path).to eq new_user_session_path
+
+      visit rental_path(1)
+      expect(current_path).to eq new_user_session_path
+
+      visit edit_rental_path(1)
       expect(current_path).to eq new_user_session_path
     end
   end

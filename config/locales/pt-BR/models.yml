@@ -89,3 +89,4 @@ pt-BR:
         <<: *attr_defaults
         start_date: Data de início
         end_date: Data de término
+        token: Token
