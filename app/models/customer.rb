@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Customer < ApplicationRecord
+  has_many :rentals, dependent: :nullify
+  
   before_save { email.downcase! }
 
   validates :name, presence: true

@@ -8,7 +8,23 @@
       <h1> <%= @customer.name %> </h1>
     </header>
 
-    <section class='contents'>
+    <section class='contents row'>
+      <aside class="col-3">
+        <dl class="side_info_box">
+          <dt><%= t('views.resources.customers.upcoming_rentals') %>:</dt>
+          <% @upcoming_rentals.each do |rental| %>
+            <dd><%= link_to l(rental.start_date), rental %> </dd>
+          <% end %>
+        </dl>
+
+        <dl class="side_info_box">
+          <dt><%= t('views.resources.customers.past_rentals') %>:</dt>
+          <% @past_rentals.each do |rental| %>
+            <dd><%= link_to l(rental.start_date), rental %> </dd>
+          <% end %>
+        </dl>
+      </aside>
+  
       <dl>
         <dt><%= t('activerecord.attributes.customer.email') %>:</dt>
         <dd> <%= @customer.email %> </dd>

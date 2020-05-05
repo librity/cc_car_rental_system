@@ -17,6 +17,8 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.find params[:id]
+    @upcoming_rentals = @customer.rentals.where 'DATE(start_date) >= ?', Date.today
+    @past_rentals = @customer.rentals.where 'DATE(start_date) < ?', Date.today
   end
 
   def new
