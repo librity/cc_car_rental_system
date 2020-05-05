@@ -34,9 +34,11 @@ pt-BR:
       delete: Apagar
       expand: Expandir
       search: Procurar
+      filter: Filtrar
 
     placeholders:
       search_rentals_by_token: Insira um token aqui
+      filter_customers: Filtre por nome ou cpf
 
     resources:
       users:
@@ -74,6 +76,8 @@ pt-BR:
         description: "Todos os nossos clientes."
         empty_resource: "Nenhum cliente cadastrado"
         create: "Cadastrar um novo Cliente"
+        filter_customers: "Filtrar por nome ou cpf"
+        customer_not_found: "Nenhum cliente encontrado por este nome ou cpf."
 
       rentals:
         description: "Todos as locações de carro efetuadas."

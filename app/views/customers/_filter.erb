@@ -1,0 +1,14 @@
+<%= form_with url: customers_path, local: true, method: "get", 
+              class: 'filter_customers_form' do |f| %>
+  <div class="form-row align-items-center my-1">
+    <div class="col-auto">
+      <%= f.label :filter, t('views.resources.customers.filter_customers'), class: 'sr-only' %>
+      <%= f.search_field :filter, placeholder: t('views.placeholders.filter_customers'), 
+                          class: 'form-control mb-2' %>
+    </div>
+
+    <div class="col-auto">
+      <%= f.submit t('views.actions.filter'), class: 'btn btn-info mb-2' %>
+    </div>
+  </div>
+<%- end %>

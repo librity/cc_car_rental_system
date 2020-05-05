@@ -7,7 +7,7 @@
           <div class="col-auto">
             <%= f.label :token, t('views.navigation.search_rentals_by_token'), class: 'sr-only' %>
             <%= f.search_field :token, placeholder: t('views.placeholders.search_rentals_by_token'), 
-                                pattern: '[\w]{5}', class: 'form-control mb-2' %>
+                                required: true, pattern: '[\w]{5}', class: 'form-control mb-2' %>
           </div>
           <div class="col-auto">
             <%= f.submit t('views.actions.search'), class: 'btn btn-outline-primary mb-2' %>

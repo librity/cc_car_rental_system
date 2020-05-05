@@ -93,6 +93,7 @@ describe Rental, type: :model do
       subject.save!
 
       expect(subject.token.blank?).to be_falsey
+      expect(subject.token).not_to be_blank
     end
 
     it 'must be unique' do

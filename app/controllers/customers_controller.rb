@@ -2,7 +2,17 @@
 
 class CustomersController < ApplicationController
   def index
-    @customers = Customer.all
+    if params[:filter]
+      like_filter_param = "%#{params[:filter].downcase}%"
+      @customers = Customer.where 'name like ? OR cpf = ?',
+                                  like_filter_param, params[:filter]
+      if @customers.blank?
+        @customers = Customer.all
+        flash.now[:info] = t 'views.resources.customers.customer_not_found'
+      end
+    else
+      @customers = Customer.all
+    end
   end
 
   def show
