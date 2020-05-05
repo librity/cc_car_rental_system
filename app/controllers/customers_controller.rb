@@ -3,13 +3,7 @@
 class CustomersController < ApplicationController
   def index
     if params[:filter]
-      like_filter_param = "%#{params[:filter].downcase}%"
-      @customers = Customer.where 'name like ? OR cpf = ?',
-                                  like_filter_param, params[:filter]
-      if @customers.blank?
-        @customers = Customer.all
-        flash.now[:info] = t 'views.resources.customers.customer_not_found'
-      end
+      filter_customers
     else
       @customers = Customer.all
     end
@@ -62,5 +56,15 @@ class CustomersController < ApplicationController
 
   def customer_params
     params.require(:customer).permit :name, :cpf, :email
+  end
+
+  def filter_customers
+    like_filter_param = "%#{params[:filter].downcase}%"
+    @customers = Customer.where 'name like ? OR cpf = ?',
+                                like_filter_param, params[:filter]
+    return unless @customers.blank?
+
+    @customers = Customer.all
+    flash.now[:info] = t 'views.resources.customers.customer_not_found'
   end
 end
