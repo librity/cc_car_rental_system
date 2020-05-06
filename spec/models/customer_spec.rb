@@ -103,6 +103,50 @@ describe Customer, type: :model do
     end
   end
 
+  context 'scope: by_name_or_cpf' do
+    it 'should filter by cpf' do
+      subject.save!
+
+      described_class.create! name: 'Wilhelmina Dennis',
+                              email: 'maxie_bernhard@hotmail.com',
+                              cpf: '03434365150'
+
+      expect(described_class.by_name_or_cpf('64757188072')).to eq [subject]
+    end
+
+    it 'should filter by partial name' do
+      subject.save!
+
+      described_class.create! name: 'Wilhelmina Dennis',
+                              email: 'maxie_bernhard@hotmail.com',
+                              cpf: '03434365150'
+
+      expect(described_class.by_name_or_cpf('ohn')).to eq [subject]
+    end
+
+    it 'should filter by case-insensitive name' do
+      subject.save!
+
+      described_class.create! name: 'Wilhelmina Dennis',
+                              email: 'maxie_bernhard@hotmail.com',
+                              cpf: '03434365150'
+
+      expect(described_class.by_name_or_cpf('smith')).to eq [subject]
+    end
+
+    it "should return empty when customer doesn't exist" do
+      subject.save!
+
+      described_class.create! name: 'Wilhelmina Dennis',
+                              email: 'maxie_bernhard@hotmail.com',
+                              cpf: '03434365150'
+
+      expect(described_class.by_name_or_cpf('senna')).to eq []
+      expect(described_class.by_name_or_cpf('ja')).to eq []
+      expect(described_class.by_name_or_cpf('68147210310')).to eq []
+    end
+  end
+
   context 'method: formatted_cpf' do
     it 'should format cpf' do
       expect(subject.formatted_cpf).to eq '647.571.880-72'

@@ -11,6 +11,8 @@ class Customer < ApplicationRecord
   validates :cpf, presence: true, uniqueness: true, cpf: true, length: { is: 11 },
                   numericality: { only_integer: true }
 
+  scope :by_name_or_cpf, ->(filter) { where 'name like ? OR cpf = ?', "%#{filter}%", filter }
+
   def formatted_cpf
     "#{cpf[0..2]}.#{cpf[3..5]}.#{cpf[6..8]}-#{cpf[9..10]}"
   end

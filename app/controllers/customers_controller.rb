@@ -59,9 +59,7 @@ class CustomersController < ApplicationController
   end
 
   def filter_customers
-    like_filter_param = "%#{params[:filter].downcase}%"
-    @customers = Customer.where 'name like ? OR cpf = ?',
-                                like_filter_param, params[:filter]
+    @customers = Customer.by_name_or_cpf params[:filter]
     return unless @customers.blank?
 
     @customers = Customer.all
