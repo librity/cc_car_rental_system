@@ -4,8 +4,7 @@ require 'rails_helper'
 
 feature 'Admin can edit a car model' do
   before :each do
-    user = User.create! email: 'test@test.com.br', password: '12345678'
-    login_as user, scope: :user
+    log_user_in!
   end
 
   scenario 'successfully' do

@@ -10,8 +10,7 @@ feature 'Users views home page' do
   end
 
   scenario 'when logged in' do
-    user = User.create! email: 'test@test.com.br', password: '12345678'
-    login_as user, scope: :user
+    log_user_in!
 
     visit root_path
 

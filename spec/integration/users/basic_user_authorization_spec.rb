@@ -19,8 +19,7 @@ feature 'User browses' do
   end
 
   scenario 'application and links to resources appear when logged-in' do
-    user = User.create! email: 'test@test.com.br', password: '12345678'
-    login_as user, scope: :user
+    log_user_in!
 
     visit root_path
 
