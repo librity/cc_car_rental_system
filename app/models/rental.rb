@@ -20,7 +20,10 @@ class Rental < ApplicationRecord
   private
 
   def generate_token
-    self.token = SecureRandom.alphanumeric(5).upcase
+    self.token = loop do
+      generated_token = SecureRandom.alphanumeric(5).upcase
+      break generated_token unless Rental.exists? token: generated_token
+    end
   end
 
   def whether_start_date_is_either_today_or_in_the_future
